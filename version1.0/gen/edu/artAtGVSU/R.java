@@ -19,24 +19,25 @@ public final class R {
         public static final int favorite_selected=0x7f020005;
         public static final int header_home=0x7f020006;
         public static final int ic_launcher=0x7f020007;
-        public static final int place=0x7f020008;
-        public static final int place_selected=0x7f020009;
-        public static final int search=0x7f02000a;
-        public static final int search_selected=0x7f02000b;
-        public static final int share=0x7f02000c;
-        public static final int tab_browse=0x7f02000d;
-        public static final int tab_favorites=0x7f02000e;
-        public static final int tab_tours=0x7f02000f;
-        public static final int welcome=0x7f020010;
+        public static final int pin=0x7f020008;
+        public static final int place=0x7f020009;
+        public static final int place_selected=0x7f02000a;
+        public static final int search=0x7f02000b;
+        public static final int search_selected=0x7f02000c;
+        public static final int share=0x7f02000d;
+        public static final int tab_browse=0x7f02000e;
+        public static final int tab_favorites=0x7f02000f;
+        public static final int tab_tours=0x7f020010;
+        public static final int welcome=0x7f020011;
     }
     public static final class id {
         public static final int aboutIcon=0x7f050001;
         public static final int aboutScreen=0x7f050004;
-        public static final int gallery=0x7f05000c;
+        public static final int gallery=0x7f05000a;
         public static final int imageView1=0x7f050005;
         public static final int linearLayout1=0x7f050007;
-        public static final int mapView=0x7f05000a;
-        public static final int progressBar=0x7f05000b;
+        public static final int mapView=0x7f05000b;
+        public static final int progressBar=0x7f05000c;
         public static final int relativeLayout1=0x7f050000;
         public static final int scrollView1=0x7f050006;
         public static final int searchIcon=0x7f050002;

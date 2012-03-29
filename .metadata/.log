@@ -1305,3 +1305,348 @@ Caused by: java.lang.IllegalStateException: startLine (14) does not match endLin
 
 !ENTRY org.eclipse.m2e.logback.appender 4 0 2012-03-28 16:12:06.798
 !MESSAGE Unable to update index for central|http://repo1.maven.org/maven2
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-03-28 16:57:16.457
+!MESSAGE map.xml: Failed to find style 'mapViewStyle' in current theme
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-03-28 16:57:16.483
+!MESSAGE map.xml: Failed to find style 'mapViewStyle' in current theme
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-03-28 16:57:16.486
+!MESSAGE map.xml: Failed to find style 'mapViewStyle' in current theme
+
+!ENTRY org.eclipse.ui 4 4 2012-03-28 23:54:17.003
+!MESSAGE Referenced part does not exist yet: org.eclipse.ui.views.ProblemView.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2012-03-29 08:06:17.067
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 1
+org.eclipse.debug.core.DebugException: Breakpoint does not have an associated marker.
+	at org.eclipse.debug.core.model.Breakpoint.ensureMarker(Breakpoint.java:268)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.getSuspendPolicy(JavaBreakpoint.java:911)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.getJDISuspendPolicy(JavaBreakpoint.java:618)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.configureRequest(JavaBreakpoint.java:465)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.createLineBreakpointRequest(JavaLineBreakpoint.java:286)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.newRequests(JavaLineBreakpoint.java:268)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.createRequest(JavaBreakpoint.java:442)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.addToTargetForLocalType(JavaBreakpoint.java:600)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.createRequests(JavaBreakpoint.java:574)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.addToTarget(JavaBreakpoint.java:532)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.addToTarget(JavaLineBreakpoint.java:161)
+	at org.eclipse.jdt.internal.debug.core.model.JDIDebugTarget.breakpointAdded(JDIDebugTarget.java:1220)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointNotifier.run(BreakpointManager.java:954)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointNotifier.notify(BreakpointManager.java:980)
+	at org.eclipse.debug.internal.core.BreakpointManager.fireUpdate(BreakpointManager.java:894)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:581)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:551)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoint(BreakpointManager.java:544)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.register(JavaBreakpoint.java:194)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint$1.run(JavaLineBreakpoint.java:150)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.debug.core.model.Breakpoint.run(Breakpoint.java:335)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:153)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:132)
+	at org.eclipse.jdt.debug.core.JDIDebugModel.createLineBreakpoint(JDIDebugModel.java:274)
+	at org.eclipse.jdt.internal.debug.ui.actions.ToggleBreakpointAdapter$2.run(ToggleBreakpointAdapter.java:267)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.debug.core 4 5012 2012-03-29 08:06:17.114
+!MESSAGE Breakpoint does not have an associated marker.
+
+!ENTRY org.eclipse.debug.core 4 125 2012-03-29 08:06:17.116
+!MESSAGE Error logged from Debug Core: 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Marker id 515 not found.
+	at org.eclipse.core.internal.resources.Marker.checkInfo(Marker.java:57)
+	at org.eclipse.core.internal.resources.Marker.getAttribute(Marker.java:98)
+	at org.eclipse.debug.internal.ui.views.breakpoints.BreakpointSetOrganizer.getWorkingsetAttributeFromMarker(BreakpointSetOrganizer.java:377)
+	at org.eclipse.debug.internal.ui.views.breakpoints.BreakpointSetOrganizer.breakpointsAdded(BreakpointSetOrganizer.java:174)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.run(BreakpointManager.java:1018)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.notify(BreakpointManager.java:1043)
+	at org.eclipse.debug.internal.core.BreakpointManager.fireUpdate(BreakpointManager.java:897)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:581)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:551)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoint(BreakpointManager.java:544)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.register(JavaBreakpoint.java:194)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint$1.run(JavaLineBreakpoint.java:150)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.debug.core.model.Breakpoint.run(Breakpoint.java:335)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:153)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:132)
+	at org.eclipse.jdt.debug.core.JDIDebugModel.createLineBreakpoint(JDIDebugModel.java:274)
+	at org.eclipse.jdt.internal.debug.ui.actions.ToggleBreakpointAdapter$2.run(ToggleBreakpointAdapter.java:267)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 376 2012-03-29 08:06:17.116
+!MESSAGE Marker id 515 not found.
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2012-03-29 08:06:17.117
+!MESSAGE Marker id 515 not found.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2012-03-29 08:06:26.659
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 1
+org.eclipse.debug.core.DebugException: Breakpoint does not have an associated marker.
+	at org.eclipse.debug.core.model.Breakpoint.ensureMarker(Breakpoint.java:268)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.getInstallCount(JavaBreakpoint.java:785)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.incrementInstallCount(JavaBreakpoint.java:776)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.registerRequest(JavaBreakpoint.java:217)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.createRequest(JavaBreakpoint.java:449)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.addToTargetForLocalType(JavaBreakpoint.java:600)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.createRequests(JavaBreakpoint.java:574)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.addToTarget(JavaBreakpoint.java:532)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.addToTarget(JavaLineBreakpoint.java:161)
+	at org.eclipse.jdt.internal.debug.core.model.JDIDebugTarget.breakpointAdded(JDIDebugTarget.java:1220)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointNotifier.run(BreakpointManager.java:954)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointNotifier.notify(BreakpointManager.java:980)
+	at org.eclipse.debug.internal.core.BreakpointManager.fireUpdate(BreakpointManager.java:894)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:581)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:551)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoint(BreakpointManager.java:544)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.register(JavaBreakpoint.java:194)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint$1.run(JavaLineBreakpoint.java:150)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.debug.core.model.Breakpoint.run(Breakpoint.java:335)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:153)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:132)
+	at org.eclipse.jdt.debug.core.JDIDebugModel.createLineBreakpoint(JDIDebugModel.java:274)
+	at org.eclipse.jdt.internal.debug.ui.actions.ToggleBreakpointAdapter$2.run(ToggleBreakpointAdapter.java:267)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.debug.core 4 5012 2012-03-29 08:06:26.659
+!MESSAGE Breakpoint does not have an associated marker.
+
+!ENTRY org.eclipse.debug.core 4 125 2012-03-29 08:06:26.660
+!MESSAGE Error logged from Debug Core: 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Marker id 517 not found.
+	at org.eclipse.core.internal.resources.Marker.checkInfo(Marker.java:57)
+	at org.eclipse.core.internal.resources.Marker.getAttribute(Marker.java:98)
+	at org.eclipse.debug.internal.ui.views.breakpoints.BreakpointSetOrganizer.getWorkingsetAttributeFromMarker(BreakpointSetOrganizer.java:377)
+	at org.eclipse.debug.internal.ui.views.breakpoints.BreakpointSetOrganizer.breakpointsAdded(BreakpointSetOrganizer.java:174)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.run(BreakpointManager.java:1018)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.notify(BreakpointManager.java:1043)
+	at org.eclipse.debug.internal.core.BreakpointManager.fireUpdate(BreakpointManager.java:897)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:581)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:551)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoint(BreakpointManager.java:544)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.register(JavaBreakpoint.java:194)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint$1.run(JavaLineBreakpoint.java:150)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.debug.core.model.Breakpoint.run(Breakpoint.java:335)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:153)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:132)
+	at org.eclipse.jdt.debug.core.JDIDebugModel.createLineBreakpoint(JDIDebugModel.java:274)
+	at org.eclipse.jdt.internal.debug.ui.actions.ToggleBreakpointAdapter$2.run(ToggleBreakpointAdapter.java:267)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 376 2012-03-29 08:06:26.660
+!MESSAGE Marker id 517 not found.
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2012-03-29 08:06:26.661
+!MESSAGE Marker id 517 not found.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2012-03-29 08:06:26.889
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 1
+org.eclipse.debug.core.DebugException: Breakpoint does not have an associated marker.
+	at org.eclipse.debug.core.model.Breakpoint.ensureMarker(Breakpoint.java:268)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.getLineNumber(JavaLineBreakpoint.java:230)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.newRequests(JavaLineBreakpoint.java:257)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.createRequest(JavaBreakpoint.java:442)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.createRequests(JavaBreakpoint.java:568)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.addToTarget(JavaBreakpoint.java:532)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.addToTarget(JavaLineBreakpoint.java:161)
+	at org.eclipse.jdt.internal.debug.core.model.JDIDebugTarget.breakpointAdded(JDIDebugTarget.java:1220)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointNotifier.run(BreakpointManager.java:954)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointNotifier.notify(BreakpointManager.java:980)
+	at org.eclipse.debug.internal.core.BreakpointManager.fireUpdate(BreakpointManager.java:894)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:581)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:551)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoint(BreakpointManager.java:544)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.register(JavaBreakpoint.java:194)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint$1.run(JavaLineBreakpoint.java:150)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.debug.core.model.Breakpoint.run(Breakpoint.java:335)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:153)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:132)
+	at org.eclipse.jdt.debug.core.JDIDebugModel.createLineBreakpoint(JDIDebugModel.java:274)
+	at org.eclipse.jdt.internal.debug.ui.actions.ToggleBreakpointAdapter$2.run(ToggleBreakpointAdapter.java:267)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.debug.core 4 5012 2012-03-29 08:06:26.889
+!MESSAGE Breakpoint does not have an associated marker.
+
+!ENTRY org.eclipse.debug.core 4 125 2012-03-29 08:06:26.891
+!MESSAGE Error logged from Debug Core: 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Marker id 518 not found.
+	at org.eclipse.core.internal.resources.Marker.checkInfo(Marker.java:57)
+	at org.eclipse.core.internal.resources.Marker.getAttribute(Marker.java:98)
+	at org.eclipse.debug.internal.ui.views.breakpoints.BreakpointSetOrganizer.getWorkingsetAttributeFromMarker(BreakpointSetOrganizer.java:377)
+	at org.eclipse.debug.internal.ui.views.breakpoints.BreakpointSetOrganizer.breakpointsAdded(BreakpointSetOrganizer.java:174)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.run(BreakpointManager.java:1018)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.notify(BreakpointManager.java:1043)
+	at org.eclipse.debug.internal.core.BreakpointManager.fireUpdate(BreakpointManager.java:897)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:581)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:551)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoint(BreakpointManager.java:544)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.register(JavaBreakpoint.java:194)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint$1.run(JavaLineBreakpoint.java:150)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.debug.core.model.Breakpoint.run(Breakpoint.java:335)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:153)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:132)
+	at org.eclipse.jdt.debug.core.JDIDebugModel.createLineBreakpoint(JDIDebugModel.java:274)
+	at org.eclipse.jdt.internal.debug.ui.actions.ToggleBreakpointAdapter$2.run(ToggleBreakpointAdapter.java:267)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 376 2012-03-29 08:06:26.891
+!MESSAGE Marker id 518 not found.
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2012-03-29 08:06:26.892
+!MESSAGE Marker id 518 not found.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2012-03-29 08:07:24.483
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 1
+org.eclipse.debug.core.DebugException: Breakpoint does not have an associated marker.
+	at org.eclipse.debug.core.model.Breakpoint.ensureMarker(Breakpoint.java:268)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.getInstallCount(JavaBreakpoint.java:785)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.incrementInstallCount(JavaBreakpoint.java:776)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.registerRequest(JavaBreakpoint.java:217)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.createRequest(JavaBreakpoint.java:449)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.addToTargetForLocalType(JavaBreakpoint.java:600)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.createRequests(JavaBreakpoint.java:574)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.addToTarget(JavaBreakpoint.java:532)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.addToTarget(JavaLineBreakpoint.java:161)
+	at org.eclipse.jdt.internal.debug.core.model.JDIDebugTarget.breakpointAdded(JDIDebugTarget.java:1220)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointNotifier.run(BreakpointManager.java:954)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointNotifier.notify(BreakpointManager.java:980)
+	at org.eclipse.debug.internal.core.BreakpointManager.fireUpdate(BreakpointManager.java:894)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:581)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:551)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoint(BreakpointManager.java:544)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.register(JavaBreakpoint.java:194)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint$1.run(JavaLineBreakpoint.java:150)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.debug.core.model.Breakpoint.run(Breakpoint.java:335)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:153)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:132)
+	at org.eclipse.jdt.debug.core.JDIDebugModel.createLineBreakpoint(JDIDebugModel.java:274)
+	at org.eclipse.jdt.internal.debug.ui.actions.ToggleBreakpointAdapter$2.run(ToggleBreakpointAdapter.java:267)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.debug.core 4 5012 2012-03-29 08:07:24.484
+!MESSAGE Breakpoint does not have an associated marker.
+
+!ENTRY org.eclipse.debug.core 4 125 2012-03-29 08:07:24.485
+!MESSAGE Error logged from Debug Core: 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Marker id 520 not found.
+	at org.eclipse.core.internal.resources.Marker.checkInfo(Marker.java:57)
+	at org.eclipse.core.internal.resources.Marker.getAttribute(Marker.java:98)
+	at org.eclipse.debug.internal.ui.views.breakpoints.BreakpointSetOrganizer.getWorkingsetAttributeFromMarker(BreakpointSetOrganizer.java:377)
+	at org.eclipse.debug.internal.ui.views.breakpoints.BreakpointSetOrganizer.breakpointsAdded(BreakpointSetOrganizer.java:174)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.run(BreakpointManager.java:1018)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.notify(BreakpointManager.java:1043)
+	at org.eclipse.debug.internal.core.BreakpointManager.fireUpdate(BreakpointManager.java:897)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:581)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:551)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoint(BreakpointManager.java:544)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.register(JavaBreakpoint.java:194)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint$1.run(JavaLineBreakpoint.java:150)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.debug.core.model.Breakpoint.run(Breakpoint.java:335)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:153)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:132)
+	at org.eclipse.jdt.debug.core.JDIDebugModel.createLineBreakpoint(JDIDebugModel.java:274)
+	at org.eclipse.jdt.internal.debug.ui.actions.ToggleBreakpointAdapter$2.run(ToggleBreakpointAdapter.java:267)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 376 2012-03-29 08:07:24.485
+!MESSAGE Marker id 520 not found.
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2012-03-29 08:07:24.486
+!MESSAGE Marker id 520 not found.
+
+!ENTRY org.eclipse.jdt.debug 4 125 2012-03-29 08:07:27.807
+!MESSAGE Internal error logged from JDI Debug: 
+!STACK 1
+org.eclipse.debug.core.DebugException: Breakpoint does not have an associated marker.
+	at org.eclipse.debug.core.model.Breakpoint.ensureMarker(Breakpoint.java:268)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.getInstallCount(JavaBreakpoint.java:785)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.incrementInstallCount(JavaBreakpoint.java:776)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.registerRequest(JavaBreakpoint.java:217)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.createRequest(JavaBreakpoint.java:449)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.addToTargetForLocalType(JavaBreakpoint.java:600)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.createRequests(JavaBreakpoint.java:574)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.addToTarget(JavaBreakpoint.java:532)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.addToTarget(JavaLineBreakpoint.java:161)
+	at org.eclipse.jdt.internal.debug.core.model.JDIDebugTarget.breakpointAdded(JDIDebugTarget.java:1220)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointNotifier.run(BreakpointManager.java:954)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointNotifier.notify(BreakpointManager.java:980)
+	at org.eclipse.debug.internal.core.BreakpointManager.fireUpdate(BreakpointManager.java:894)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:581)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:551)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoint(BreakpointManager.java:544)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.register(JavaBreakpoint.java:194)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint$1.run(JavaLineBreakpoint.java:150)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.debug.core.model.Breakpoint.run(Breakpoint.java:335)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:153)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:132)
+	at org.eclipse.jdt.debug.core.JDIDebugModel.createLineBreakpoint(JDIDebugModel.java:274)
+	at org.eclipse.jdt.internal.debug.ui.actions.ToggleBreakpointAdapter$2.run(ToggleBreakpointAdapter.java:267)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.debug.core 4 5012 2012-03-29 08:07:27.807
+!MESSAGE Breakpoint does not have an associated marker.
+
+!ENTRY org.eclipse.debug.core 4 125 2012-03-29 08:07:27.808
+!MESSAGE Error logged from Debug Core: 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Marker id 521 not found.
+	at org.eclipse.core.internal.resources.Marker.checkInfo(Marker.java:57)
+	at org.eclipse.core.internal.resources.Marker.getAttribute(Marker.java:98)
+	at org.eclipse.debug.internal.ui.views.breakpoints.BreakpointSetOrganizer.getWorkingsetAttributeFromMarker(BreakpointSetOrganizer.java:377)
+	at org.eclipse.debug.internal.ui.views.breakpoints.BreakpointSetOrganizer.breakpointsAdded(BreakpointSetOrganizer.java:174)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.run(BreakpointManager.java:1018)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.BreakpointManager$BreakpointsNotifier.notify(BreakpointManager.java:1043)
+	at org.eclipse.debug.internal.core.BreakpointManager.fireUpdate(BreakpointManager.java:897)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:581)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoints(BreakpointManager.java:551)
+	at org.eclipse.debug.internal.core.BreakpointManager.addBreakpoint(BreakpointManager.java:544)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.register(JavaBreakpoint.java:194)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint$1.run(JavaLineBreakpoint.java:150)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.debug.core.model.Breakpoint.run(Breakpoint.java:335)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:153)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaLineBreakpoint.<init>(JavaLineBreakpoint.java:132)
+	at org.eclipse.jdt.debug.core.JDIDebugModel.createLineBreakpoint(JDIDebugModel.java:274)
+	at org.eclipse.jdt.internal.debug.ui.actions.ToggleBreakpointAdapter$2.run(ToggleBreakpointAdapter.java:267)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 376 2012-03-29 08:07:27.808
+!MESSAGE Marker id 521 not found.
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2012-03-29 08:07:27.809
+!MESSAGE Marker id 521 not found.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-03-29 08:18:54.620
+!MESSAGE map_layout.xml: Failed to find style 'mapViewStyle' in current theme
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-03-29 08:18:54.623
+!MESSAGE map_layout.xml: Failed to find style 'mapViewStyle' in current theme
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-03-29 08:18:54.629
+!MESSAGE map_layout.xml: Failed to find style 'mapViewStyle' in current theme
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-03-29 08:25:39.570
+!MESSAGE map.xml: Failed to find style 'mapViewStyle' in current theme
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-03-29 08:25:39.571
+!MESSAGE map.xml: Failed to find style 'mapViewStyle' in current theme
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-03-29 08:25:39.573
+!MESSAGE map.xml: Failed to find style 'mapViewStyle' in current theme

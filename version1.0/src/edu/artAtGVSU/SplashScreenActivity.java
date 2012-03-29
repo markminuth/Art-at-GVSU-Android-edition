@@ -20,7 +20,7 @@ public class SplashScreenActivity extends Activity {
 				try {
 					ArrayList<Tour> tours = new ArrayList<Tour>();
 					tours = ParseToursXML.toursRequest();
-					for (int i = 0; i < tours.size(); i++){
+					for (int i = 0; i < tours.size(); i++) {
 						ParseToursXML.toursIndividualDataRequest(tours.get(i).tourID);
 					}
 				} finally {
