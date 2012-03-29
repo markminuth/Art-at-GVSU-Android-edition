@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.tutorial.MapsBubbleExampleActivity&apos; to &apos;MyMap&apos;&#x0D;&#x0A;- Original project: &apos;MapsBubbleExample&apos;&#x0D;&#x0A;- Original element: &apos;com.tutorial.MapsBubbleExampleActivity&apos;&#x0D;&#x0A;- Renamed element: &apos;com.tutorial.MyMap&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;MapsBubbleExampleActivity&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.tutorial{MapsBubbleExampleActivity.java[MapsBubbleExampleActivity" matchStrategy="1" name="MyMap" qualified="false" references="true" similarDeclarations="false" stamp="1333053541498" textual="false" version="1.0"/>
+</session>

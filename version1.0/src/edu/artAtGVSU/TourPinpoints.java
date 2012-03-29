@@ -5,24 +5,20 @@ import java.util.ArrayList;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.widget.Toast;
 
 import com.google.android.maps.ItemizedOverlay;
+import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
 
-public class TourPinpoints extends ItemizedOverlay<OverlayItem> {
+public class TourPinpoints extends BalloonItemizedOverlay<OverlayItem> {
 
 	private ArrayList<OverlayItem> pinPoints = new ArrayList<OverlayItem>();
 	private Context c;
 	
-	public TourPinpoints(Drawable defaultMarker) {
-		super(boundCenter(defaultMarker));
+	public TourPinpoints(Drawable defaultMarker, MapView mapView) {
+		super(boundCenter(defaultMarker), mapView);
 		// TODO Auto-generated constructor stub
-	}
-	
-	public TourPinpoints(Drawable m, Context context) {
-		// TODO Auto-generated constructor stub
-		this(m);
-		c = context;
 	}
 
 	@Override
@@ -38,12 +34,13 @@ public class TourPinpoints extends ItemizedOverlay<OverlayItem> {
 	}
 	
 	@Override
-	protected boolean onTap(int index) {
-	  OverlayItem item = pinPoints.get(index);
-	  AlertDialog.Builder dialog = new AlertDialog.Builder(c);
-	  dialog.setTitle(item.getTitle());
-	  dialog.setMessage(item.getSnippet());
-	  dialog.show();
+	protected boolean onBalloonTap(int index) {
+	Toast.makeText(c, "onBalloonTap for overlay index " + index, Toast.LENGTH_LONG).show();
+	  //OverlayItem item = pinPoints.get(index);
+	  //AlertDialog.Builder dialog = new AlertDialog.Builder(c);
+	  //dialog.setTitle(item.getTitle());
+	  //dialog.setMessage(item.getSnippet());
+	  //dialog.show();
 	  return true;
 	}
 	

@@ -2,4 +2,16 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="android.widget.ProgressBar"/>
 <fullyQualifiedTypeName name="edu.artAtGVSU.R.id"/>
+<fullyQualifiedTypeName name="com.google.android.maps.MapActivity"/>
+<fullyQualifiedTypeName name="com.google.android.maps.GeoPoint"/>
+<fullyQualifiedTypeName name="edu.artAtGVSU.ParseArtWorkXML"/>
+<fullyQualifiedTypeName name="edu.artAtGVSU.ParseToursXML"/>
+<fullyQualifiedTypeName name="android.view.LayoutInflater"/>
+<fullyQualifiedTypeName name="android.widget.ImageView"/>
+<fullyQualifiedTypeName name="edu.artAtGVSU.PopupPanel"/>
+<fullyQualifiedTypeName name="android.view.View"/>
+<fullyQualifiedTypeName name="android.view.ViewGroup"/>
+<fullyQualifiedTypeName name="android.widget.RelativeLayout"/>
+<fullyQualifiedTypeName name="android.graphics.Point"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
 </qualifiedTypeNameHistroy>
