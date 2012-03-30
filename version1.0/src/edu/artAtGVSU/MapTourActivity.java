@@ -34,7 +34,7 @@ public class MapTourActivity extends MapActivity {
 	MapController controller;
 	ArrayList<Bitmap> images;
 	int selectedPos;
-	
+
 	/*
 	 * Get tour image from URL
 	 */
@@ -60,11 +60,11 @@ public class MapTourActivity extends MapActivity {
 			e.printStackTrace();
 		}
 		// returns this icon if URL doesn't retrieve artwork
-		img = ((BitmapDrawable) getResources().getDrawable(R.drawable.ic_launcher))
-				.getBitmap();
+		img = ((BitmapDrawable) getResources().getDrawable(
+				R.drawable.ic_launcher)).getBitmap();
 		return img;
 	}
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -74,7 +74,7 @@ public class MapTourActivity extends MapActivity {
 		map = (MapView) findViewById(R.id.mapView);
 		map.displayZoomControls(true);
 		map.setBuiltInZoomControls(true);
-		
+
 		List<Overlay> mapOverlays = map.getOverlays();
 		Drawable drawable = this.getResources().getDrawable(R.drawable.pin);
 		TourPinpoints itemizedoverlay = new TourPinpoints(drawable, map);
@@ -82,9 +82,49 @@ public class MapTourActivity extends MapActivity {
 		int selectedTour = getIntent().getIntExtra("tourID", -1) + 1;
 		final Tour t = ParseToursXML.getTour(String.valueOf(selectedTour));
 
+		// Get Extra Information for each artwork in tour including image URL
+		images = new ArrayList<Bitmap>();
+		ParseArtWorkXML.setTour(t);
+		for (int i = 0; i < t.artPieces.size(); i++) {
+			// if the artwork has not yet been set to tours
+			if (ParseArtWorkXML.getTour().artPieces.get(i).imageURL == null) {
+				ParseArtWorkXML.artWorkRequestID(t.artPieces.get(i).artID, i);
+				images.add(fetchImage(t.artPieces.get(i).getImageURL()));
+			} else {
+				images.add(fetchImage(ParseArtWorkXML.getTour().artPieces
+						.get(i).getImageURL()));
+			}
+		}
+		Gallery gallery = (Gallery) findViewById(R.id.gallery);
+		gallery.setAdapter(new ImageAdapterMapsGallery(this, images));
+
+		gallery.setOnItemSelectedListener(new OnItemSelectedListener() {
+			public void onItemSelected(AdapterView parent, View view,
+					int position, long id) {
+				selectedPos = position;
+			}
+
+			public void onNothingSelected(AdapterView arg0) {
+				// TODO Auto-generated method stub
+			}
+		});
+
+		gallery.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView parent, View view,
+					int position, long id) {
+				if (position == selectedPos) {
+					
+				}
+
+				Toast.makeText(MapTourActivity.this, "TEST", Toast.LENGTH_SHORT)
+						.show();
+			}
+		});
+		
 		for (int i = 0; i < t.artPieces.size(); i++) {
 			GeoPoint gp = t.artPieces.get(i).geoLoc;
-			OverlayItem overlayItem = new OverlayItem(gp, t.artPieces.get(i).artTitle, null);
+			OverlayItem overlayItem = new OverlayItem(gp, t.artPieces.get(i).artTitle, t.artPieces.get(i).artistName + "%" + t.artPieces.get(i).imageURL);
+			itemizedoverlay.setImage(images.get(i));
 			itemizedoverlay.createPinPoint(overlayItem);
 		}
 
@@ -105,52 +145,17 @@ public class MapTourActivity extends MapActivity {
 			controller.animateTo(t.artPieces.get(1).geoLoc);
 			controller.setZoom(14);
 		}
-		
-		// Get Extra Information for each artwork in tour including image URL
-				images = new ArrayList<Bitmap>();
-				ParseArtWorkXML.setTour(t);
-				for (int i = 0; i < t.artPieces.size(); i++) {
-					// if the artwork has not yet been set to tours
-					if (ParseArtWorkXML.getTour().artPieces.get(i).imageURL == null) {
-						ParseArtWorkXML.artWorkRequestID(t.artPieces.get(i).artID, i);
-						images.add(fetchImage(t.artPieces.get(i).getImageURL()));
-					} else {
-						images.add(fetchImage(ParseArtWorkXML.getTour().artPieces
-								.get(i).getImageURL()));
-					}
-				}
-				Gallery gallery = (Gallery) findViewById(R.id.gallery);
-				gallery.setAdapter(new ImageAdapterMapsGallery(this, images));
-
-				gallery.setOnItemSelectedListener(new OnItemSelectedListener() {
-					public void onItemSelected(AdapterView parent, View view,
-							int position, long id) {
-						selectedPos = position;
-					}
-
-					public void onNothingSelected(AdapterView arg0) {
-						// TODO Auto-generated method stub
-					}
-				});
-
-				gallery.setOnItemClickListener(new OnItemClickListener() {
-					public void onItemClick(AdapterView parent, View view,
-							int position, long id) {
-						if (position == selectedPos) {
-					        //Intent intent = new Intent(view.getContext(), ArtWorkDetailsActivity.class);
-					    	//startActivityForResult(intent, 0);
-						}
-						
-						Toast.makeText(MapTourActivity.this, "TEST" ,Toast.LENGTH_SHORT).show();
-					}
-				});
-
 	}
 
 	@Override
 	protected boolean isRouteDisplayed() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	public void loadArtDetailActivity(){
+		Intent intent = new Intent(map.getContext(), ArtWorkDetailsActivity.class);
+		startActivityForResult(intent, 0);
 	}
 
 }

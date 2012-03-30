@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.widget.Toast;
 
@@ -18,6 +20,7 @@ public class TourPinpoints extends BalloonItemizedOverlay<OverlayItem> {
 	
 	public TourPinpoints(Drawable defaultMarker, MapView mapView) {
 		super(boundCenter(defaultMarker), mapView);
+		c = mapView.getContext();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -35,18 +38,26 @@ public class TourPinpoints extends BalloonItemizedOverlay<OverlayItem> {
 	
 	@Override
 	protected boolean onBalloonTap(int index) {
-	Toast.makeText(c, "onBalloonTap for overlay index " + index, Toast.LENGTH_LONG).show();
-	  //OverlayItem item = pinPoints.get(index);
-	  //AlertDialog.Builder dialog = new AlertDialog.Builder(c);
-	  //dialog.setTitle(item.getTitle());
-	  //dialog.setMessage(item.getSnippet());
-	  //dialog.show();
-	  return true;
+
+		//change to activity of artwork
+		AlertDialog alertDialog = new AlertDialog.Builder(c).create();
+		alertDialog.setTitle("Works");
+		alertDialog.show();
+		return true;
 	}
 	
 	public void createPinPoint(OverlayItem item){
 		pinPoints.add(item);
 		this.populate();
+	}
+	
+	Bitmap image;
+	public void setImage(Bitmap b){
+		image = b;
+	}
+	
+	public Bitmap getImage(){
+		return image;
 	}
 
 }
