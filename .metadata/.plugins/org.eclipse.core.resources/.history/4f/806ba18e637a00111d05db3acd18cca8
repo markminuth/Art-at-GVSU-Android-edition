@@ -1,0 +1,61 @@
+package edu.artAtGVSU;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.widget.Toast;
+
+import com.google.android.maps.ItemizedOverlay;
+import com.google.android.maps.MapView;
+import com.google.android.maps.OverlayItem;
+
+public class TourPinpoints extends BalloonItemizedOverlay<OverlayItem> {
+
+	private ArrayList<OverlayItem> pinPoints = new ArrayList<OverlayItem>();
+	private Context c;
+	
+	public TourPinpoints(Drawable defaultMarker, MapView mapView) {
+		super(boundCenter(defaultMarker), mapView);
+		c = mapView.getContext();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	protected OverlayItem createItem(int i) {
+		// TODO Auto-generated method stub
+		return pinPoints.get(i);
+	}
+
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return pinPoints.size();
+	}
+	
+	@Override
+	protected boolean onBalloonTap(int index) {
+		//AlertDialog alertDialog = new AlertDialog.Builder(c).create();
+		//alertDialog.setTitle("Reset...");
+		//alertDialog.show();
+		Intent intent = new Intent(c, TourActivity.class);
+		Activity a = new Activity();
+		a.startActivityForResult(intent, 0);
+		getBalloonIndexClicked(index);
+		return true;
+	}
+	
+	public int getBalloonIndexClicked(int index){
+		return index;
+	}
+	
+	public void createPinPoint(OverlayItem item){
+		pinPoints.add(item);
+		this.populate();
+	}
+
+}

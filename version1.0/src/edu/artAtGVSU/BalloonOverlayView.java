@@ -82,8 +82,8 @@ public class BalloonOverlayView extends FrameLayout {
 			snippet.setVisibility(GONE);
 		}
 
-		image.setVisibility(VISIBLE);
-		image.setImageBitmap(fetchImage(url));
+		image.setVisibility(GONE);
+		//image.setImageBitmap(fetchImage(url));
 	}
 	
 	/*

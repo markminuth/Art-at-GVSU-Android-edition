@@ -2,6 +2,7 @@ package edu.artAtGVSU;
 
 import java.util.ArrayList;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -38,26 +39,24 @@ public class TourPinpoints extends BalloonItemizedOverlay<OverlayItem> {
 	
 	@Override
 	protected boolean onBalloonTap(int index) {
-
-		//change to activity of artwork
 		AlertDialog alertDialog = new AlertDialog.Builder(c).create();
-		alertDialog.setTitle("Works");
+		alertDialog.setTitle("Reset...");
 		alertDialog.show();
+		//Intent intent = new Intent(c, TourActivity.class);
+		//Activity a = new Activity();
+		//a.startActivityForResult(intent, 0);
+		
+		getBalloonIndexClicked(index);
 		return true;
+	}
+	
+	public int getBalloonIndexClicked(int index){
+		return index;
 	}
 	
 	public void createPinPoint(OverlayItem item){
 		pinPoints.add(item);
 		this.populate();
-	}
-	
-	Bitmap image;
-	public void setImage(Bitmap b){
-		image = b;
-	}
-	
-	public Bitmap getImage(){
-		return image;
 	}
 
 }
