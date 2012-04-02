@@ -39,14 +39,10 @@ public class TourPinpoints extends BalloonItemizedOverlay<OverlayItem> {
 	
 	@Override
 	protected boolean onBalloonTap(int index) {
-		AlertDialog alertDialog = new AlertDialog.Builder(c).create();
-		alertDialog.setTitle("Reset...");
-		alertDialog.show();
-		//Intent intent = new Intent(c, TourActivity.class);
-		//Activity a = new Activity();
-		//a.startActivityForResult(intent, 0);
-		
-		getBalloonIndexClicked(index);
+		ArtWork a = ParseArtWorkXML.getTour().artPieces.get(getBalloonIndexClicked(index));
+		ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
+		Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
+		((Activity) c).startActivity(intent);
 		return true;
 	}
 	

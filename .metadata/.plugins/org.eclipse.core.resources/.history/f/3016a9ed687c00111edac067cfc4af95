@@ -1,0 +1,38 @@
+package edu.artAtGVSU;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class ParcelableArtWorkObject implements Parcelable{
+
+	private int mData;
+	
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void writeToParcel(Parcel dest, int flags) {
+		// TODO Auto-generated method stub
+		dest.writeInt(mData);
+	}
+	
+	public static final Parcelable.Creator<ParcelableArtWorkObject>CREATOR = new Parcelable.Creator<ParcelableArtWorkObject>(){
+
+		public ParcelableArtWorkObject createFromParcel(Parcel source) {
+			// TODO Auto-generated method stub
+			return new ParcelableArtWorkObject(source);
+		}
+
+		public ParcelableArtWorkObject[] newArray(int size) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+	};
+	
+	private ParcelableArtWorkObject(Parcel in){
+		mData = in.readInt();
+	}
+	
+}

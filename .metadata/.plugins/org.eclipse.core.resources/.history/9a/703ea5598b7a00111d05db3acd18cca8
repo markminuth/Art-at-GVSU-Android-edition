@@ -1,0 +1,57 @@
+package edu.artAtGVSU;
+
+import java.util.ArrayList;
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.widget.ProgressBar;
+
+public class SplashScreenActivity extends Activity {
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.splash);
+	
+		// thread for displaying the SplashScreen
+		Thread splashTread = new Thread() {
+			@Override
+			public void run() {
+				try {
+					ArrayList<Tour> tours = new ArrayList<Tour>();
+					tours = ParseToursXML.toursRequest();
+					for (int i = 0; i < tours.size(); i++) {
+						ParseToursXML.toursIndividualDataRequest(tours.get(i).tourID);
+					}
+				} finally {
+					finish();
+					startActivity(new Intent("edu.artAtGVSU.MenuLayoutActivity"));
+					stop();
+				}
+			}
+		};
+		splashTread.start();
+		
+		Thread tourArtWorkThread = new Thread(){
+			@Override
+			public void run() {
+			// Get Extra Information for each artwork in tour including image URL
+			ArrayList<Bitmap> images = new ArrayList<Bitmap>();
+			ParseArtWorkXML.setTour(t);
+			for (int i = 0; i < t.artPieces.size(); i++) {
+				// if the artwork has not yet been set to tours
+				if (ParseArtWorkXML.getTour().artPieces.get(i).imageURL == null) {
+					ParseArtWorkXML.artWorkRequestID(t.artPieces.get(i).artID, i);
+					images.add(fetchImage(t.artPieces.get(i).getImageURL()));
+				} else {
+					images.add(fetchImage(ParseArtWorkXML.getTour().artPieces
+							.get(i).getImageURL()));
+				}
+			}
+			}
+		};
+		tourArtWorkThread.start();
+	}
+
+}

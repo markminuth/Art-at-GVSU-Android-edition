@@ -86,6 +86,7 @@ public class TourActivity extends Activity {
 				if (position == selectedPos) {
 					Intent intent = new Intent(view.getContext(),
 							MapTourActivity.class);
+					Tour t = tours.get(position);
 					intent.putExtra("tourID", position);
 					startActivityForResult(intent, 0);
 				}

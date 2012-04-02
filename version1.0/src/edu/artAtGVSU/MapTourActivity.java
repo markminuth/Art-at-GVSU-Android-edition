@@ -15,6 +15,7 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -129,6 +130,7 @@ public class MapTourActivity extends MapActivity {
 					int position, long id) {
 				selectedPos = position;
 				itemizedoverlay.onTap(selectedPos);
+				view.setFocusable(true);
 			}
 
 			public void onNothingSelected(AdapterView arg0) {
@@ -150,5 +152,4 @@ public class MapTourActivity extends MapActivity {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 }

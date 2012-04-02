@@ -1,0 +1,13 @@
+package edu.artAtGVSU;
+
+public class ArtWorkObjectSetUp{
+	private ArtWork artWorkToOpen;
+	
+	public ArtWorkObjectSetUp(ArtWork a) {
+		artWorkToOpen = a;
+	}
+	
+	public ArtWork getArtWork(){
+		return artWorkToOpen;
+	}
+}

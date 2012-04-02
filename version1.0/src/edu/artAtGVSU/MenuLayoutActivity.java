@@ -103,6 +103,5 @@ public class MenuLayoutActivity extends TabActivity {
 				//startActivityForResult(intent, 0);
 			}
 		});
-		
 	}
 }
