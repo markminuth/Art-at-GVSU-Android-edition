@@ -62,7 +62,7 @@ public class MapTourActivity extends MapActivity {
 		}
 		// returns this icon if URL doesn't retrieve artwork
 		img = ((BitmapDrawable) getResources().getDrawable(
-				R.drawable.ic_launcher)).getBitmap();
+				R.drawable.app_icon)).getBitmap();
 		return img;
 	}
 
