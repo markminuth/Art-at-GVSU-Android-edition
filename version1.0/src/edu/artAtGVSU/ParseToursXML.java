@@ -90,6 +90,7 @@ public class ParseToursXML {
 				Element tour = (Element) toursList.item(i);
 				NodeList tourDetails = tour.getChildNodes();
 				String tourId = tour.getAttribute("tour_id");
+				//TODO: for loop to remove hard coded nodes
 				String tourName = tourDetails.item(0).getTextContent();
 				String tourImageURL = tourDetails.item(1).getTextContent();
 				String tourAccess = tourDetails.item(2).getTextContent();

@@ -1,7 +1,9 @@
 package edu.artAtGVSU;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -21,6 +23,7 @@ import org.xml.sax.SAXException;
 public class ParseArtWorkXML {
 	//arraylist for the search feature using IDNo
 	static ArrayList<ArtWork> artMatchingIDNo;
+	static ArrayList<ArtWork> idSearchedArt;
 	static Tour artWorkToTour;
 	/*
 	 * Make Connection with URL parameter (URL string can be concatenated with conditions when
@@ -113,10 +116,10 @@ public class ParseArtWorkXML {
 	/*
 	 * Based on the idNo used for search by idNo
 	 */
-	public static ArrayList<ArtWork> artWorkRequestIdNo(String aIdNo){
-		artMatchingIDNo = new ArrayList<ArtWork>();
+	public static ArrayList<ArtWork> artWorkRequestIdentifier(String identifier){
+		idSearchedArt = new ArrayList<ArtWork>();
 		String url = "http://gvsuartgallery.org/service.php/search/Search/rest?method=queryRest&type=ca_objects&query=idno:%@*&additional_bundles[work_description]&additional_bundles[access]&additional_bundles[ca_object_representations.media.icon][returnURL]=1";
-		url = url.replace("%d", aIdNo);
+		url = url.replace("%@", identifier);
 		InputStream in = makeConnection(url);
 		
 		try {
@@ -125,10 +128,16 @@ public class ParseArtWorkXML {
 			Document doc = db.parse(in);
 			
 			Element docElement = doc.getDocumentElement();
-			NodeList relNode = docElement.getChildNodes();
+			NodeList artWorkObjects = docElement.getElementsByTagName("ca_objects");
 			
-			
-			//artPiece = new ArtWork(aID, aArtistID, aArtistName, aTitle, aDescription, aIdNo, aWorkDate, aHistContext, aImageURL, aLocName, aMedium, aGeoLoc, aStopID);
+			for(int i = 0; i < artWorkObjects.getLength(); i++){
+				Element artPiece = (Element) artWorkObjects.item(i);
+				NodeList artDetails = artPiece.getChildNodes();
+				String artName = artDetails.item(0).getTextContent();
+				String artImageURL = artDetails.item(4).getTextContent();
+				ArtWork a = new ArtWork(artName, artImageURL);
+				idSearchedArt.add(a);
+			}
 		} catch (SAXException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -139,7 +148,7 @@ public class ParseArtWorkXML {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return artMatchingIDNo;
+		return idSearchedArt;
 	}
 
 	public static Tour getTour() {
@@ -149,4 +158,5 @@ public class ParseArtWorkXML {
 	public static void setTour(Tour artWorkToTour) {
 		ParseArtWorkXML.artWorkToTour = artWorkToTour;
 	}
+
 }

@@ -7,15 +7,10 @@ import android.os.Bundle;
 
 public class SearchActivity extends ListActivity{
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		
-		
-		final Intent queryIntent = getIntent();
-		final String queryAction = queryIntent.getAction();
-		if (Intent.ACTION_SEARCH.equals(queryAction)) {
-			String searchKeywords = queryIntent.getStringExtra(SearchManager.QUERY);
-		}
+	public void onCreate(Bundle savedInstanceState) {
+	    super.onCreate(savedInstanceState);
+	    setContentView(R.layout.searchable);
+	    
+	    
 	}
-
 }

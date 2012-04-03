@@ -1,0 +1,176 @@
+package edu.artAtGVSU;
+
+import java.io.*;
+import java.net.*;
+import java.util.ArrayList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import com.google.android.maps.GeoPoint;
+
+/*
+ * Class responsible of Parsing Tour information and the artwork in each tour.
+ */
+public class ParseToursXML {
+	
+	static ArrayList<Tour> tours = new ArrayList<Tour>();
+	/*
+	 * Make Connection with URL parameter (URL string can be concatenated with conditions when
+	 * passed into the method) returns the inputStream from the response.   
+	 */
+	private static InputStream makeConnection(String url){
+		URL urlSend = null;
+		InputStream in = null;
+		try{
+			urlSend = new URL(url);
+			HttpURLConnection connection = (HttpURLConnection) urlSend.openConnection();
+			in = connection.getInputStream();
+		}catch(MalformedURLException e){
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return in;
+	}
+
+	/*
+	 * Sets up the point for the geo Location by parsing the XML String and putting the lat and lon
+	 * int values into the GeoPoint object. Returns the GeoPoint created.
+	 */
+	private static GeoPoint createPoint(String geoLocation){
+		String loc = geoLocation;
+		int startTrim = loc.indexOf("[") + 1;
+		String gLoc = loc.substring(startTrim);
+		String lat = gLoc.substring(0 ,gLoc.indexOf(","));
+		String lon = gLoc.substring(gLoc.indexOf(",") + 1, gLoc.indexOf("]"));
+		double latitude = Double.valueOf(lat.trim()).doubleValue();
+		double longitude = Double.valueOf(lon.trim()).doubleValue();
+
+		int iLat = (int) (latitude * 1E6);
+		int iLon = (int) (longitude * 1E6);
+		GeoPoint p = new GeoPoint(iLat, iLon);
+		return p;
+	}
+	
+	/*
+	 * After selecting a specific tour the artwork in the tour will be added to the tour
+	 */
+	private static void addArtWorkToTour(ArrayList<ArtWork> artWork, String tourID){
+		Tour t = tours.get(Integer.valueOf(tourID) - 1);
+		t.setArtPieces(artWork);
+		tours.set(Integer.valueOf(tourID) - 1, t);
+	}
+	
+	/*
+	 * Makes a connection with the tours request and parses the XML returned from the database
+	 * This request returns information about the Tours in general not about each specific tour.
+	 */
+	public static ArrayList<Tour> toursRequest(){
+
+		InputStream in = makeConnection("http://gvsuartgallery.org/service.php/search/Search/rest?method=queryRest&type=ca_tours&query=*&additional_bundles[ca_tours.icon.largeicon][returnURL]=1&additional_bundles[ca_tours.access]");
+
+		try {
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = factory.newDocumentBuilder();
+			Document doc = db.parse(in);
+			
+			Element docElement = doc.getDocumentElement();
+			NodeList toursList = docElement.getElementsByTagName("ca_tours");
+			int toursCount = toursList.getLength();
+			
+			for(int i = 0; i < toursCount; i++){
+				Element tour = (Element) toursList.item(i);
+				NodeList tourDetails = tour.getChildNodes();
+				String tourId = tour.getAttribute("tour_id");
+				String tourName = tourDetails.item(0).getTextContent();
+				String tourImageURL = tourDetails.item(1).getTextContent();
+				String tourAccess = tourDetails.item(2).getTextContent();
+				Tour t = new Tour(tourId, tourName, tourImageURL, tourAccess);
+				tours.add(t);
+			}
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return tours;
+	}
+	
+	/*
+	 * Builds the URL to send and parses the XML for the specific tour data.
+	 */
+	public static void toursIndividualDataRequest(String requestedTourNum){
+		//Add tour number to the URL
+		String url = "http://gvsuartgallery.org/service.php/iteminfo/ItemInfo/rest?method=getRelationships&type=ca_tours&item_id=%d&related_type=ca_tour_stops&options[bundles][ca_objects.georeference]=&options[bundles][ca_objects.object_id]=";
+		url = url.replace("%d", requestedTourNum);
+		InputStream in = makeConnection(url);
+		
+		ArrayList<ArtWork> art = new ArrayList<ArtWork>();
+		
+		try {
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = factory.newDocumentBuilder();
+			Document doc = db.parse(in);
+			
+			Element docElement = doc.getDocumentElement();
+			NodeList relNode = docElement.getChildNodes();
+			NodeList toursArtPieceList = relNode.item(0).getChildNodes();
+			
+			// Minus 1 accounts for success node in XML document
+			int toursArtPieceCount = toursArtPieceList.getLength() - 1;
+			
+			//TODO Need to change this so it is not so reliable on node location
+			for(int i = 0; i < toursArtPieceCount; i++){
+				Element artPiece = (Element) toursArtPieceList.item(i);
+				NodeList artDetails = artPiece.getChildNodes();
+				String aStopID = artDetails.item(2).getTextContent();
+				String aName = artDetails.item(3).getTextContent();
+				String aID = artDetails.item(11).getTextContent();
+				String geoLocation = artDetails.item(10).getTextContent();
+				
+				if(!geoLocation.isEmpty() || !aID.isEmpty()){
+					//set up point for geoLocation
+					GeoPoint aGeoLoc = createPoint(geoLocation);
+					ArtWork aPiece = new ArtWork(aGeoLoc, aName, aID, aStopID);
+					art.add(aPiece);
+				}
+			}
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//Add artwork in tour to the selected tour
+		addArtWorkToTour(art, requestedTourNum);
+	}
+	
+	//Get the tours Linked List
+	public static ArrayList<Tour> getTours() {
+		return tours;
+	}
+	
+	public static Tour getTour(String tID){
+		return tours.get(Integer.valueOf(tID) - 1);
+	}
+	
+	
+}

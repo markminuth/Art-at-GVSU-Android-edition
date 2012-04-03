@@ -20,7 +20,7 @@ public class SplashScreenActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.splash);
-	
+		
 		// thread for displaying the SplashScreen
 		Thread splashTread = new Thread() {
 			@Override

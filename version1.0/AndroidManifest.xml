@@ -14,6 +14,7 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >
         <uses-library android:name="com.google.android.maps" />
+
         <activity
             android:name=".SplashScreenActivity"
             android:label="@string/app_name" >
@@ -32,9 +33,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ArtWorkDetailsActivity">
+        
+        <activity android:name=".SearchActivity" >
         </activity>
-       	<activity android:name=".MapTourActivity" >
+        <activity android:name=".ArtWorkZoomActivity" >
+        </activity>
+        <activity android:name=".ArtWorkDetailsActivity" >
+        </activity>
+        <activity android:name=".MapTourActivity" >
         </activity>
         <activity android:name=".TourActivity" >
         </activity>

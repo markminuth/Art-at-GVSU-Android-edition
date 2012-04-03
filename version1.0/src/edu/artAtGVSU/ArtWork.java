@@ -39,6 +39,22 @@ public class ArtWork {
 		stopID = null;
 	}
 	
+	public ArtWork(String aName, String aImageURL){
+		artID = null;
+		artistID = null;
+		artistName = null;
+		artTitle = aName;
+		description = null;
+		idno = null;
+		workDate = null;
+		historicalContext= null;
+		imageURL = null;
+		iconImageURL = aImageURL;
+		locName = null;
+		medium = null;
+		geoLoc = null;
+		stopID = null;
+	}
 	/*
 	 * Constructor used for a piece of art shown by the tours menu
 	 */
