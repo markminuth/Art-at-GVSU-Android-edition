@@ -1,0 +1,251 @@
+what,kind,bundleId,bundleVersion,description,time
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414910036
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414910216
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414910608
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414911329
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414911769
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414912308
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414912690
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414913244
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414913869
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414914544
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414914974
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414915398
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414916251
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414916720
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414917290
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414917741
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414917968
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414918593
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414919073
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.Resume",1333414920719
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.Resume",1333414921925
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.Resume",1333414923321
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414930686
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414932363
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414933053
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414934093
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414936088
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333414936643
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1333414937864
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333414941889
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333414960732
+activated,view,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.VariableView",1333414960875
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333414986314
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333414996741
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333414998617
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333415006803
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333415008713
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415012616
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415013882
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415015474
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415016744
+closed,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415016745
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415019867
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415021103
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415049036
+closed,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415049037
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415053047
+closed,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415053050
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333415055795
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415057200
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333415058945
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415059808
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.manifest.ManifestEditor",1333415061847
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1333415077787
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415084915
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.manifest.ManifestEditor",1333415087469
+closed,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415087470
+closed,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333415088947
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333415090710
+closed,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.manifest.ManifestEditor",1333415090710
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415092846
+closed,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333415092846
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333415096654
+closed,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415096654
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333415098169
+closed,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333415098169
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1333415120372
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333415127288
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333415129943
+activated,perspective,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.JavaPerspective",1333415132887
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333415135466
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333417058534
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333417082359
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333417433073
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1333417434643
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333417451395
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333417487718
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333417490200
+activated,view,org.eclipse.ui.ide,3.7.0.v20110809-1737,"org.eclipse.ui.views.ProblemView",1333417501408
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333417503663
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1333417505770
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333417516778
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333417516867
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1333417519873
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333417538908
+started,bundle,org.eclipse.ant.ui,3.5.100.v20110510,"org.eclipse.ant.ui",1333417543828
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333417544723
+executed,command,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.edit.text.java.rename.element",1333417544734
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333417547963
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1333417549364
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1333417551824
+activated,view,org.eclipse.ui.ide,3.7.0.v20110809-1737,"org.eclipse.ui.views.ProblemView",1333417582027
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333417587344
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333417589098
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1333417591033
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333417592665
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333417871683
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333417882234
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1333417886419
+opened,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333417887478
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333417887730
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333417891981
+closed,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333417891981
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1333417895381
+opened,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333417895886
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333417895985
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1333417910476
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333417933426
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333417935480
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333417943243
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333417948508
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333417955763
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333417962955
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333417964274
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1333417965646
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1333417968845
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1333418054945
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1333418065404
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418078387
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418078514
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1333418088393
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418097746
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418100123
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418110640
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418138514
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1333418151047
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418162219
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1333418166836
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333418171516
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1333418182438
+opened,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.manifest.ManifestEditor",1333418182680
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.manifest.ManifestEditor",1333418182759
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333418191985
+closed,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.manifest.ManifestEditor",1333418191986
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418192888
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1333418193783
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1333418203567
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418212613
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418212679
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1333418233057
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418236510
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418240414
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418243268
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418245561
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418245870
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418248333
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418271753
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418279077
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418293411
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418300606
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1333418309247
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418321177
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418321313
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418328248
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418328353
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1333418331165
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1333418331395
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1333418335641
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1333418340983
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1333418344150
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333418344517
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1333418348060
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1333418350026
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418371471
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418461005
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418465584
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418486439
+error,log,,,"Unhandled event loop exception",1333418493659
+error,log,,,"Unhandled event loop exception",1333418493667
+error,log,,,"Unhandled event loop exception",1333418493670
+error,log,,,"Unhandled event loop exception",1333418493686
+error,log,,,"Unhandled event loop exception",1333418494352
+error,log,,,"Unhandled event loop exception",1333418496043
+error,log,,,"Unhandled event loop exception",1333418509720
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.delete",1333418513023
+error,log,,,"Unhandled event loop exception",1333418513052
+error,log,,,"Unhandled event loop exception",1333418513058
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.delete",1333418513283
+error,log,,,"Unhandled event loop exception",1333418513291
+error,log,,,"Unhandled event loop exception",1333418513914
+error,log,,,"Unhandled event loop exception",1333418514089
+error,log,,,"Unhandled event loop exception",1333418514303
+error,log,,,"Unhandled event loop exception",1333418514461
+error,log,,,"Unhandled event loop exception",1333418514569
+error,log,,,"Unhandled event loop exception",1333418514801
+error,log,,,"Unhandled event loop exception",1333418515104
+error,log,,,"Unhandled event loop exception",1333418515127
+error,log,,,"Unhandled event loop exception",1333418515285
+error,log,,,"Unhandled event loop exception",1333418515921
+error,log,,,"Unhandled event loop exception",1333418518376
+error,log,,,"Unhandled event loop exception",1333418518380
+error,log,,,"Unhandled event loop exception",1333418518589
+error,log,,,"Unhandled event loop exception",1333418518751
+error,log,,,"Unhandled event loop exception",1333418518918
+error,log,,,"Unhandled event loop exception",1333418519138
+error,log,,,"Unhandled event loop exception",1333418519248
+error,log,,,"Unhandled event loop exception",1333418519359
+error,log,,,"Unhandled event loop exception",1333418519502
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1333418520475
+error,log,,,"Unhandled event loop exception",1333418520494
+error,log,,,"Unhandled event loop exception",1333418520564
+error,log,,,"Unhandled event loop exception",1333418520594
+error,log,,,"Unhandled event loop exception",1333418521113
+error,log,,,"Unhandled event loop exception",1333418521119
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418523360
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418526695
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418541725
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418552204
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1333418566063
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418567022
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418568183
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418569267
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333418570237
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418574342
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418581432
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418582280
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418584550
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418590130
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333418592036
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418592918
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333418594086
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418595311
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333418611198
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1333418624342
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418626822
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1333418628021
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418632580
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418637130
+closed,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418637130
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333418640954
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418644579
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333418646367
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418647709
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418665767
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418769057
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1333418777242
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1333418778129
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418779962
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1333418783330
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1333418793191
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1333418796977
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418798245
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418799185
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418801321
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1333418808586
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418943343
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1333418943565
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418953671
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1333418958596
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1333418959908

@@ -1,0 +1,52 @@
+package edu.artAtGVSU;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.app.SearchManager;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ListView;
+
+public class SearchActivity extends Activity{
+	
+	ArrayList<String> searchedArtList;
+	ArrayList<ArtWork> searchedArtWork;
+	ListView list;
+	Context c = this;
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+	    super.onCreate(savedInstanceState);
+	    setContentView(R.layout.search);  
+	    
+	    
+	    final ImageButton searchB = (ImageButton) findViewById(R.id.searchNOW);
+		searchB.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View v) {
+				final EditText searchText = (EditText) findViewById(R.id.searchTextBox);
+				String userText = searchText.getText().toString();
+				if(!userText.isEmpty()){
+					searchedArtWork = new ArrayList<ArtWork>();
+					searchedArtWork = ParseArtWorkXML.artWorkRequestIdentifier(userText);
+					searchedArtList = new ArrayList<String>();
+				
+					for(int i = 0; i < searchedArtWork.size(); i++){
+						searchedArtList.add(searchedArtWork.get(i).artTitle);
+					}
+				
+					String[] searchInfo = (String[]) searchedArtList.toArray();
+					//list = (ListView) findViewById(R.id.searchList);
+					//list.setAdapter(new ArrayAdapter<String>(c, R.layout.artdetail_list, searchInfo));
+				}
+			}
+		});
+	}
+}

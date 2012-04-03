@@ -99,8 +99,8 @@ public class MenuLayoutActivity extends TabActivity {
 			
 			public void onClick(View v) {
 				aboutView.setVisibility(View.GONE);
-				//Intent intent = new Intent(v.getContext(),SearchActivity.class);
-				//startActivityForResult(intent, 0);
+				Intent intent = new Intent(v.getContext(), SearchActivity.class);
+				startActivityForResult(intent, 0);
 			}
 		});
 	}

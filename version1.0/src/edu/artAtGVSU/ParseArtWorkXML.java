@@ -133,9 +133,12 @@ public class ParseArtWorkXML {
 			for(int i = 0; i < artWorkObjects.getLength(); i++){
 				Element artPiece = (Element) artWorkObjects.item(i);
 				NodeList artDetails = artPiece.getChildNodes();
+				String artID = artPiece.getAttribute("object_id");
 				String artName = artDetails.item(0).getTextContent();
+				String artIdentifier = artDetails.item(1).getTextContent();
+				String artDescription = artDetails.item(2).getTextContent();
 				String artImageURL = artDetails.item(4).getTextContent();
-				ArtWork a = new ArtWork(artName, artImageURL);
+				ArtWork a = new ArtWork(artName, artImageURL, artDescription, artIdentifier, artID);
 				idSearchedArt.add(a);
 			}
 		} catch (SAXException e) {

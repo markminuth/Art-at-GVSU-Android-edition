@@ -39,13 +39,13 @@ public class ArtWork {
 		stopID = null;
 	}
 	
-	public ArtWork(String aName, String aImageURL){
-		artID = null;
+	public ArtWork(String aName, String aImageURL, String aDescription, String aIdentifier, String aID){
+		artID = aID;
 		artistID = null;
 		artistName = null;
 		artTitle = aName;
-		description = null;
-		idno = null;
+		description = aDescription;
+		idno = aIdentifier;
 		workDate = null;
 		historicalContext= null;
 		imageURL = null;

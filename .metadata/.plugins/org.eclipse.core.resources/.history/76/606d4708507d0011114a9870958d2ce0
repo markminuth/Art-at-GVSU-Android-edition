@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ECECEC"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:background="#ECECEC">
+
+        <AutoCompleteTextView
+            android:id="@+id/searchTextBox"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="" >
+
+            <requestFocus />
+        </AutoCompleteTextView>
+
+        <ImageButton
+            android:id="@+id/searchNOW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="14dp"
+            android:layout_toRightOf="@+id/searchTextBox"
+            android:background="#ECECEC"
+            android:src="@drawable/search" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/searchList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ECECEC" >
+    </ListView>
+
+</LinearLayout>

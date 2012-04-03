@@ -1,0 +1,56 @@
+
+package edu.artAtGVSU;
+
+import java.util.List;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+public class ItemsAdapter {
+	int resource;
+    String response;
+    Context context;
+    //Initialize adapter
+    public ItemsAdapter(Context context, int resource, List<alerts> items) {
+        super(context, resource, items);
+        this.resource=resource;
+ 
+    }
+ 
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent)
+    {
+        LinearLayout alertView;
+        //Get the current alert object
+        alerts al = getItem(position);
+ 
+        //Inflate the view
+        if(convertView==null)
+        {
+            alertView = new LinearLayout(getContext());
+            String inflater = Context.LAYOUT_INFLATER_SERVICE;
+            LayoutInflater vi;
+            vi = (LayoutInflater)getContext().getSystemService(inflater);
+            vi.inflate(resource, alertView, true);
+        }
+        else
+        {
+            alertView = (LinearLayout) convertView;
+        }
+        //Get the text boxes from the listitem.xml file
+        ImageView artIcon =(ImageView)alertView.findViewById(R.id.searchIconImage);
+        //TextView alertDate =(TextView)alertView.findViewById(R.id.txtAlertDate);
+ 
+        //Assign the appropriate data from our alert object above
+        //alertText.setText(al.alerttext);
+        //alertDate.setText(al.alertdate);
+ 
+        return alertView;
+    }
+ 
+}
