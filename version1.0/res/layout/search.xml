@@ -31,7 +31,6 @@
             android:src="@drawable/search" />
 
     </RelativeLayout>
-
     <ListView
         android:id="@+id/searchList"
         android:layout_width="match_parent"

@@ -13,12 +13,11 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 public class SearchActivity extends Activity{
-	
-	ArrayList<String> searchedArtList;
-	//ArrayList<ArtWork> searchedArtWork;
+	ArrayList<ArtWork> searchedArtWork;
 	ListView list;
 	Context c = this;
 	ItemsAdapter adapter;
@@ -28,16 +27,18 @@ public class SearchActivity extends Activity{
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.search);  
 	    list = (ListView) findViewById(R.id.searchList);
-	    
 	    final ImageButton searchB = (ImageButton) findViewById(R.id.searchNOW);
 		searchB.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
+				String[] loading = new String[]{"Loading..."};
+				list.setAdapter(new ArrayAdapter<String>(c, R.layout.loading_list, loading));
+				
 				final EditText searchText = (EditText) findViewById(R.id.searchTextBox);
 				String userText = searchText.getText().toString();
 				if(!userText.isEmpty()){
 					try{
-						ArrayList<ArtWork> searchArtWork = ParseArtWorkXML.artWorkRequestIdentifier(userText);
+						searchedArtWork = ParseArtWorkXML.artWorkRequestIdentifier(userText);
 						/*searchedArtList = new ArrayList<String>();
 					
 						for(int i = 0; i < searchArtWork.size(); i++){
@@ -49,16 +50,26 @@ public class SearchActivity extends Activity{
 							}
 						}	*/
 						
-						adapter = new ItemsAdapter(c, R.layout.search_list, searchArtWork);
-						
-						//String[] searchInfo = new String[searchedArtList.size()];
-						//searchInfo = searchedArtList.toArray(searchInfo);
-						//list.setAdapter(new ArrayAdapter<String>(c, R.layout.artdetail_list, searchInfo));
+						adapter = new ItemsAdapter(c, R.layout.search_list, searchedArtWork);
 						list.setAdapter(adapter);
 					}catch(Exception e){
 						//Toast.makeText(c, "Error searching", Toast.LENGTH_LONG);
 					}
 				}
+			}
+		});
+		
+		list.setOnItemClickListener(new OnItemClickListener() {
+
+			public void onItemClick(AdapterView<?> arg0, View arg1, int pos,
+					long arg3) {
+				// TODO Auto-generated method stub
+				//Toast.makeText(c, "WORKS", Toast.LENGTH_LONG);
+				ArtWork seleted = searchedArtWork.get(pos);
+				ArtWork a = ParseArtWorkXML.artWorkRequestID(seleted.artID, -1);
+				ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
+				Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
+				((Activity) c).startActivity(intent);
 			}
 		});
 	}

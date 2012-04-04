@@ -23,7 +23,8 @@ import org.xml.sax.SAXException;
 public class ParseArtWorkXML {
 	//arraylist for the search feature using IDNo
 	static ArrayList<ArtWork> artMatchingIDNo;
-	static ArrayList<ArtWork> idSearchedArt;
+	static ArrayList<ArtWork> identifierSearchedArt;
+	static ArrayList<ArtWork> artistNameSearchedArt;
 	static Tour artWorkToTour;
 	/*
 	 * Make Connection with URL parameter (URL string can be concatenated with conditions when
@@ -74,7 +75,10 @@ public class ParseArtWorkXML {
 			String smallImage = null;
 			String locName = null;
 			String artistName = null;
-			artPiece = artWorkToTour.artPieces.get(tourArtPos);
+			
+			if(tourArtPos != -1){
+				artPiece = artWorkToTour.artPieces.get(tourArtPos);
+			}
 			
 			artName = artDetails.item(1).getTextContent();
 			description = artDetails.item(2).getTextContent();
@@ -117,7 +121,7 @@ public class ParseArtWorkXML {
 	 * Based on the idNo used for search by idNo
 	 */
 	public static ArrayList<ArtWork> artWorkRequestIdentifier(String identifier){
-		idSearchedArt = new ArrayList<ArtWork>();
+		identifierSearchedArt = new ArrayList<ArtWork>();
 		String url = "http://gvsuartgallery.org/service.php/search/Search/rest?method=queryRest&type=ca_objects&query=idno:%@*&additional_bundles[work_description]&additional_bundles[access]&additional_bundles[ca_object_representations.media.icon][returnURL]=1";
 		url = url.replace("%@", identifier);
 		InputStream in = makeConnection(url);
@@ -137,9 +141,13 @@ public class ParseArtWorkXML {
 				String artName = artDetails.item(0).getTextContent();
 				String artIdentifier = artDetails.item(1).getTextContent();
 				String artDescription = artDetails.item(2).getTextContent();
+				String access = artDetails.item(3).getTextContent();
 				String artImageURL = artDetails.item(4).getTextContent();
-				ArtWork a = new ArtWork(artName, artImageURL, artDescription, artIdentifier, artID);
-				idSearchedArt.add(a);
+				//Only add artwork if access is allowed
+				if(Integer.parseInt(access) == 1){
+					ArtWork a = new ArtWork(artName, artImageURL, artDescription, artIdentifier, artID);
+					identifierSearchedArt.add(a);
+				}
 			}
 		} catch (SAXException e) {
 			// TODO Auto-generated catch block
@@ -151,7 +159,12 @@ public class ParseArtWorkXML {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return idSearchedArt;
+		return identifierSearchedArt;
+	}
+	
+	public static ArrayList<ArtWork> artWorkRequestArtistName(){
+		artistNameSearchedArt = new ArrayList<ArtWork>();
+		return artistNameSearchedArt;
 	}
 
 	public static Tour getTour() {

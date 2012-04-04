@@ -94,8 +94,11 @@ public class ParseToursXML {
 				String tourName = tourDetails.item(0).getTextContent();
 				String tourImageURL = tourDetails.item(1).getTextContent();
 				String tourAccess = tourDetails.item(2).getTextContent();
-				Tour t = new Tour(tourId, tourName, tourImageURL, tourAccess);
-				tours.add(t);
+				//Only tours with access added to tour list
+				if(Integer.parseInt(tourAccess) == 1){
+					Tour t = new Tour(tourId, tourName, tourImageURL, tourAccess);
+					tours.add(t);
+				}
 			}
 		} catch (SAXException e) {
 			// TODO Auto-generated catch block

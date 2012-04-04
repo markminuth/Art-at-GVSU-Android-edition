@@ -57,10 +57,46 @@ public class ItemsAdapter extends ArrayAdapter<ArtWork>{
         TextView descripText =(TextView)alertView.findViewById(R.id.descripText);
  
         //Assign the appropriate data from our alert object above
-        nameText.setText(aw.artTitle);
-        descripText.setText(aw.description);
-        //artIcon.setImageBitmap(aw.imageURL);
+        if(aw.artTitle.length() > 35){
+        	nameText.setText(aw.artTitle.substring(0, 35) + "...");
+        }else{
+        	nameText.setText(aw.artTitle);
+        }
+        if(aw.description.length() > 100){
+        	descripText.setText(aw.description.substring(0, 100) + "...");
+        }else{
+        	descripText.setText(aw.description);
+        }
+        
+        artIcon.setImageBitmap(fetchImage(aw.iconImageURL));
         
         return alertView;
     }
+    
+    /*
+	 * Get tour image from URL
+	 */
+	public Bitmap fetchImage(String tImageURL) {
+		URL url;
+		Bitmap img = null;
+		try {
+			url = new URL(tImageURL);
+
+			HttpURLConnection connection = (HttpURLConnection) url
+					.openConnection();
+			connection.setDoInput(true);
+			connection.connect();
+			InputStream is = connection.getInputStream();
+			img = BitmapFactory.decodeStream(is);
+
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return img;
+	}
 }
