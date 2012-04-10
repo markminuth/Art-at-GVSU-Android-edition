@@ -35,6 +35,8 @@ public final class R {
         public static final int tab_favorites=0x7f020015;
         public static final int tab_tours=0x7f020016;
         public static final int welcome=0x7f020017;
+        public static final int zoomin=0x7f020018;
+        public static final int zoomin2=0x7f020019;
     }
     public static final class id {
         public static final int aboutIcon=0x7f050010;

@@ -1,0 +1,75 @@
+package edu.artAtGVSU;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Gallery;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
+
+public class TourActivity extends Activity {
+	ArrayList<Bitmap> images = new ArrayList<Bitmap>();
+	static ArrayList<Tour> tours;
+	static int selectedPos;
+	
+	/*
+	 * Get tour image from URL
+	 */
+	public Bitmap fetchImage(String tImageURL) {
+		URL url;
+		try {
+			url = new URL(tImageURL);
+
+			HttpURLConnection connection = (HttpURLConnection) url
+					.openConnection();
+			connection.setDoInput(true);
+			connection.connect();
+			InputStream is = connection.getInputStream();
+			Bitmap img;
+			img = BitmapFactory.decodeStream(is);
+			return img;
+
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.tour);
+	
+		Thread tourGallery = new Thread(){
+			@Override
+			public void run() {
+				tours = ParseToursXML.getTours();
+				for (int i = 0; i < tours.size(); i++) {
+					images.add(fetchImage(tours.get(i).imageMainURL));
+				}
+			}
+		};
+		tourGallery.start();
+	}
+	
+	private Handler handlerGallery = new Handler(){
+		
+	}
+}

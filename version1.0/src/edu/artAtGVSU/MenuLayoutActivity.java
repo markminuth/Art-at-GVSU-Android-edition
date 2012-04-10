@@ -1,5 +1,8 @@
 package edu.artAtGVSU;
 
+import java.util.ArrayList;
+
+import android.R.array;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -22,7 +25,7 @@ public class MenuLayoutActivity extends TabActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-
+		
 		// Set up menu tab items
 		Resources res = getResources(); // Resource object to get Drawables
 		TabHost tabHost = getTabHost(); // The activity TabHost
