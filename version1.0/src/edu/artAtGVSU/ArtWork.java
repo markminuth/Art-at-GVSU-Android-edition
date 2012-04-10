@@ -75,28 +75,6 @@ public class ArtWork {
 		medium = null;
 	}
 	
-	/*
-	 * Constructor used for the image URL of a piece of art in the tours menu
-	 * TODO may have to remove some parameters depending on what the XML returns
-	 */
-	public ArtWork(String aName, String aID, String aStopID, String aIconImageURL){
-		artID = aID;
-		artTitle = aName;
-		stopID = aStopID;
-		iconImageURL = aIconImageURL;
-		imageURL = null;
-		artistID = null;
-		artistName = null;
-		description = null;
-		idno = null;
-		workDate = null;
-		historicalContext= null;
-		locName = null;
-		geoLoc = null;
-		medium = null;
-	}
-	
-	
 	public ArtWork(String aID, String aArtistID, String aArtistName, String aTitle, String aDescription, String aIdNo, String aWorkDate, String aHistContext, String aImageURL, String aLocName, String aMedium, GeoPoint aGeoLoc, String aStopID){
 		artID = aID;
 		artistID = aArtistID;
@@ -215,5 +193,13 @@ public class ArtWork {
 
 	public void setStopID(String stopID) {
 		this.stopID = stopID;
+	}
+	
+	public String getIconURL() {
+		return iconImageURL;
+	}
+
+	public void setIconURL(String iconURL) {
+		this.iconImageURL = iconURL;
 	}
 }

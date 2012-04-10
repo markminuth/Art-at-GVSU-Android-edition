@@ -101,7 +101,7 @@ public class MapTourActivity extends MapActivity {
 					OverlayItem overlayItem;
 					if(t.artPieces.get(i).artistName != null){
 						//when information about the art is known
-						overlayItem = new OverlayItem(gp, t.artPieces.get(i).artTitle, t.artPieces.get(i).artistName + "%" + t.artPieces.get(i).imageURL);
+						overlayItem = new OverlayItem(gp, t.artPieces.get(i).artTitle, t.artPieces.get(i).artistName + "%" + t.artPieces.get(i).iconImageURL);
 					}else{
 						//no artist information known yet
 						overlayItem = new OverlayItem(gp, t.artPieces.get(i).artTitle, "%");
@@ -119,20 +119,22 @@ public class MapTourActivity extends MapActivity {
 		
 		controller = map.getController();
 		
+		//Create Thread to Parse icons of art pieces and fetch url images
 		Thread galleryLoad = new Thread(){
 			
 			@Override
 			public void run() {
 				images = new ArrayList<Bitmap>();
 				ParseArtWorkXML.setTour(t);
-				// Get Extra Information for each artwork in tour including image URL
+				
+				// Get Icons for artwork in tour to display in gallery
 				for (int i = 0; i < t.artPieces.size(); i++) {
-					// if the artwork has not yet been set to tours
-					if (ParseArtWorkXML.getTour().artPieces.get(i).imageURL == null) {
-						ParseArtWorkXML.artWorkRequestID(t.artPieces.get(i).artID, i);
-						images.add(fetchImage(t.artPieces.get(i).getImageURL()));
+					// if the artwork icon has not yet been set to tours it must make the web service call
+					if (ParseArtWorkXML.getTour().artPieces.get(i).iconImageURL == null) {
+						ParseArtWorkXML.artIconRequest(t.artPieces.get(i).artID, i);
+						images.add(fetchImage(t.artPieces.get(i).getIconURL()));
 					} else {
-						images.add(fetchImage(ParseArtWorkXML.getTour().artPieces.get(i).getImageURL()));
+						images.add(fetchImage(ParseArtWorkXML.getTour().artPieces.get(i).getIconURL()));
 					}
 				}
 				Message msg = new Message();

@@ -1,0 +1,207 @@
+package edu.artAtGVSU;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+public class ParseArtWorkXML {
+	static ArrayList<ArtWork> identifierSearchedArt;
+	static ArrayList<ArtWork> artistNameSearchedArt;
+	static Tour artWorkToTour;
+	
+	/*
+	 * Make Connection with URL parameter (URL string can be concatenated with conditions when
+	 * passed into the method) returns the inputStream from the response.   
+	 */
+	private static InputStream makeConnection(String url){
+		URL urlSend = null;
+		InputStream in = null;
+		try{
+			urlSend = new URL(url);
+			HttpURLConnection connection = (HttpURLConnection) urlSend.openConnection();
+			//connection.getInputStream();
+			in = connection.getInputStream();
+		}catch(MalformedURLException e){
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return in;
+	}
+
+	
+	/*
+	 * Makes a connection with the URL that requests the artwork icon for the tours gallery.
+	 * Then parses the XML and adds the icon image to the artwork object and returns the piece of artwork
+	 * tourID set to -1 if not a part of a tour
+	 */
+	public static ArtWork artIconRequest(String aID, int tourID){
+		String url = "";
+		url = url.replace("%d", aID);
+		InputStream in = makeConnection(url);
+		ArtWork artPiece = null;
+		artWorkToTour = getTour();
+		
+		try{
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = factory.newDocumentBuilder();
+			Document doc = db.parse(in);	
+		}catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	/*
+	 * Based on the object ID 
+	 * tourArtPos can be set to -1 if the art piece is not being called for the tour
+	 */
+	public static ArtWork artWorkRequestID(String aID, int tourArtPos){
+		String url = "http://gvsuartgallery.org/service.php/iteminfo/ItemInfo/rest?method=get&type=ca_objects&item_ids[0]=%d&bundles[1]=ca_objects.object_id&bundles[2]=ca_object_labels.name&bundles[3]=ca_objects.work_description&bundles[4]=ca_objects.idno&bundles[5]=ca_objects.work_date&bundles[6]=ca_objects.historical_context&bundles[7]=ca_object_representations.media.small&bundles[8]=ca_storage_locations.preferred_labels.name&bundles[9]=ca_entities.preferred_labels.displayname&options[ca_object_representations.media.small][returnURL]=1";
+		url = url.replace("%d", aID);
+		InputStream in = makeConnection(url);
+		ArtWork artPiece = null;
+		artWorkToTour = getTour();
+		try {
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = factory.newDocumentBuilder();
+			Document doc = db.parse(in);
+			
+			Element docElement = doc.getDocumentElement();
+			Node getNode = docElement.getFirstChild();
+			Element getE = (Element) getNode.getFirstChild();
+			NodeList artDetails = getE.getChildNodes();
+			
+			String artName = null;
+			String description = null;
+			String idNo = null;
+			String date = null;
+			String histContext = null;
+			String smallImage = null;
+			String locName = null;
+			String artistName = null;
+			
+			if(tourArtPos != -1){
+				artPiece = artWorkToTour.artPieces.get(tourArtPos);
+			}
+			
+			artName = artDetails.item(1).getTextContent();
+			description = artDetails.item(2).getTextContent();
+			idNo = artDetails.item(3).getTextContent();
+			date = artDetails.item(4).getTextContent();
+			histContext = artDetails.item(5).getTextContent();
+			smallImage = artDetails.item(6).getTextContent();
+			locName = artDetails.item(7).getTextContent();
+			artistName = artDetails.item(8).getTextContent();
+
+			if(tourArtPos != -1){
+				artPiece = artWorkToTour.artPieces.get(tourArtPos);
+				artPiece.setDescription(description);
+				artPiece.setIdno(idNo);
+				artPiece.setWorkDate(date);
+				artPiece.setHistoricalContext(histContext);
+				artPiece.setImageURL(smallImage);
+				artPiece.setLocName(locName);
+				artPiece.setArtistName(artistName);
+				//artWorkToTour.artPieces.set(tourArtPos, artPiece);
+			}else{
+				artPiece = new ArtWork(aID, null, artistName, artName, description, idNo, date, histContext, smallImage, locName, null, null, null);
+			}
+		
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return artPiece;
+	}
+	
+	/*
+	 * Search based on the idNo used for search by idNo
+	 */
+	public static ArrayList<ArtWork> artWorkRequestIdentifier(String identifier){
+		identifierSearchedArt = new ArrayList<ArtWork>();
+		String url = "http://gvsuartgallery.org/service.php/search/Search/rest?method=queryRest&type=ca_objects&query=idno:%@*&additional_bundles[work_description]&additional_bundles[access]&additional_bundles[ca_object_representations.media.icon][returnURL]=1";
+		url = url.replace("%@", identifier);
+		InputStream in = makeConnection(url);
+		
+		try {
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = factory.newDocumentBuilder();
+			Document doc = db.parse(in);
+			
+			Element docElement = doc.getDocumentElement();
+			NodeList artWorkObjects = docElement.getElementsByTagName("ca_objects");
+			
+			for(int i = 0; i < artWorkObjects.getLength(); i++){
+				Element artPiece = (Element) artWorkObjects.item(i);
+				NodeList artDetails = artPiece.getChildNodes();
+				String artID = artPiece.getAttribute("object_id");
+				String artName = artDetails.item(0).getTextContent();
+				String artIdentifier = artDetails.item(1).getTextContent();
+				String artDescription = artDetails.item(2).getTextContent();
+				String access = artDetails.item(3).getTextContent();
+				String artImageURL = artDetails.item(4).getTextContent();
+				//Only add artwork if access is allowed
+				if(Integer.parseInt(access) == 1){
+					ArtWork a = new ArtWork(artName, artImageURL, artDescription, artIdentifier, artID);
+					identifierSearchedArt.add(a);
+				}
+			}
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return identifierSearchedArt;
+	}
+	
+	public static ArrayList<ArtWork> artWorkRequestArtistName(){
+		artistNameSearchedArt = new ArrayList<ArtWork>();
+		return artistNameSearchedArt;
+	}
+
+	public static Tour getTour() {
+		return artWorkToTour;
+	}
+
+	public static void setTour(Tour artWorkToTour) {
+		ParseArtWorkXML.artWorkToTour = artWorkToTour;
+	}
+
+}

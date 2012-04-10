@@ -69,6 +69,9 @@ public class ParseToursXML {
 		tours.set(Integer.valueOf(tourID) - 1, t);
 	}
 	
+	
+	//XML PARSING FOR TOURS
+	
 	/*
 	 * Makes a connection with the tours request and parses the XML returned from the database
 	 * This request returns information about the Tours in general not about each specific tour.
@@ -175,6 +178,4 @@ public class ParseToursXML {
 	public static Tour getTour(String tID){
 		return tours.get(Integer.valueOf(tID) - 1);
 	}
-	
-	
 }

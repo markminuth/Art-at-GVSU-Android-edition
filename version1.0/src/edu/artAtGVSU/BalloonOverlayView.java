@@ -128,7 +128,7 @@ public class BalloonOverlayView extends FrameLayout {
 	        float scaleWidth = ((float) newWidth) / width;
 	        float scaleHeight = ((float) newHeight) / height;
 	       
-	        // createa matrix for the manipulation
+	        // create matrix for the manipulation
 	        Matrix matrix = new Matrix();
 	        // resize the bit map
 	        matrix.postScale(scaleWidth, scaleHeight);
