@@ -60,9 +60,9 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/version1.0/src/edu/artAtGVSU/ItemsAdapter.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1933" selectionTopPixel="848"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SearchActivity.java" partName="SearchActivity.java" path="C:/Users/Bardsley/ArtAtGVSUApp/version1.0/src/edu/artAtGVSU/SearchActivity.java" title="SearchActivity.java" tooltip="version1.0/src/edu/artAtGVSU/SearchActivity.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SearchActivity.java" partName="SearchActivity.java" path="C:/Users/Bardsley/ArtAtGVSUApp/version1.0/src/edu/artAtGVSU/SearchActivity.java" title="SearchActivity.java" tooltip="version1.0/src/edu/artAtGVSU/SearchActivity.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/version1.0/src/edu/artAtGVSU/SearchActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1373" selectionTopPixel="441"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1373" selectionTopPixel="321"/>
 </editor>
 <editor id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="search_list.xml" partName="search_list.xml" path="C:/Users/Bardsley/ArtAtGVSUApp/version1.0/res/layout/search_list.xml" title="search_list.xml" tooltip="version1.0/res/layout/search_list.xml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/version1.0/res/layout/search_list.xml"/>
@@ -83,9 +83,9 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/version1.0/src/edu/artAtGVSU/SplashScreenActivity.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1119" selectionTopPixel="21"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ParseArtWorkXML.java" partName="ParseArtWorkXML.java" path="C:/Users/Bardsley/ArtAtGVSUApp/version1.0/src/edu/artAtGVSU/ParseArtWorkXML.java" title="ParseArtWorkXML.java" tooltip="version1.0/src/edu/artAtGVSU/ParseArtWorkXML.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ParseArtWorkXML.java" partName="ParseArtWorkXML.java" path="C:/Users/Bardsley/ArtAtGVSUApp/version1.0/src/edu/artAtGVSU/ParseArtWorkXML.java" title="ParseArtWorkXML.java" tooltip="version1.0/src/edu/artAtGVSU/ParseArtWorkXML.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/version1.0/src/edu/artAtGVSU/ParseArtWorkXML.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4328" selectionTopPixel="1365"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6358" selectionTopPixel="1806"/>
 </editor>
 <editor id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="splash.xml" partName="splash.xml" path="C:/Users/Bardsley/ArtAtGVSUApp/version1.0/res/layout/splash.xml" title="splash.xml" tooltip="version1.0/res/layout/splash.xml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/version1.0/res/layout/splash.xml"/>
@@ -104,15 +104,8 @@
 <view id="com.android.ide.eclipse.ddms.views.LogCatView" partName="LogCat">
 <viewState/>
 </view>
-<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
-<viewState/>
-</view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Warnings"/>
-<category IMemento.internal.id="Errors"/>
-</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -121,14 +114,9 @@
 <visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
 </viewState>
 </view>
-<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
-<viewState/>
-</view>
 <view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
 <viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="">
-<customFilters userDefinedPatternsEnabled="false">
-<xmlDefinedFilters>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.LibraryFilter" isEnabled="false"/>
+<customFilters userDefinedPatternsEnabled="false">&#x0A;<xmlDefinedFilters>&#x0A;<child filterId="org.eclipse.jdt.ui.PackageExplorer.LibraryFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.LocalTypesFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.StaticsFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.ClosedProjectsFilter" isEnabled="false"/>
@@ -153,11 +141,7 @@
 </customFilters>
 </viewState>
 </view>
-<view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
-<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
-<viewState/>
-</view>
-<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
 <viewState/>
 </view>
 <view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
@@ -250,7 +234,7 @@
 <layout>
 <mainWindow>
 <info folder="true" part="left">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
@@ -293,7 +277,7 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@f7472a" ratio="0.7496183" ratioLeft="491" ratioRight="164" relationship="4" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="LabelNotFound"/>
@@ -349,51 +333,34 @@
 <perspective_action id="org.eclipse.wst.xml.ui.perspective"/>
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
-<fastViewBars>
-<fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@7e205" orientation="256" selectedTabId="com.android.ide.eclipse.ddms.views.LogCatView" style="1">
-<fastViews>
-<view id="com.android.ide.eclipse.ddms.views.LogCatView" ratio="0.29923666"/>
+<fastViewBars>&#x0A;<fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@7e205" orientation="256" selectedTabId="com.android.ide.eclipse.ddms.views.LogCatView" style="1">&#x0A;<fastViews>&#x0A;<view id="com.android.ide.eclipse.ddms.views.LogCatView" ratio="0.29923666"/>
 </fastViews>
 </fastViewBar>
-<fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@1ab4fd4" orientation="256" selectedTabId="org.eclipse.debug.ui.BreakpointView" style="1">
-<fastViews>
-<view id="org.eclipse.debug.ui.VariableView" ratio="0.3"/>
+<fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@1ab4fd4" orientation="256" selectedTabId="org.eclipse.debug.ui.BreakpointView" style="1">&#x0A;<fastViews>&#x0A;<view id="org.eclipse.debug.ui.VariableView" ratio="0.3"/>
 <view id="org.eclipse.debug.ui.BreakpointView" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
-<fastViewBar fastViewLocation="16384" id="org.eclipse.debug.internal.ui.ConsoleFolderView" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="1">
-<fastViews>
-<view id="org.eclipse.ui.console.ConsoleView" ratio="0.3"/>
+<fastViewBar fastViewLocation="16384" id="org.eclipse.debug.internal.ui.ConsoleFolderView" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="1">&#x0A;<fastViews>&#x0A;<view id="org.eclipse.ui.console.ConsoleView" ratio="0.3"/>
 <view id="org.eclipse.ui.views.TaskList" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
-<fastViewBar fastViewLocation="16384" id="org.eclipse.debug.internal.ui.NavigatorFolderView" orientation="256" selectedTabId="org.eclipse.debug.ui.DebugView" style="1">
-<fastViews>
-<view id="org.eclipse.debug.ui.DebugView" ratio="0.29923666"/>
+<fastViewBar fastViewLocation="16384" id="org.eclipse.debug.internal.ui.NavigatorFolderView" orientation="256" selectedTabId="org.eclipse.debug.ui.DebugView" style="1">&#x0A;<fastViews>&#x0A;<view id="org.eclipse.debug.ui.DebugView" ratio="0.29923666"/>
 </fastViews>
 </fastViewBar>
 </fastViewBars>
-<layout>
-<mainWindow>
-<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder appearance="2" expanded="0">
-<page content="org.eclipse.debug.ui.DebugView" label="LabelNotFound"/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder appearance="2" expanded="0">&#x0A;<page content="org.eclipse.debug.ui.DebugView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="954" ratioRight="318" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="954" ratioRight="318" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.95552146" ratioLeft="623" ratioRight="29" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder appearance="2" expanded="0">
-<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.95552146" ratioLeft="623" ratioRight="29" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder appearance="2" expanded="0">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
@@ -402,30 +369,22 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@7e205" ratio="0.5" ratioLeft="636" ratioRight="636" relationship="2" relative="org.eclipse.debug.internal.ui.ConsoleFolderView">
-<folder appearance="2" expanded="0">
-<page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LabelNotFound"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@7e205" ratio="0.5" ratioLeft="636" ratioRight="636" relationship="2" relative="org.eclipse.debug.internal.ui.ConsoleFolderView">&#x0A;<folder appearance="2" expanded="0">&#x0A;<page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.42096773" ratioLeft="261" ratioRight="359" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
-<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.75" ratioLeft="954" ratioRight="318" relationship="2" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.75" ratioLeft="954" ratioRight="318" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="636" ratioRight="636" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.ExpressionView" label="LabelNotFound"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="636" ratioRight="636" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.ExpressionView" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@1ab4fd4" ratio="0.5" ratioLeft="636" ratioRight="636" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder appearance="2" expanded="0">
-<page content="org.eclipse.debug.ui.VariableView" label="LabelNotFound"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@1ab4fd4" ratio="0.5" ratioLeft="636" ratioRight="636" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder appearance="2" expanded="0">&#x0A;<page content="org.eclipse.debug.ui.VariableView" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
@@ -439,7 +398,6 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/version1.0/src/edu/artAtGVSU/SearchActivity.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/version1.0/src/edu/artAtGVSU/ParseArtWorkXML.java"/>
-<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=artAtGVSU/C:\/Program Files\/Android\/android-sdk\/platforms\/android-10\/android.jar&lt;java.lang.reflect(InvocationTargetException.class"/>
 <editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=artAtGVSU/C:\/Program Files\/Android\/android-sdk\/platforms\/android-10\/android.jar&lt;android.widget(AdapterView.class"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/version1.0/src/edu/artAtGVSU/SplashScreenActivity.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/version1.0/res/layout/splash.xml"/>
@@ -447,25 +405,11 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/version1.0/res/layout/search.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/version1.0/res/layout/artdetail_list.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/version1.0/res/layout/loading_list.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/version1.0/src/edu/artAtGVSU/SplashScreenActivity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/version1.0/src/edu/artAtGVSU/ArtWorkDetailsActivity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/version1.0/src/edu/artAtGVSU/ParseArtWorkXML.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/version1.0/res/layout/splash.xml"/>
 </editors>
-<item historyLabel="ParseArtWorkXML.java" index="1">
-<position info="not_deleted" x="2849" y="0"/>
-</item>
-<item historyLabel="ParseArtWorkXML.java" index="1">
-<position info="not_deleted" x="2879" y="0"/>
-</item>
-<item historyLabel="ParseArtWorkXML.java" index="1">
-<position info="not_deleted" x="2906" y="0"/>
-</item>
-<item historyLabel="ParseArtWorkXML.java" index="1">
-<position info="not_deleted" x="2971" y="0"/>
-</item>
-<item historyLabel="InvocationTargetException.class" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ParseArtWorkXML.java" index="1">
-<position info="not_deleted" x="2768" y="0"/>
-</item>
 <item historyLabel="SearchActivity.java" index="0">
 <position info="not_deleted" x="2435" y="0"/>
 </item>
@@ -532,49 +476,65 @@
 <item historyLabel="SearchActivity.java" index="0">
 <position info="not_deleted" x="2673" y="0"/>
 </item>
-<item historyLabel="AdapterView.class" index="3">
+<item historyLabel="AdapterView.class" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="SearchActivity.java" index="0">
 <position info="not_deleted" x="2270" y="0"/>
 </item>
-<item historyLabel="SplashScreenActivity.java" index="4">
+<item historyLabel="SplashScreenActivity.java" index="3">
 <position info="not_deleted" x="1119" y="0"/>
 </item>
-<item historyLabel="splash.xml" index="5"/>
-<item historyLabel="search_list.xml" index="6"/>
-<item historyLabel="search.xml" index="7"/>
-<item historyLabel="search_list.xml" index="6"/>
-<item historyLabel="search.xml" index="7"/>
+<item historyLabel="splash.xml" index="4"/>
+<item historyLabel="search_list.xml" index="5"/>
+<item historyLabel="search.xml" index="6"/>
+<item historyLabel="search_list.xml" index="5"/>
+<item historyLabel="search.xml" index="6"/>
 <item historyLabel="SearchActivity.java" index="0">
 <position info="not_deleted" x="2270" y="0"/>
 </item>
-<item historyLabel="search.xml" index="7"/>
+<item historyLabel="search.xml" index="6"/>
 <item historyLabel="ParseArtWorkXML.java" index="1">
 <position info="not_deleted" x="4328" y="0"/>
 </item>
-<item historyLabel="splash.xml" index="5"/>
+<item historyLabel="splash.xml" index="4"/>
 <item historyLabel="SearchActivity.java" index="0">
 <position info="not_deleted" x="2270" y="0"/>
 </item>
-<item historyLabel="SplashScreenActivity.java" index="4">
+<item historyLabel="SplashScreenActivity.java" index="3">
 <position info="not_deleted" x="1119" y="0"/>
 </item>
 <item historyLabel="SearchActivity.java" index="0">
 <position info="not_deleted" x="884" y="0"/>
 </item>
-<item historyLabel="search.xml" index="7"/>
+<item historyLabel="search.xml" index="6"/>
 <item historyLabel="SearchActivity.java" index="0">
 <position info="not_deleted" x="2018" y="0"/>
 </item>
-<item historyLabel="search.xml" index="7"/>
+<item historyLabel="search.xml" index="6"/>
 <item historyLabel="SearchActivity.java" index="0">
 <position info="not_deleted" x="1373" y="0"/>
 </item>
-<item historyLabel="artdetail_list.xml" index="8"/>
-<item historyLabel="loading_list.xml" index="9"/>
-<item active="true" historyLabel="SearchActivity.java" index="0">
+<item historyLabel="artdetail_list.xml" index="7"/>
+<item historyLabel="loading_list.xml" index="8"/>
+<item historyLabel="SearchActivity.java" index="0">
 <position info="not_deleted" x="1373" y="0"/>
+</item>
+<item historyLabel="SplashScreenActivity.java" index="9">
+<position info="not_deleted" x="1119" y="0"/>
+</item>
+<item historyLabel="ArtWorkDetailsActivity.java" index="10">
+<position info="not_deleted" x="961" y="44"/>
+</item>
+<item historyLabel="SplashScreenActivity.java" index="9">
+<position info="not_deleted" x="1119" y="0"/>
+</item>
+<item historyLabel="ParseArtWorkXML.java" index="11">
+<position info="not_deleted" x="4328" y="0"/>
+</item>
+<item historyLabel="splash.xml" index="12"/>
+<item active="true" historyLabel="ParseArtWorkXML.java" index="11">
+<position info="not_deleted" x="4328" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -584,12 +544,6 @@
 <trimLayout>
 <trimArea IMemento.internal.id="16384">
 <trimItem IMemento.internal.id="left"/>
-<trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.ConsoleFolderView"/>
-<trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
-</trimArea>
-<trimArea IMemento.internal.id="131072">
-<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@7e205"/>
-<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@1ab4fd4"/>
 </trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>

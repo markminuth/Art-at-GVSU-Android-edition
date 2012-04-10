@@ -16,12 +16,16 @@ import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Gallery;
@@ -32,11 +36,17 @@ import android.widget.AdapterView.OnItemSelectedListener;
 
 public class MapTourActivity extends MapActivity {
 
-	MapView map;
-	MapController controller;
-	ArrayList<Bitmap> images;
+	static MapView map;
+	static MapController controller;
+	static ArrayList<Bitmap> images;
+	static List<Overlay> mapOverlays;
+	static TourPinpoints itemizedoverlay;
+	static Tour t;
+	static Gallery gallery;
+	static int selectedTour;
 	int selectedPos;
-
+	static Context c;
+	
 	/*
 	 * Get tour image from URL
 	 */
@@ -66,80 +76,73 @@ public class MapTourActivity extends MapActivity {
 				R.drawable.app_icon)).getBitmap();
 		return img;
 	}
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.map);
-
+		c = this;
 		map = (MapView) findViewById(R.id.mapView);
 		map.displayZoomControls(true);
 		map.setBuiltInZoomControls(true);
-
-		List<Overlay> mapOverlays = map.getOverlays();
-		Drawable drawable = this.getResources().getDrawable(R.drawable.pin);
-		final TourPinpoints itemizedoverlay = new TourPinpoints(drawable, map);
-
-		int selectedTour = getIntent().getIntExtra("tourID", -1) + 1;
-		final Tour t = ParseToursXML.getTour(String.valueOf(selectedTour));
 		
-		// Get Extra Information for each artwork in tour including image URL
-		final ArrayList<Bitmap> images = new ArrayList<Bitmap>();
-		//Thread galleryLoad = new Thread() {
-			//@Override
-			//public void run() {
+		mapOverlays = map.getOverlays();
+		Drawable drawable = map.getResources().getDrawable(R.drawable.pin);
+		itemizedoverlay = new TourPinpoints(drawable, map);
+		
+		//Create Thread to load tour points on map
+		final Thread pinPoints = new Thread() {
+			@Override
+			public void run() {
+				selectedTour = getIntent().getIntExtra("tourID", -1) + 1;
+				t = ParseToursXML.getTour(String.valueOf(selectedTour));
+				for (int i = 0; i < t.artPieces.size(); i++) {
+					GeoPoint gp = t.artPieces.get(i).geoLoc;
+					OverlayItem overlayItem;
+					if(t.artPieces.get(i).artistName != null){
+						overlayItem = new OverlayItem(gp, t.artPieces.get(i).artTitle, t.artPieces.get(i).artistName + "%" + t.artPieces.get(i).imageURL);
+					}else{
+						overlayItem = new OverlayItem(gp, t.artPieces.get(i).artTitle, "%");
+					}
+					itemizedoverlay.createPinPoint(overlayItem);
+				}
+				Message msg = new Message();
+				Bundle resBundle = new Bundle();
+				resBundle.putString("status", "SUCCESS");
+				msg.obj = resBundle;
+				handlerPinPoints.sendMessage(msg);
+			}
+		};
+		pinPoints.start();
+		
+		controller = map.getController();
+		
+		Thread galleryLoad = new Thread(){
+			
+			@Override
+			public void run() {
+				images = new ArrayList<Bitmap>();
 				ParseArtWorkXML.setTour(t);
+				// Get Extra Information for each artwork in tour including image URL
 				for (int i = 0; i < t.artPieces.size(); i++) {
 					// if the artwork has not yet been set to tours
 					if (ParseArtWorkXML.getTour().artPieces.get(i).imageURL == null) {
 						ParseArtWorkXML.artWorkRequestID(t.artPieces.get(i).artID, i);
 						images.add(fetchImage(t.artPieces.get(i).getImageURL()));
 					} else {
-						images.add(fetchImage(ParseArtWorkXML.getTour().artPieces
-								.get(i).getImageURL()));
+						images.add(fetchImage(ParseArtWorkXML.getTour().artPieces.get(i).getImageURL()));
 					}
 				}
-			//}
-		//};
-		//galleryLoad.start();
-		
-		Gallery gallery = (Gallery) findViewById(R.id.gallery);
-		gallery.setAdapter(new ImageAdapterMapsGallery(this, images));
-		
-		for (int i = 0; i < t.artPieces.size(); i++) {
-			GeoPoint gp = t.artPieces.get(i).geoLoc;
-			OverlayItem overlayItem = new OverlayItem(gp, t.artPieces.get(i).artTitle, t.artPieces.get(i).artistName + "%" + t.artPieces.get(i).imageURL);
-			
-			itemizedoverlay.createPinPoint(overlayItem);
-		}
-
-		mapOverlays.add(itemizedoverlay);
-		controller = map.getController();
-
-		// Focus Screen to correct location based on the tour
-		if (selectedTour == 1) {
-
-			controller.animateTo(t.artPieces.get(1).geoLoc);
-			controller.setZoom(17);
-		} else if (selectedTour == 2) {
-
-			controller.animateTo(t.artPieces.get(18).geoLoc);
-			controller.setZoom(17);
-		} else {
-
-			controller.animateTo(t.artPieces.get(1).geoLoc);
-			controller.setZoom(15);
-		}
-
-		gallery.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView parent, View view,
-					int position, long id) {
-				selectedPos = position;
-				itemizedoverlay.onTap(selectedPos);
-				view.setFocusable(true);	
+				//update info for pinpoints
+				Message msg = new Message();
+				Bundle resBundle = new Bundle();
+				resBundle.putString("status", "SUCCESS");
+				msg.obj = resBundle;
+				handlerGallery.sendMessage(msg);
 			}
-		});
+		};
+		galleryLoad.start();
+		
 	}
 
 	@Override
@@ -147,4 +150,50 @@ public class MapTourActivity extends MapActivity {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	/*
+	 * Update UI with the pinpoints in the tour
+	 */
+	private Handler handlerPinPoints = new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			mapOverlays.add(itemizedoverlay);
+			// Focus Screen to correct location based on the tour
+			if (selectedTour == 1) {
+				controller.animateTo(t.artPieces.get(1).geoLoc);
+				controller.setZoom(17);
+			} else if (selectedTour == 2) {
+				controller.animateTo(t.artPieces.get(18).geoLoc);
+				controller.setZoom(17);
+			} else {
+				controller.animateTo(t.artPieces.get(1).geoLoc);
+				controller.setZoom(15);
+			}
+		}
+	};
+	
+	/*
+	 * Update UI with the gallery of images above map
+	 */
+	private Handler handlerGallery = new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			gallery = (Gallery) findViewById(R.id.gallery);
+			gallery.setAdapter(new ImageAdapterMapsGallery(c, images));
+			gallery.setSelection(2);
+			
+			gallery.setOnItemClickListener(new OnItemClickListener() {
+				public void onItemClick(AdapterView parent, View view,
+						int position, long id) {
+					gallery.refreshDrawableState();
+					RelativeLayout borderImg = (RelativeLayout)view;
+					selectedPos = position;
+					itemizedoverlay.onTap(selectedPos);
+					view.setFocusable(true);	
+					borderImg.setBackgroundColor(Color.RED);
+				}
+			});
+		}
+	};
+		
 }

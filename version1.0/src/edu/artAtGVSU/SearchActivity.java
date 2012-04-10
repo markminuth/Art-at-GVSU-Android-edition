@@ -20,7 +20,7 @@ public class SearchActivity extends Activity{
 	ArrayList<ArtWork> searchedArtWork;
 	ListView list;
 	Context c = this;
-	ItemsAdapter adapter;
+	ItemsAdapterWithImage adapter;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public class SearchActivity extends Activity{
 							}
 						}	*/
 						
-						adapter = new ItemsAdapter(c, R.layout.search_list, searchedArtWork);
+						adapter = new ItemsAdapterWithImage(c, R.layout.search_list, searchedArtWork);
 						list.setAdapter(adapter);
 					}catch(Exception e){
 						//Toast.makeText(c, "Error searching", Toast.LENGTH_LONG);

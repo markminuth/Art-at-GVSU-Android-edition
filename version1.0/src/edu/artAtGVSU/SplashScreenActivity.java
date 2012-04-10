@@ -39,24 +39,6 @@ public class SplashScreenActivity extends Activity {
 			}
 		};
 		splashTread.start();
-		
-//		Thread tourArtWorkThread = new Thread(){
-//			@Override
-//			public void run() {
-//				
-//				// Get Extra Information for each artwork in tour including image URL
-//				for (int i = 0; i < ParseToursXML.getTours().size(); i++) {
-//					Tour t = ParseToursXML.getTours().get(i);
-//					
-//					for(int j = 0; j < t.artPieces.size(); j++){
-//						if (ParseArtWorkXML.getTour().artPieces.get(i).imageURL == null) {
-//							ParseArtWorkXML.artWorkRequestID(t.artPieces.get(i).artID, i);
-//						}
-//					}
-//				}
-//			}
-//		};
-//		tourArtWorkThread.start();
 	}
 
 }

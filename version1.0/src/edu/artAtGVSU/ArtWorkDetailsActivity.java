@@ -39,7 +39,7 @@ public class ArtWorkDetailsActivity extends Activity {
 				details = new String[]{"Physical description \n" + aOpened.description, 
 					"Historical narrative \n" + aOpened.historicalContext.substring(0, 240) + "...",
 					"Medium \n" + aOpened.medium,
-					"Date \n",
+					"Date \n" + aOpened.workDate,
 					"Location \n" + aOpened.locName, 
 					"More works by \n" + aOpened.artistName,
 					"Identifier \n" + aOpened.idno};
@@ -47,7 +47,7 @@ public class ArtWorkDetailsActivity extends Activity {
 				details = new String[]{"Physical description \n" + aOpened.description, 
 						"Historical narrative \n" + aOpened.historicalContext,
 						"Medium \n" + aOpened.medium,
-						"Date \n",
+						"Date \n" + aOpened.workDate,
 						"Location \n" + aOpened.locName, 
 						"More works by \n" + aOpened.artistName,
 						"Identifier \n" + aOpened.idno};

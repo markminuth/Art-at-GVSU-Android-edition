@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Gallery;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 public class ImageAdapterMapsGallery extends BaseAdapter {
     private Context mContext;
@@ -42,6 +44,10 @@ public class ImageAdapterMapsGallery extends BaseAdapter {
 		imgView.setScaleType(ImageView.ScaleType.FIT_XY);
 		imgView.setBackgroundResource(item);
 		
-		return imgView;
+		final RelativeLayout borderImg = new RelativeLayout(mContext);
+		borderImg.setPadding(2, 2, 2, 2);
+		borderImg.setBackgroundColor(Color.BLACK);
+		borderImg.addView(imgView);
+		return borderImg;
 	}
 }

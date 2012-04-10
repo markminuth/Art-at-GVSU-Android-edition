@@ -62,7 +62,10 @@ public class TourActivity extends Activity {
 
 		Gallery gallery = (Gallery) findViewById(R.id.gallery);
 		gallery.setAdapter(new ImageAdapterTours(this, images));
-
+		
+		//set to middle of the tours
+		gallery.setSelection(1);
+		
 		gallery.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView parent, View view,
 					int position, long id) {

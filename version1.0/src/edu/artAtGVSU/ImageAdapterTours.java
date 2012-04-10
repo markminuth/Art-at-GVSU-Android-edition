@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Gallery;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 public class ImageAdapterTours extends BaseAdapter {
     private Context mContext;
@@ -20,7 +21,7 @@ public class ImageAdapterTours extends BaseAdapter {
 		// TODO Auto-generated constructor stub
 		mContext = c;
 		//TypedArray attr = mContext.obtainStyledAttributes(R.styleable.TourGallery);
-		//item = attr.getResourceId(R.styleable.TourGallery_android_galleryItemBackground, 3);
+		//item = attr.getResourceId(R.styleable.TourGallery_android_galleryItemBackground, 1);
 		//attr.recycle();
 		this.images = bitmapList;
 	}
@@ -41,6 +42,10 @@ public class ImageAdapterTours extends BaseAdapter {
 		imgView.setScaleType(ImageView.ScaleType.FIT_XY);
 		imgView.setBackgroundResource(item);
 		
-		return imgView;
+		final RelativeLayout borderImg = new RelativeLayout(mContext);
+		borderImg.setPadding(2, 2, 2, 2);
+		borderImg.setBackgroundColor(0xff000000);
+		borderImg.addView(imgView);
+		return borderImg;
 	}
 }
