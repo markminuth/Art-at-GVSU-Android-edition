@@ -59,7 +59,6 @@ public class ArtWork {
 		geoLoc = null;
 		stopID = null;
 	}
-	
 	/*
 	 * Constructor used for a piece of art shown by the tours menu
 	 */
@@ -69,7 +68,7 @@ public class ArtWork {
 		artTitle = aName;
 		stopID = aStopID;
 		iconImageURL = null;
-		imageURLLarge = null;
+		imageURL = null;
 		artistID = null;
 		artistName = null;
 		description = null;
@@ -89,7 +88,7 @@ public class ArtWork {
 		idno = aIdNo;
 		workDate = aWorkDate;
 		historicalContext= aHistContext;
-		imageURLLarge = aImageURL;
+		imageURL = aImageURL;
 		locName = aLocName;
 		medium = aMedium;
 		geoLoc = aGeoLoc;
@@ -160,20 +159,12 @@ public class ArtWork {
 		this.historicalContext = historicalContext;
 	}
 
-	public String getImageURLLarge() {
-		return imageURLLarge;
+	public String getImageURL() {
+		return imageURL;
 	}
 
-	public void setImageURLLarge(String imageURLLarge) {
-		this.imageURLLarge = imageURLLarge;
-	}
-	
-	public String getImageURLMedium() {
-		return imageURLMedium;
-	}
-
-	public void setImageURLMedium(String imageURLMedium) {
-		this.imageURLMedium = imageURLMedium;
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
 	}
 
 	public String getLocName() {

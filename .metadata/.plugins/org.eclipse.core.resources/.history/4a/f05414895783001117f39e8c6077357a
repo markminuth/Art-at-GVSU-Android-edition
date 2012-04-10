@@ -140,8 +140,6 @@ public class ParseArtWorkXML {
 			String medium = null;
 			String locNotes = null;
 			GeoPoint geoP = null;
-			String access = null;
-			
 			if(tourArtPos != -1){
 				artPiece = artWorkToTour.artPieces.get(tourArtPos);
 			}
@@ -156,25 +154,22 @@ public class ParseArtWorkXML {
 			artistName = artDetails.item(8).getTextContent();
 			medium = artDetails.item(9).getTextContent();
 			largeImage = artDetails.item(10).getTextContent();
-			geoP = createPoint(artDetails.item(12).getTextContent());
-			locNotes = artDetails.item(13).getTextContent();
-			access = artDetails.item(14).getTextContent();
+			locNotes = artDetails.item(11).getTextContent();
 			
-			if(Integer.parseInt(access) == 1){
-				if(tourArtPos != -1){
-					artPiece = artWorkToTour.artPieces.get(tourArtPos);
-					artPiece.setDescription(description);
-					artPiece.setIdno(idNo);
-					artPiece.setWorkDate(date);
-					artPiece.setHistoricalContext(histContext);
-					artPiece.setImageURLMedium(mediumImage);
-					artPiece.setLocName(locName);
-					artPiece.setArtistName(artistName);
-					artPiece.setMedium(medium);
-					//artWorkToTour.artPieces.set(tourArtPos, artPiece);
-				}else{
-					artPiece = new ArtWork(aID, null, artistName, artName, description, idNo, date, histContext, mediumImage, locName, medium, null, null);
-				}
+
+			if(tourArtPos != -1){
+				artPiece = artWorkToTour.artPieces.get(tourArtPos);
+				artPiece.setDescription(description);
+				artPiece.setIdno(idNo);
+				artPiece.setWorkDate(date);
+				artPiece.setHistoricalContext(histContext);
+				artPiece.setImageURLMedium(mediumImage);
+				artPiece.setLocName(locName);
+				artPiece.setArtistName(artistName);
+				artPiece.setMedium(medium);
+				//artWorkToTour.artPieces.set(tourArtPos, artPiece);
+			}else{
+				artPiece = new ArtWork(aID, null, artistName, artName, description, idNo, date, histContext, mediumImage, locName, medium, null, null);
 			}
 		
 		} catch (SAXException e) {

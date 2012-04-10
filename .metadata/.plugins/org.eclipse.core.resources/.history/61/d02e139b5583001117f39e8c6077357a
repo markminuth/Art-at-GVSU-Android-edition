@@ -12,7 +12,7 @@ public class ArtWorkZoomActivity extends Activity{
 		setContentView(R.layout.art_zoom);
 		
 		WebView webImage = (WebView) findViewById(R.id.webViewForImage);
-		webImage.loadUrl(ArtWorkObjectSetUp.getArtWork().imageURLMedium);
+		webImage.loadUrl(ArtWorkObjectSetUp.getArtWork().imageURL);
 		webImage.getSettings().setDefaultZoom(WebSettings.ZoomDensity.CLOSE);
 	}
 }

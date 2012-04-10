@@ -15,11 +15,9 @@ public class ArtWork {
 	String idno;
 	String workDate;
 	String historicalContext;
-	String imageURLMedium;
-	String imageURLLarge;
+	String imageURL;
 	String iconImageURL;
 	String locName;
-	String locNotes;
 	String medium;
 	GeoPoint geoLoc;
 	String stopID;
@@ -33,8 +31,7 @@ public class ArtWork {
 		idno = null;
 		workDate = null;
 		historicalContext= null;
-		imageURLLarge = null;
-		imageURLMedium = null;
+		imageURL = null;
 		iconImageURL = null;
 		locName = null;
 		medium = null;
@@ -44,22 +41,20 @@ public class ArtWork {
 	
 	public ArtWork(String aName, String aImageURL, String aDescription, String aIdentifier, String aID){
 		artID = aID;
+		artistID = null;
+		artistName = null;
 		artTitle = aName;
 		description = aDescription;
 		idno = aIdentifier;
-		iconImageURL = aImageURL;
 		workDate = null;
 		historicalContext= null;
-		imageURLLarge = null;
-		imageURLMedium = null;
-		artistID = null;
-		artistName = null;
+		imageURL = null;
+		iconImageURL = aImageURL;
 		locName = null;
 		medium = null;
 		geoLoc = null;
 		stopID = null;
 	}
-	
 	/*
 	 * Constructor used for a piece of art shown by the tours menu
 	 */
@@ -69,7 +64,7 @@ public class ArtWork {
 		artTitle = aName;
 		stopID = aStopID;
 		iconImageURL = null;
-		imageURLLarge = null;
+		imageURL = null;
 		artistID = null;
 		artistName = null;
 		description = null;
@@ -89,7 +84,7 @@ public class ArtWork {
 		idno = aIdNo;
 		workDate = aWorkDate;
 		historicalContext= aHistContext;
-		imageURLLarge = aImageURL;
+		imageURL = aImageURL;
 		locName = aLocName;
 		medium = aMedium;
 		geoLoc = aGeoLoc;
@@ -160,20 +155,12 @@ public class ArtWork {
 		this.historicalContext = historicalContext;
 	}
 
-	public String getImageURLLarge() {
-		return imageURLLarge;
+	public String getImageURL() {
+		return imageURL;
 	}
 
-	public void setImageURLLarge(String imageURLLarge) {
-		this.imageURLLarge = imageURLLarge;
-	}
-	
-	public String getImageURLMedium() {
-		return imageURLMedium;
-	}
-
-	public void setImageURLMedium(String imageURLMedium) {
-		this.imageURLMedium = imageURLMedium;
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
 	}
 
 	public String getLocName() {

@@ -20,8 +20,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import com.google.android.maps.GeoPoint;
-
 public class ParseArtWorkXML {
 	static ArrayList<ArtWork> identifierSearchedArt;
 	static ArrayList<ArtWork> artistNameSearchedArt;
@@ -46,25 +44,7 @@ public class ParseArtWorkXML {
 		}
 		return in;
 	}
-	
-	/*
-	 * Sets up the point for the geo Location by parsing the XML String and putting the lat and lon
-	 * int values into the GeoPoint object. Returns the GeoPoint created.
-	 */
-	private static GeoPoint createPoint(String geoLocation){
-		String loc = geoLocation;
-		int startTrim = loc.indexOf("[") + 1;
-		String gLoc = loc.substring(startTrim);
-		String lat = gLoc.substring(0 ,gLoc.indexOf(","));
-		String lon = gLoc.substring(gLoc.indexOf(",") + 1, gLoc.indexOf("]"));
-		double latitude = Double.valueOf(lat.trim()).doubleValue();
-		double longitude = Double.valueOf(lon.trim()).doubleValue();
 
-		int iLat = (int) (latitude * 1E6);
-		int iLon = (int) (longitude * 1E6);
-		GeoPoint p = new GeoPoint(iLat, iLon);
-		return p;
-	}
 	
 	/*
 	 * Makes a connection with the URL that requests the artwork icon for the tours gallery.
@@ -113,7 +93,7 @@ public class ParseArtWorkXML {
 	 * tourArtPos can be set to -1 if the art piece is not being called for the tour
 	 */
 	public static ArtWork artWorkRequestID(String aID, int tourArtPos){
-		String url = "http://gvsuartgallery.org/service.php/iteminfo/ItemInfo/rest?method=get&type=ca_objects&item_ids[0]=%d&bundles[1]=ca_objects.object_id&bundles[2]=ca_object_labels.name&bundles[3]=ca_objects.work_description&bundles[4]=ca_objects.idno&bundles[5]=ca_objects.work_date&bundles[6]=ca_objects.historical_context&bundles[7]=ca_object_representations.media.medium&bundles[8]=ca_storage_locations.preferred_labels.name&bundles[9]=ca_entities.preferred_labels.displayname&bundles[10]=ca_objects.work_medium&bundles[11]=ca_object_representations.media.large&bundles[12]=ca_entities.entity_id&bundles[13]=ca_storage_locations.georeference&bundles[14]=storage_location_notes&bundles[15]=ca_objects.access&options[ca_object_representations.media.medium][returnURL]=1&options[ca_object_representations.media.large][returnURL]=1";
+		String url = "http://gvsuartgallery.org/service.php/iteminfo/ItemInfo/rest?method=get&type=ca_objects&item_ids[0]=%d&bundles[1]=ca_objects.object_id&bundles[2]=ca_object_labels.name&bundles[3]=ca_objects.work_description&bundles[4]=ca_objects.idno&bundles[5]=ca_objects.work_date&bundles[6]=ca_objects.historical_context&bundles[7]=ca_object_representations.media.small&bundles[8]=ca_storage_locations.preferred_labels.name&bundles[9]=ca_entities.preferred_labels.displayname&options[ca_object_representations.media.small][returnURL]=1";
 		url = url.replace("%d", aID);
 		InputStream in = makeConnection(url);
 		ArtWork artPiece = null;
@@ -133,14 +113,9 @@ public class ParseArtWorkXML {
 			String idNo = null;
 			String date = null;
 			String histContext = null;
-			String mediumImage = null;
-			String largeImage = null;
+			String smallImage = null;
 			String locName = null;
 			String artistName = null;
-			String medium = null;
-			String locNotes = null;
-			GeoPoint geoP = null;
-			String access = null;
 			
 			if(tourArtPos != -1){
 				artPiece = artWorkToTour.artPieces.get(tourArtPos);
@@ -151,30 +126,22 @@ public class ParseArtWorkXML {
 			idNo = artDetails.item(3).getTextContent();
 			date = artDetails.item(4).getTextContent();
 			histContext = artDetails.item(5).getTextContent();
-			mediumImage = artDetails.item(6).getTextContent();
+			smallImage = artDetails.item(6).getTextContent();
 			locName = artDetails.item(7).getTextContent();
 			artistName = artDetails.item(8).getTextContent();
-			medium = artDetails.item(9).getTextContent();
-			largeImage = artDetails.item(10).getTextContent();
-			geoP = createPoint(artDetails.item(12).getTextContent());
-			locNotes = artDetails.item(13).getTextContent();
-			access = artDetails.item(14).getTextContent();
-			
-			if(Integer.parseInt(access) == 1){
-				if(tourArtPos != -1){
-					artPiece = artWorkToTour.artPieces.get(tourArtPos);
-					artPiece.setDescription(description);
-					artPiece.setIdno(idNo);
-					artPiece.setWorkDate(date);
-					artPiece.setHistoricalContext(histContext);
-					artPiece.setImageURLMedium(mediumImage);
-					artPiece.setLocName(locName);
-					artPiece.setArtistName(artistName);
-					artPiece.setMedium(medium);
-					//artWorkToTour.artPieces.set(tourArtPos, artPiece);
-				}else{
-					artPiece = new ArtWork(aID, null, artistName, artName, description, idNo, date, histContext, mediumImage, locName, medium, null, null);
-				}
+
+			if(tourArtPos != -1){
+				artPiece = artWorkToTour.artPieces.get(tourArtPos);
+				artPiece.setDescription(description);
+				artPiece.setIdno(idNo);
+				artPiece.setWorkDate(date);
+				artPiece.setHistoricalContext(histContext);
+				artPiece.setImageURL(smallImage);
+				artPiece.setLocName(locName);
+				artPiece.setArtistName(artistName);
+				//artWorkToTour.artPieces.set(tourArtPos, artPiece);
+			}else{
+				artPiece = new ArtWork(aID, null, artistName, artName, description, idNo, date, histContext, smallImage, locName, null, null, null);
 			}
 		
 		} catch (SAXException e) {

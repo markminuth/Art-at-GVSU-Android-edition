@@ -59,7 +59,7 @@ public class ArtWorkDetailsActivity extends Activity {
 			
 			//Set up all detials of the artwork 
 			ImageView i = (ImageView) findViewById(R.id.artImage);
-			i.setImageBitmap(fetchImage(aOpened.imageURLMedium));
+			i.setImageBitmap(fetchImage(aOpened.imageURLLarge));
 	
 			TextView artTitle = (TextView) findViewById(R.id.artPieceTitle);
 			artTitle.setText(aOpened.artTitle);
