@@ -22,11 +22,14 @@ public class FavoritesActivity extends Activity{
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		
+		File root = new File(Environment.getExternalStorageDirectory(), "Favorite");
+		
+		
 		TextView textView = new TextView(this);
 		setContentView(textView);
 		//deleteFromFile("Hey 4Ho!");
 		//writingToFile("Hey 4Ho!");
-		writingToFile("NEW LINE TRY 2");
+		writingToFile("This Works");
 		String temp = "";//readFromFile();
 		temp = readFromFile();
 		//this part does not work!
@@ -76,7 +79,7 @@ public void writingToFile(String fav){
 		
 		temp += "\n"+readFromFile();
 		//FileWriter f = new FileWriter("/sdcard/download/impossible.txt");
-        FileOutputStream fOut = openFileOutput("ArtFavorites2.txt",MODE_WORLD_READABLE);
+        FileOutputStream fOut = openFileOutput("ArtFavorites.txt",MODE_WORLD_READABLE);
    
         OutputStreamWriter osw = new OutputStreamWriter(fOut); 
         osw.write(temp);
@@ -125,6 +128,7 @@ public String readFromFile(){
     
 	}catch (IOException e) 
 	{
+	temp +="\ngot cought!"+"\n";
 	e.printStackTrace();
 	
 	AlertDialog.Builder delmessagebuilder = new AlertDialog.Builder(this);

@@ -236,22 +236,8 @@ public class ParseArtWorkXML {
 		return identifierSearchedArt;
 	}
 	
-	public static ArrayList<ArtWork> artWorkRequestArtistName(String artistName){
+	public static ArrayList<ArtWork> artWorkRequestArtistName(){
 		artistNameSearchedArt = new ArrayList<ArtWork>();
-		String url = "http://gvsuartgallery.org/service.php/search/Search/rest?method=queryRest&type=ca_entities&query=ca_entity_labels.displayname:%@*&additional_bundles=";
-		url = url.replace("%@", artistName);
-		InputStream in = makeConnection(url);
-		
-		try {
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder db = factory.newDocumentBuilder();
-			Document doc = db.parse(in);
-			
-			Element docElement = doc.getDocumentElement();
-		}catch(Exception e){
-			
-		}
-		
 		return artistNameSearchedArt;
 	}
 

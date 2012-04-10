@@ -26,7 +26,7 @@ public class FavoritesActivity extends Activity{
 		setContentView(textView);
 		//deleteFromFile("Hey 4Ho!");
 		//writingToFile("Hey 4Ho!");
-		writingToFile("NEW LINE TRY 2");
+		writingToFile("This Works!!!!!!!!!!!!!");
 		String temp = "";//readFromFile();
 		temp = readFromFile();
 		//this part does not work!

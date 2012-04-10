@@ -248,8 +248,6 @@ public class ParseArtWorkXML {
 			Document doc = db.parse(in);
 			
 			Element docElement = doc.getDocumentElement();
-		}catch(Exception e){
-			
 		}
 		
 		return artistNameSearchedArt;
