@@ -1,0 +1,46 @@
+package edu.artAtGVSU;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
+public class FavoritesFileWriter extends Activity{
+	
+	public  void writingToFile(String fav){
+		
+		String temp = new String(fav);
+		
+		try { 
+			
+			temp += "\n"+readFromFile();
+			//FileWriter f = new FileWriter("/sdcard/download/impossible.txt");
+	        FileOutputStream fOut = openFileOutput("ArtFavorites3.txt",MODE_WORLD_READABLE);
+	   
+	        OutputStreamWriter osw = new OutputStreamWriter(fOut); 
+	        osw.write(temp);
+	        
+	        osw.flush();
+	        osw.close();
+		}catch (IOException e) 
+		{
+		//e.printStackTrace();
+		
+		//AlertDialog.Builder delmessagebuilder = new AlertDialog.Builder(this);
+		
+	    //delmessagebuilder.setCancelable(false);
+		
+	    //delmessagebuilder.setMessage("File Access Error");
+		
+	    //delmessagebuilder.setNeutralButton("Okay", new DialogInterface.OnClickListener() 
+	    //{
+	      //   public void onClick(DialogInterface dialog, int id) 
+	        // {
+	        	// 	dialog.dismiss();
+	         //}
+	     //});
+		
+		// delmessagebuilder.create().show();
+		}
+		
+	}
+}

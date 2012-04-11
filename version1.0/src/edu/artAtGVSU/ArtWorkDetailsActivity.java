@@ -1,13 +1,18 @@
 package edu.artAtGVSU;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -27,6 +32,7 @@ public class ArtWorkDetailsActivity extends Activity {
 	ArtWork aOpened;
 	String[] details;
 	ListView detailList;
+	Context c = this;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -89,8 +95,12 @@ public class ArtWorkDetailsActivity extends Activity {
 		favorite.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View v) {
-				FavoritesActivity f = new FavoritesActivity();
-				f.writingToFile("WRITTEN FROM FAVORITE");
+				String favString = aOpened.artID + "~" + aOpened.artTitle + "~" + aOpened.description;
+				if(searchForText(favString)){
+					writeToFile(favString);
+				}else{
+					deleteFromFile(favString);
+				}
 			}
 		});
 	}
@@ -124,4 +134,92 @@ public class ArtWorkDetailsActivity extends Activity {
 				R.drawable.app_icon)).getBitmap();
 		return img;
 	}
+	
+	public void writeToFile(String fav) {
+
+		String temp = new String(fav);
+
+		try {
+			temp += "\n" + readFromFile();
+			FileOutputStream fOut = openFileOutput("FavoritesFile3.txt", MODE_WORLD_READABLE);
+
+			OutputStreamWriter osw = new OutputStreamWriter(fOut);
+			osw.write(temp);
+
+			osw.flush();
+			osw.close();
+		} catch (IOException e) {
+		}
+	}
+	
+
+	public String readFromFile() {
+
+		String temp = "";
+
+		final int lang = 999999;
+
+		try {
+
+			FileInputStream fIn = openFileInput("FavoritesFile3.txt");
+			InputStreamReader isr = new InputStreamReader(fIn);
+
+			char[] inputBuffer = new char[lang];
+			isr.read(inputBuffer);
+			String readString = new String(inputBuffer);
+			temp += readString;
+
+		} catch (IOException e) {
+		}
+
+		return temp;
+	}
+	
+	public boolean searchForText(String fav)
+	{
+	String temp = new String(fav);
+	String finTemp = "";
+	
+		
+		finTemp += readFromFile();
+		
+		for (int i=0;i<finTemp.length()-temp.length();i++)
+		{
+			String test = finTemp.substring(i, i+(temp.length()));
+			if (fav.equalsIgnoreCase(test))
+			{
+				return false;
+			}
+		}return true;
+	}
+	
+	public void deleteFromFile(String fav) {
+
+		String temp = new String(fav);
+		String finTemp = "";
+			finTemp += readFromFile();
+			
+			for (int i=0;i<finTemp.length()-temp.length();i++)
+			{
+				//parse the string to find the one i want to delete
+				String test = finTemp.substring(i, i+(temp.length()));
+				if (fav.equalsIgnoreCase(test))
+				{
+					//remove the string
+					String finTemp1=finTemp.substring(0, i);
+					
+					String finTemp2=finTemp.substring(i+fav.length(), finTemp.length());
+					finTemp2.concat(finTemp1);
+					finTemp=finTemp1+finTemp2;
+					writeToFile(finTemp);
+				}
+				else 
+				{
+					//the file was not found
+				}
+			}
+
+	}
+	
+	
 }

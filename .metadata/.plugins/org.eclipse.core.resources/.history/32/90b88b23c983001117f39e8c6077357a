@@ -1,0 +1,27 @@
+package edu.artAtGVSU;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
+import android.content.Context;
+
+public class FavoriteFileHandler {
+	
+	public static void writeToFile(String artDetails){
+		String temp = new String(fav);
+
+		try {
+			temp += "\n" + readFromFile();
+			FileOutputStream fOut = openFileOutput("favoriteArtPieces.txt",
+					Context.MODE_WORLD_READABLE);
+
+			OutputStreamWriter osw = new OutputStreamWriter(fOut);
+			osw.write(temp);
+
+			osw.flush();
+			osw.close();
+		} catch (IOException e) {
+		}
+	}
+}
