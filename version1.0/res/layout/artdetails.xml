@@ -12,7 +12,6 @@
             android:id="@+id/artImage"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_alignParentTop="true"
             android:src="@drawable/app_icon" />
 
         <TextView
@@ -56,6 +55,15 @@
             android:text=""
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#ffffff" />
+
+        <ImageButton
+            android:id="@+id/favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="24dp"
+            android:src="@drawable/favorite_selected" />
 
     </RelativeLayout>
 

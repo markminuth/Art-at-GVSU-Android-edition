@@ -80,20 +80,22 @@ public class ArtWork {
 		medium = null;
 	}
 	
-	public ArtWork(String aID, String aArtistID, String aArtistName, String aTitle, String aDescription, String aIdNo, String aWorkDate, String aHistContext, String aImageURL, String aLocName, String aMedium, GeoPoint aGeoLoc, String aStopID){
+	/*
+	 * All information needed for individaul art piece outside of a tour
+	 */
+	public ArtWork(String aID, String aArtistName, String aTitle, String aDescription, String aIdNo, String aWorkDate, String aHistContext, String aImageURLMedium, String aImageURLLarge, String aLocName, String aMedium, GeoPoint aGeoLoc){
 		artID = aID;
-		artistID = aArtistID;
 		artistName = aArtistName;
 		artTitle = aTitle;
 		description = aDescription;
 		idno = aIdNo;
 		workDate = aWorkDate;
 		historicalContext= aHistContext;
-		imageURLLarge = aImageURL;
+		imageURLMedium = aImageURLMedium;
+		imageURLLarge = aImageURLLarge;
 		locName = aLocName;
 		medium = aMedium;
 		geoLoc = aGeoLoc;
-		stopID = aStopID;
 	}
 
 	public String getArtID() {

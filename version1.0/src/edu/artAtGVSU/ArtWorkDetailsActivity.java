@@ -59,7 +59,7 @@ public class ArtWorkDetailsActivity extends Activity {
 			
 			//Set up all detials of the artwork 
 			ImageView i = (ImageView) findViewById(R.id.artImage);
-			i.setImageBitmap(fetchImage(aOpened.imageURLMedium));
+			i.setImageBitmap(fetchImage(aOpened.imageURLLarge));
 	
 			TextView artTitle = (TextView) findViewById(R.id.artPieceTitle);
 			artTitle.setText(aOpened.artTitle);
@@ -82,6 +82,15 @@ public class ArtWorkDetailsActivity extends Activity {
 			public void onClick(View v) {
 				Intent intent = new Intent(v.getContext(), ArtWorkZoomActivity.class);
 				startActivityForResult(intent, 0);
+			}
+		});
+		
+		final ImageButton favorite = (ImageButton) findViewById(R.id.favorite);
+		favorite.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				FavoritesActivity f = new FavoritesActivity();
+				f.writingToFile("WRITTEN FROM FAVORITE");
 			}
 		});
 	}

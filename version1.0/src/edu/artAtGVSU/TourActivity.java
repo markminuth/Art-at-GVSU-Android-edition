@@ -23,11 +23,11 @@ import android.widget.AdapterView.OnItemSelectedListener;
 
 public class TourActivity extends Activity {
 	ArrayList<Bitmap> images = new ArrayList<Bitmap>();
-	static ArrayList<Tour> tours;
+	static ArrayList<Tour> tours = new ArrayList<Tour>();
 	static int selectedPos;
 	
 	/*
-	 * Get tour image from URL
+	 * Gets the image from the URL sent to the method and returns a Bitmap of the image
 	 */
 	public Bitmap fetchImage(String tImageURL) {
 		URL url;
@@ -55,7 +55,6 @@ public class TourActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tour);
 	

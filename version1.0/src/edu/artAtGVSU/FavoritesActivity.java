@@ -1,3 +1,7 @@
+                                                                     
+                                                                     
+                                                                     
+                                             
 package edu.artAtGVSU;
 
 import java.io.File;
@@ -21,18 +25,30 @@ import android.widget.Toast;
 public class FavoritesActivity extends Activity{
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
+		File root = new File(Environment.getExternalStorageDirectory(), "Favorite");
+		
 		
 		TextView textView = new TextView(this);
 		setContentView(textView);
-		//deleteFromFile("Hey 4Ho!");
-		//writingToFile("Hey 4Ho!");
-		writingToFile("NEW LINE TRY 2");
+		//deleteFromFile("NEW LINE TRY 2");
+		//deleteFromFile("Test");
+		writingToFile("Test 2");
+		writingToFile("Test 3");
+		deleteFromFile("2");
 		String temp = "";//readFromFile();
 		temp = readFromFile();
 		//this part does not work!
 		//temp +=generateNoteOnSD("favsFile","hello world");
 
-		//temp = deleteFromFile("He");
+//		deleteFromFile("");
+//		deleteFromFile("");
+//		deleteFromFile("");
+//		deleteFromFile("");
+//		deleteFromFile("");
+//		deleteFromFile("");
+//		deleteFromFile("");
+		temp = readFromFile();
+		
 		textView.setText(temp);
 	}
 	
@@ -68,7 +84,7 @@ public class FavoritesActivity extends Activity{
 	    return answer;
 	   }    	
 	
-public void writingToFile(String fav){
+public  void writingToFile(String fav){
 	
 	String temp = new String(fav);
 	
@@ -76,7 +92,7 @@ public void writingToFile(String fav){
 		
 		temp += "\n"+readFromFile();
 		//FileWriter f = new FileWriter("/sdcard/download/impossible.txt");
-        FileOutputStream fOut = openFileOutput("ArtFavorites2.txt",MODE_WORLD_READABLE);
+        FileOutputStream fOut = openFileOutput("ArtFavorites3.txt",MODE_WORLD_READABLE);
    
         OutputStreamWriter osw = new OutputStreamWriter(fOut); 
         osw.write(temp);
@@ -85,24 +101,24 @@ public void writingToFile(String fav){
         osw.close();
 	}catch (IOException e) 
 	{
-	e.printStackTrace();
+	//e.printStackTrace();
 	
-	AlertDialog.Builder delmessagebuilder = new AlertDialog.Builder(this);
+	//AlertDialog.Builder delmessagebuilder = new AlertDialog.Builder(this);
 	
-    delmessagebuilder.setCancelable(false);
+    //delmessagebuilder.setCancelable(false);
 	
-    delmessagebuilder.setMessage("File Access Error");
+    //delmessagebuilder.setMessage("File Access Error");
 	
-    delmessagebuilder.setNeutralButton("Okay", new DialogInterface.OnClickListener() 
-    {
-         public void onClick(DialogInterface dialog, int id) 
-         {
-        	 	dialog.dismiss();
-         }
-     });
+    //delmessagebuilder.setNeutralButton("Okay", new DialogInterface.OnClickListener() 
+    //{
+      //   public void onClick(DialogInterface dialog, int id) 
+        // {
+        	// 	dialog.dismiss();
+         //}
+     //});
 	
-	 delmessagebuilder.create().show();
-}
+	// delmessagebuilder.create().show();
+	}
 	
 }
 
@@ -115,7 +131,7 @@ public String readFromFile(){
 	
 	try { 
 
-    FileInputStream fIn = openFileInput("ArtFavorites2.txt");
+    FileInputStream fIn = openFileInput("ArtFavorites3.txt");
     InputStreamReader isr = new InputStreamReader(fIn);
 
     char[] inputBuffer = new char[lang];
@@ -125,23 +141,23 @@ public String readFromFile(){
     
 	}catch (IOException e) 
 	{
-	e.printStackTrace();
-	
-	AlertDialog.Builder delmessagebuilder = new AlertDialog.Builder(this);
-	
-    delmessagebuilder.setCancelable(false);
-	
-    delmessagebuilder.setMessage("File Access Error");
-	
-    delmessagebuilder.setNeutralButton("Okay", new DialogInterface.OnClickListener() 
-    {
-         public void onClick(DialogInterface dialog, int id) 
-         {
-        	 	dialog.dismiss();
-         }
-     	});
-	
-	 delmessagebuilder.create().show();
+//	e.printStackTrace();
+//	
+//	AlertDialog.Builder delmessagebuilder = new AlertDialog.Builder(this);
+//	
+//    delmessagebuilder.setCancelable(false);
+//	
+//    delmessagebuilder.setMessage("File Access Error");
+//	
+//    delmessagebuilder.setNeutralButton("Okay", new DialogInterface.OnClickListener() 
+//    {
+//         public void onClick(DialogInterface dialog, int id) 
+//         {
+//        	 	dialog.dismiss();
+//         }
+//     	});
+//	
+//	 delmessagebuilder.create().show();
 		}
     
     
@@ -151,66 +167,34 @@ public String readFromFile(){
 
 
 
-//	public String deleteFromFile(String fav){
-//		
-//	
-//		String temp = new String(fav);
-//		String finTemp = "";
-//		
-//		try { 
-//			
-//			finTemp += readFromFile();
-//			
-//			for (int i=0;i<finTemp.length()-temp.length();i++)
-//			{
-//				//parse the string to find the one i want to delete
-//				String test = finTemp.substring(i, i+(temp.length()));
-//				if (fav.equalsIgnoreCase(test))
-//				{
-//					finTemp="found somthing that matches :"+test;
-////					//remove the string
-////					String finTemp1=finTemp.substring(0, i);
-////					String finTemp2=finTemp.substring(i+fav.length(), finTemp.length());
-////					finTemp2.concat(finTemp1);
-////					finTemp=finTemp2+"found hey ho4";
-//					return finTemp;
-//				}
-//				else 
-//				{
-//					finTemp="found nothing that matches :"+test;
-//					return finTemp;
-//				}
-//			}
-//			
-//			FileOutputStream fOut = openFileOutput("ArtFavorites.txt",MODE_WORLD_READABLE);
-//	   
-//	        OutputStreamWriter osw = new OutputStreamWriter(fOut); 
-//	        osw.write(finTemp);
-//	        
-//	        osw.flush();
-//	        osw.close();
-//		}catch (IOException e) 
-//		{
-//		e.printStackTrace();
-//		
-//		AlertDialog.Builder delmessagebuilder = new AlertDialog.Builder(this);
-//		
-//	    delmessagebuilder.setCancelable(false);
-//		
-//	    delmessagebuilder.setMessage("File Access Error");
-//		
-//	    delmessagebuilder.setNeutralButton("Okay", new DialogInterface.OnClickListener() 
-//	    {
-//	         public void onClick(DialogInterface dialog, int id) 
-//	         {
-//	        	 	dialog.dismiss();
-//	         }
-//	     });
-//		
-//		 delmessagebuilder.create().show();
-//		
-//		
-//
-//	}return "end of file";
-//	}
+	public void deleteFromFile(String fav){
+		
+	
+		String temp = new String(fav);
+		String finTemp = "";
+		
+			
+			finTemp += readFromFile();
+			
+			for (int i=0;i<finTemp.length()-temp.length();i++)
+			{
+				//parse the string to find the one i want to delete
+				String test = finTemp.substring(i, i+(temp.length()));
+				if (fav.equalsIgnoreCase(test))
+				{
+					//remove the string
+					String finTemp1=finTemp.substring(0, i);
+					
+					String finTemp2=finTemp.substring(i+fav.length(), finTemp.length());
+					finTemp2.concat(finTemp1);
+					finTemp=finTemp1+finTemp2;
+					writingToFile(finTemp);
+				}
+				else 
+				{
+					//the file was not found
+				}
+			}
+			
+	}
 }

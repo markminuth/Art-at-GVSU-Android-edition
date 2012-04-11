@@ -24,7 +24,7 @@ import com.google.android.maps.GeoPoint;
 
 public class ParseArtWorkXML {
 	static ArrayList<ArtWork> identifierSearchedArt;
-	static ArrayList<ArtWork> artistNameSearchedArt;
+	static ArrayList<String> artistNameSearchedArt;
 	static Tour artWorkToTour;
 	
 	/*
@@ -109,10 +109,11 @@ public class ParseArtWorkXML {
 	}
 	
 	/*
-	 * Based on the object ID 
-	 * tourArtPos can be set to -1 if the art piece is not being called for the tour
+	 * Get information for the art piece by the art ID
+	 * Concatenates the URL call with the art ID and makes the web call and parses the 
+	 * response XML adding the information to the artWork object
 	 */
-	public static ArtWork artWorkRequestID(String aID, int tourArtPos){
+	public static ArtWork artWorkRequestID(String aID){
 		String url = "http://gvsuartgallery.org/service.php/iteminfo/ItemInfo/rest?method=get&type=ca_objects&item_ids[0]=%d&bundles[1]=ca_objects.object_id&bundles[2]=ca_object_labels.name&bundles[3]=ca_objects.work_description&bundles[4]=ca_objects.idno&bundles[5]=ca_objects.work_date&bundles[6]=ca_objects.historical_context&bundles[7]=ca_object_representations.media.medium&bundles[8]=ca_storage_locations.preferred_labels.name&bundles[9]=ca_entities.preferred_labels.displayname&bundles[10]=ca_objects.work_medium&bundles[11]=ca_object_representations.media.large&bundles[12]=ca_entities.entity_id&bundles[13]=ca_storage_locations.georeference&bundles[14]=storage_location_notes&bundles[15]=ca_objects.access&options[ca_object_representations.media.medium][returnURL]=1&options[ca_object_representations.media.large][returnURL]=1";
 		url = url.replace("%d", aID);
 		InputStream in = makeConnection(url);
@@ -142,10 +143,6 @@ public class ParseArtWorkXML {
 			GeoPoint geoP = null;
 			String access = null;
 			
-			if(tourArtPos != -1){
-				artPiece = artWorkToTour.artPieces.get(tourArtPos);
-			}
-			
 			artName = artDetails.item(1).getTextContent();
 			description = artDetails.item(2).getTextContent();
 			idNo = artDetails.item(3).getTextContent();
@@ -161,20 +158,7 @@ public class ParseArtWorkXML {
 			access = artDetails.item(14).getTextContent();
 			
 			if(Integer.parseInt(access) == 1){
-				if(tourArtPos != -1){
-					artPiece = artWorkToTour.artPieces.get(tourArtPos);
-					artPiece.setDescription(description);
-					artPiece.setIdno(idNo);
-					artPiece.setWorkDate(date);
-					artPiece.setHistoricalContext(histContext);
-					artPiece.setImageURLMedium(mediumImage);
-					artPiece.setLocName(locName);
-					artPiece.setArtistName(artistName);
-					artPiece.setMedium(medium);
-					//artWorkToTour.artPieces.set(tourArtPos, artPiece);
-				}else{
-					artPiece = new ArtWork(aID, null, artistName, artName, description, idNo, date, histContext, mediumImage, locName, medium, null, null);
-				}
+					artPiece = new ArtWork(aID, artistName, artName, description, idNo, date, histContext, mediumImage, largeImage, locName, medium, geoP);
 			}
 		
 		} catch (SAXException e) {
@@ -192,7 +176,9 @@ public class ParseArtWorkXML {
 	}
 	
 	/*
-	 * Search based on the idNo used for search by idNo
+	 * Search based on the idNo
+	 * Concatenates URL call with the idNo of the art work and makes web call. Gets the XML from 
+	 * the call and parses the correct information into a list of artworks.
 	 */
 	public static ArrayList<ArtWork> artWorkRequestIdentifier(String identifier){
 		identifierSearchedArt = new ArrayList<ArtWork>();
@@ -236,8 +222,11 @@ public class ParseArtWorkXML {
 		return identifierSearchedArt;
 	}
 	
-	public static ArrayList<ArtWork> artWorkRequestArtistName(String artistName){
-		artistNameSearchedArt = new ArrayList<ArtWork>();
+	/*
+	 * 
+	 */
+	public static ArrayList<String> artWorkRequestArtistName(String artistName){
+		artistNameSearchedArt = new ArrayList<String>();
 		String url = "http://gvsuartgallery.org/service.php/search/Search/rest?method=queryRest&type=ca_entities&query=ca_entity_labels.displayname:%@*&additional_bundles=";
 		url = url.replace("%@", artistName);
 		InputStream in = makeConnection(url);
@@ -248,6 +237,15 @@ public class ParseArtWorkXML {
 			Document doc = db.parse(in);
 			
 			Element docElement = doc.getDocumentElement();
+			NodeList artistNames = docElement.getElementsByTagName("ca_entities");
+			
+			for(int i = 0; i < artistNames.getLength(); i++){
+				Element artist = (Element) artistNames.item(i);
+				NodeList name = artist.getChildNodes();
+				String aName = name.item(0).getTextContent();
+				artistNameSearchedArt.add(aName);
+			}
+			
 		}catch(Exception e){
 			
 		}
