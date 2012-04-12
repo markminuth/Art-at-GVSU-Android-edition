@@ -10,6 +10,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Display;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -37,16 +38,17 @@ public class MenuLayoutActivity extends TabActivity {
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 		// Create an Intent to launch an Activity for the tab (to be reused)
-		intent = new Intent().setClass(this, TourActivity.class);
-		spec = tabHost.newTabSpec("tours").setIndicator("Tours", res.getDrawable(R.drawable.tab_tours)).setContent(intent);
+		//intent = new Intent().setClass(this, TourTabGroupActivity.class);
+		intent = new Intent(this, TourActivity.class);
+		spec = tabHost.newTabSpec("tours").setIndicator("TOURS", res.getDrawable(R.drawable.tab_tours)).setContent(intent);
 		tabHost.addTab(spec);
 
 		intent = new Intent().setClass(this, BrowseActivity.class);
-		spec = tabHost.newTabSpec("browse").setIndicator("Browse", res.getDrawable(R.drawable.tab_browse)).setContent(intent);
+		spec = tabHost.newTabSpec("browse").setIndicator("BROWSE", res.getDrawable(R.drawable.tab_browse)).setContent(intent);
 		tabHost.addTab(spec);
 
 		intent = new Intent().setClass(this, FavoritesActivity.class);
-		spec = tabHost.newTabSpec("favorites").setIndicator("Favorites",res.getDrawable(R.drawable.tab_favorites)).setContent(intent);
+		spec = tabHost.newTabSpec("favorites").setIndicator("FAVORITES",res.getDrawable(R.drawable.tab_favorites)).setContent(intent);
 		tabHost.addTab(spec);
 
 		tabHost.setCurrentTab(0);
@@ -57,9 +59,14 @@ public class MenuLayoutActivity extends TabActivity {
 		for(int i=0;i < tabHost.getTabWidget().getChildCount();i++) 
 		{ 
 			TextView tv = (TextView) tabHost.getTabWidget().getChildAt(i).findViewById(android.R.id.title);
-            tv.setTextColor(Color.parseColor("#BDD8DA"));
-    		tabHost.getTabWidget().getChildAt(i).setLayoutParams(new LinearLayout.LayoutParams((width / 3) - 3, 50));
+            tv.setTextColor(Color.parseColor("#000000"));
+            tv.setTextSize(11);
+    		tabHost.getTabWidget().getChildAt(i).setLayoutParams(new LinearLayout.LayoutParams((width / 3), 50));
+    		tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.parseColor("#CDCDCD"));
+    		//tabHost.getTabWidget().getChildAt(i).setPadding(0, 0, -1, 0);
 		} 
+		
+		
 		
 		//About Button Action
 		final ImageButton aboutButton = (ImageButton) findViewById(R.id.aboutIcon);
@@ -107,4 +114,13 @@ public class MenuLayoutActivity extends TabActivity {
 			}
 		});
 	}
+	
+	@Override
+	public boolean onKeyUp(int keyCode, KeyEvent event) {
+	        if(keyCode == KeyEvent.KEYCODE_SEARCH){
+				Intent intent = new Intent(this, SearchActivity.class);
+				startActivityForResult(intent, 0);
+	        }
+			return true;
+	} 
 }

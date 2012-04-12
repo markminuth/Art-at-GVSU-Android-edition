@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -27,7 +28,20 @@ public class SearchActivity extends Activity{
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.search);  
 	    list = (ListView) findViewById(R.id.searchList);
-	    final ImageButton searchB = (ImageButton) findViewById(R.id.searchNOW);
+	    final ImageButton searchB = (ImageButton) findViewById(R.id.searchIcon);
+	    
+	    searchB.setOnTouchListener(new View.OnTouchListener() {
+			
+			public boolean onTouch(View v, MotionEvent event) {
+				if(event.getAction() == MotionEvent.ACTION_DOWN){
+					searchB.setImageResource(R.drawable.search_selected);
+				}
+				else if(event.getAction() == MotionEvent.ACTION_UP){
+					searchB.setImageResource(R.drawable.search);
+				}
+				return false;
+			}
+		});
 		searchB.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
@@ -39,21 +53,9 @@ public class SearchActivity extends Activity{
 				if(!userText.isEmpty()){
 					try{
 						searchedArtWork = ParseArtWorkXML.artWorkRequestIdentifier(userText);
-						/*searchedArtList = new ArrayList<String>();
-					
-						for(int i = 0; i < searchArtWork.size(); i++){
-							
-							if(searchArtWork.get(i).description.length() > 58){
-								searchedArtList.add(searchArtWork.get(i).artTitle + "\n" + searchArtWork.get(i).description.substring(0, 58) + "...");
-							}else{
-								searchedArtList.add(searchArtWork.get(i).artTitle + "\n" + searchArtWork.get(i).description);
-							}
-						}	*/
-						
 						adapter = new ItemsAdapterWithImage(c, R.layout.search_list, searchedArtWork);
 						list.setAdapter(adapter);
 					}catch(Exception e){
-						//Toast.makeText(c, "Error searching", Toast.LENGTH_LONG);
 					}
 				}
 			}

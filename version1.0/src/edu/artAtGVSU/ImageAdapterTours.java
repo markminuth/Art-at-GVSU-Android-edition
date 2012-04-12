@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -44,7 +45,7 @@ public class ImageAdapterTours extends BaseAdapter {
 		
 		final RelativeLayout borderImg = new RelativeLayout(mContext);
 		borderImg.setPadding(2, 2, 2, 2);
-		borderImg.setBackgroundColor(0xff000000);
+		borderImg.setBackgroundColor(Color.parseColor("#909090"));
 		borderImg.addView(imgView);
 		return borderImg;
 	}

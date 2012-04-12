@@ -33,6 +33,7 @@ public class ArtWorkDetailsActivity extends Activity {
 	String[] details;
 	ListView detailList;
 	Context c = this;
+	ImageButton fav;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -66,6 +67,11 @@ public class ArtWorkDetailsActivity extends Activity {
 			//Set up all detials of the artwork 
 			ImageView i = (ImageView) findViewById(R.id.artImage);
 			i.setImageBitmap(fetchImage(aOpened.imageURLLarge));
+			
+			fav = (ImageButton) findViewById(R.id.favorite);
+			if(searchForText( aOpened.artID + "~" + aOpened.artTitle + "~" + aOpened.description)){
+				fav.setImageResource(R.drawable.favorite);
+			}
 	
 			TextView artTitle = (TextView) findViewById(R.id.artPieceTitle);
 			artTitle.setText(aOpened.artTitle);
@@ -95,11 +101,12 @@ public class ArtWorkDetailsActivity extends Activity {
 		favorite.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View v) {
+				fav.setImageResource(R.drawable.favorite);
 				String favString = aOpened.artID + "~" + aOpened.artTitle + "~" + aOpened.description;
 				if(searchForText(favString)){
 					writeToFile(favString);
 				}else{
-					deleteFromFile(favString);
+					//deleteFromFile(favString);
 				}
 			}
 		});

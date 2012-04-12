@@ -57,7 +57,6 @@ public class TourActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tour);
-	
 		Thread tourGallery = new Thread(){
 			@Override
 			public void run() {
@@ -85,15 +84,10 @@ public class TourActivity extends Activity {
 			gallery.setSelection(1);
 			
 			gallery.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onItemSelected(AdapterView parent, View view,
-						int position, long id) {
+				public void onItemSelected(AdapterView parent, View view, int position, long id) {
 					selectedPos = position;
-					try {
-						TextView text = (TextView) findViewById(R.id.tourNameText);
-						text.setText(tours.get(selectedPos).tourName);
-					} catch (Exception e) {
-	
-					}
+					TextView text = (TextView) findViewById(R.id.tourNameText);
+					text.setText(tours.get(selectedPos).tourName);
 				}
 	
 				public void onNothingSelected(AdapterView arg0) {
@@ -102,11 +96,9 @@ public class TourActivity extends Activity {
 			});
 	
 			gallery.setOnItemClickListener(new OnItemClickListener() {
-				public void onItemClick(AdapterView parent, View view,
-						int position, long id) {
+				public void onItemClick(AdapterView parent, View view, int position, long id) {
 					if (position == selectedPos) {
-						Intent intent = new Intent(view.getContext(),
-								MapTourActivity.class);
+						Intent intent = new Intent(view.getContext(), MapTourActivity.class);
 						Tour t = tours.get(position);
 						intent.putExtra("tourID", position);
 						startActivityForResult(intent, 0);

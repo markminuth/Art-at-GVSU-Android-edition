@@ -10,28 +10,27 @@
         android:id="@android:id/tabhost"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#B7AFA3" >
+        android:background="#000000" >
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#FFFFFF"
-            android:orientation="vertical"
-            android:padding="2dp" >
-
+            android:orientation="vertical">
+
             <RelativeLayout
                 android:id="@+id/relativeLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:background="#ECECEC" >
-
+                
                 <ImageButton
                     android:id="@+id/aboutIcon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="7dp"
                     android:background="#ECECEC"
                     android:src="@drawable/about_icon" />
 
@@ -41,33 +40,64 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="35dp"
+                    android:layout_marginRight="50dp"
                     android:background="#ECECEC"
                     android:src="@drawable/search" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/app_icon_transparent" />
+
+                <ImageView
+                    android:id="@+id/dividerimg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="43dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/divider" />
 
                 <TextView
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="4dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/imageView2"
                     android:text="@string/titleText"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#888888" />
-            </RelativeLayout>
+                    android:textColor="#000000"
+                    android:textSize="14dp" />
+
+            </RelativeLayout>
+            <FrameLayout
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp" 
+                android:background="#909090">
+            </FrameLayout>
 
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#ECECEC" />
+                android:background="#FFFFFF" />
+
+            <FrameLayout
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="#909090" >
+            </FrameLayout>
 
             <RelativeLayout
                 android:id="@+id/aboutScreen"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" 
-                android:background="#B7AFA3">
+                android:background="#FFFFFF">
 
                 <ImageView
                     android:id="@+id/imageView1"

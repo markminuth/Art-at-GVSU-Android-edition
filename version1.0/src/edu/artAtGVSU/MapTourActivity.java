@@ -26,9 +26,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Gallery;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
@@ -146,6 +148,28 @@ public class MapTourActivity extends MapActivity {
 		};
 		galleryLoad.start();
 		
+		//Search Button Action
+		final ImageButton searchButton = (ImageButton) findViewById(R.id.searchIcon);
+		searchButton.setOnTouchListener(new View.OnTouchListener() {
+			
+			public boolean onTouch(View v, MotionEvent event) {
+				if(event.getAction() == MotionEvent.ACTION_DOWN){
+					searchButton.setImageResource(R.drawable.search_selected);
+				}
+				else if(event.getAction() == MotionEvent.ACTION_UP){
+					searchButton.setImageResource(R.drawable.search);
+				}
+				return false;
+			}
+		});
+		
+		searchButton.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				Intent intent = new Intent(v.getContext(), SearchActivity.class);
+				startActivityForResult(intent, 0);
+			}
+		});
 	}
 
 	@Override
@@ -183,8 +207,8 @@ public class MapTourActivity extends MapActivity {
 		public void handleMessage(Message msg) {
 			gallery = (Gallery) findViewById(R.id.gallery);
 			gallery.setAdapter(new ImageAdapterMapsGallery(c, images));
-			gallery.setSelection(2);
-			
+			//gallery.setSelection(2);
+			gallery.setSelection(Integer.MAX_VALUE / 2);
 			gallery.setOnItemClickListener(new OnItemClickListener() {
 				public void onItemClick(AdapterView parent, View view,
 						int position, long id) {
@@ -193,7 +217,7 @@ public class MapTourActivity extends MapActivity {
 					selectedPos = position;
 					itemizedoverlay.onTap(selectedPos);
 					view.setFocusable(true);	
-					borderImg.setBackgroundColor(Color.RED);
+					//borderImg.setBackgroundColor(Color.RED);
 				}
 			});
 		}
