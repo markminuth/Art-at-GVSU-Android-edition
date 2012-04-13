@@ -6,6 +6,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,17 +49,28 @@ public class SearchActivity extends Activity{
 			public void onClick(View v) {
 				String[] loading = new String[]{"Loading..."};
 				list.setAdapter(new ArrayAdapter<String>(c, R.layout.loading_list, loading));
-				
-				final EditText searchText = (EditText) findViewById(R.id.searchTextBox);
-				String userText = searchText.getText().toString();
-				if(!userText.isEmpty()){
-					try{
-						searchedArtWork = ParseArtWorkXML.artWorkRequestIdentifier(userText);
-						adapter = new ItemsAdapterWithImage(c, R.layout.search_list, searchedArtWork);
-						list.setAdapter(adapter);
-					}catch(Exception e){
+				Thread getSearch = new Thread(){
+					@Override
+					public void run() {
+						
+						final EditText searchText = (EditText) findViewById(R.id.searchTextBox);
+						String userText = searchText.getText().toString();
+						if(!userText.isEmpty()){
+							try{
+								searchedArtWork = ParseArtWorkXML.artWorkRequestIdentifier(userText);
+							}catch(Exception e){
+								String[] noResults = new String[]{"No Results Found"};
+								list.setAdapter(new ArrayAdapter<String>(c, R.layout.loading_list, noResults));
+							}
+						}
+						Message msg = new Message();
+						Bundle resBundle = new Bundle();
+						resBundle.putString("status", "SUCCESS");
+						msg.obj = resBundle;
+						handlerSearch.sendMessage(msg);
 					}
-				}
+				};
+				getSearch.start();
 			}
 		});
 		
@@ -75,4 +88,12 @@ public class SearchActivity extends Activity{
 			}
 		});
 	}
+	
+	private Handler handlerSearch = new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			adapter = new ItemsAdapterWithImage(c, R.layout.search_list, searchedArtWork);
+			list.setAdapter(adapter);
+		}
+	};
 }

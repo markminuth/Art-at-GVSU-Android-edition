@@ -207,8 +207,8 @@ public class MapTourActivity extends MapActivity {
 		public void handleMessage(Message msg) {
 			gallery = (Gallery) findViewById(R.id.gallery);
 			gallery.setAdapter(new ImageAdapterMapsGallery(c, images));
-			//gallery.setSelection(2);
-			gallery.setSelection(Integer.MAX_VALUE / 2);
+			gallery.setSelection(2);
+			
 			gallery.setOnItemClickListener(new OnItemClickListener() {
 				public void onItemClick(AdapterView parent, View view,
 						int position, long id) {

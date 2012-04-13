@@ -46,7 +46,7 @@ public class ImageAdapterMapsGallery extends BaseAdapter {
 		
 		final RelativeLayout borderImg = new RelativeLayout(mContext);
 		borderImg.setPadding(2, 2, 2, 2);
-		borderImg.setBackgroundColor(Color.BLACK);
+		borderImg.setBackgroundColor(Color.parseColor("#909090"));
 		borderImg.addView(imgView);
 		return borderImg;
 	}

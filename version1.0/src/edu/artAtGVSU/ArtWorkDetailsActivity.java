@@ -19,6 +19,10 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
@@ -62,16 +66,19 @@ public class ArtWorkDetailsActivity extends Activity {
 			
 			detailList = (ListView) findViewById(R.id.artDetailList);
 			detailList.setAdapter(new ArrayAdapter<String>(this, R.layout.artdetail_list, details));
-			//detailList.setTextFilterEnabled(true);
+			detailList.setTextFilterEnabled(true);
 			
 			//Set up all detials of the artwork 
-			ImageView i = (ImageView) findViewById(R.id.artImage);
-			i.setImageBitmap(fetchImage(aOpened.imageURLLarge));
+			ImageView i = (ImageView) findViewById(R.id.art_image);
+
+			//i.setLayoutParams( new ViewGroup.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT));
+			i.setImageBitmap(fetchImage(aOpened.imageURLLarge));    
+
 			
 			fav = (ImageButton) findViewById(R.id.favorite);
-			if(searchForText( aOpened.artID + "~" + aOpened.artTitle + "~" + aOpened.description)){
+			//if(searchForText( aOpened.artID + "~" + aOpened.artTitle + "~" + aOpened.description)){
 				fav.setImageResource(R.drawable.favorite);
-			}
+			//}
 	
 			TextView artTitle = (TextView) findViewById(R.id.artPieceTitle);
 			artTitle.setText(aOpened.artTitle);
@@ -103,11 +110,11 @@ public class ArtWorkDetailsActivity extends Activity {
 			public void onClick(View v) {
 				fav.setImageResource(R.drawable.favorite);
 				String favString = aOpened.artID + "~" + aOpened.artTitle + "~" + aOpened.description;
-				if(searchForText(favString)){
+				//if(searchForText(favString)){
 					writeToFile(favString);
-				}else{
+				//}else{
 					//deleteFromFile(favString);
-				}
+				//}
 			}
 		});
 	}
@@ -158,8 +165,6 @@ public class ArtWorkDetailsActivity extends Activity {
 		} catch (IOException e) {
 		}
 	}
-	
-
 	public String readFromFile() {
 
 		String temp = "";
@@ -181,25 +186,25 @@ public class ArtWorkDetailsActivity extends Activity {
 
 		return temp;
 	}
-	
-	public boolean searchForText(String fav)
-	{
-	String temp = new String(fav);
-	String finTemp = "";
-	
-		
-		finTemp += readFromFile();
-		
-		for (int i=0;i<finTemp.length()-temp.length();i++)
-		{
-			String test = finTemp.substring(i, i+(temp.length()));
-			if (fav.equalsIgnoreCase(test))
-			{
-				return false;
-			}
-		}return true;
-	}
-	
+//	
+//	public boolean searchForText(String fav)
+//	{
+//	String temp = new String(fav);
+//	String finTemp = "";
+//	
+//		
+//		finTemp += readFromFile();
+//		
+//		for (int i=0;i<finTemp.length()-temp.length();i++)
+//		{
+//			String test = finTemp.substring(i, i+(temp.length()));
+//			if (fav.equalsIgnoreCase(test))
+//			{
+//				return false;
+//			}
+//		}return true;
+//	}
+//	
 	public void deleteFromFile(String fav) {
 
 		String temp = new String(fav);

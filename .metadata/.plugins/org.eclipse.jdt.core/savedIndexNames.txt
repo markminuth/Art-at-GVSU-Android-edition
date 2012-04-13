@@ -1,6 +1,5 @@
 INDEX VERSION 1.126+C:\Users\Bardsley\ArtAtGVSUApp\.metadata\.plugins\org.eclipse.jdt.core
 3520855854.index
-2239131249.index
 543300473.index
 1684250714.index
 785593824.index
