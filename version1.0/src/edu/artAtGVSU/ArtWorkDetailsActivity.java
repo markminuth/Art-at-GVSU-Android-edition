@@ -9,6 +9,8 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Activity;
 import android.app.ListActivity;
@@ -37,6 +39,7 @@ public class ArtWorkDetailsActivity extends Activity {
 	String[] details;
 	ListView detailList;
 	Context c = this;
+	ArtDetailsItemsAdapter adapter;
 	ImageButton fav;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -44,29 +47,25 @@ public class ArtWorkDetailsActivity extends Activity {
 		setContentView(R.layout.artdetails);
 		aOpened = ArtWorkObjectSetUp.getArtWork();
 		
+		//Add details to list in order to pass list to Adapter
+		ArrayList<String> textInfo = new ArrayList<String>();
+		textInfo.add(aOpened.description);
+		textInfo.add(aOpened.artTitle + ": " + aOpened.historicalContext);
+		textInfo.add(aOpened.medium);
+		textInfo.add(aOpened.workDate);
+		textInfo.add(aOpened.locName + " - "+ aOpened.locNotes);
+		textInfo.add(aOpened.artistName);
+		textInfo.add(aOpened.idno);
+		
 		//Load if all information is there if not must call Parse Artwork
 		if(!aOpened.artID.isEmpty() || !aOpened.artistID.isEmpty()){
-			if(aOpened.historicalContext.length() >= 240){
-				details = new String[]{"Physical description \n" + aOpened.description, 
-					"Historical narrative \n" + aOpened.historicalContext.substring(0, 240) + "...",
-					"Medium \n" + aOpened.medium,
-					"Date \n" + aOpened.workDate,
-					"Location \n" + aOpened.locName, 
-					"More works by \n" + aOpened.artistName,
-					"Identifier \n" + aOpened.idno};
-			}else{
-				details = new String[]{"Physical description \n" + aOpened.description, 
-						"Historical narrative \n" + aOpened.historicalContext,
-						"Medium \n" + aOpened.medium,
-						"Date \n" + aOpened.workDate,
-						"Location \n" + aOpened.locName, 
-						"More works by \n" + aOpened.artistName,
-						"Identifier \n" + aOpened.idno};
-			}
 			
 			detailList = (ListView) findViewById(R.id.artDetailList);
-			detailList.setAdapter(new ArrayAdapter<String>(this, R.layout.artdetail_list, details));
+			adapter = new ArtDetailsItemsAdapter(c, R.layout.artdetail_list, textInfo);
+			//detailList.setAdapter(new ArrayAdapter<String>(this, R.layout.artdetail_list, details));
+			detailList.setAdapter(adapter);
 			detailList.setTextFilterEnabled(true);
+			
 			
 			//Set up all detials of the artwork 
 			ImageView i = (ImageView) findViewById(R.id.art_image);

@@ -4,11 +4,11 @@
     android:layout_height="fill_parent"
     android:background="#F0F0F0"
     android:orientation="vertical" >
-
+
     <RelativeLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
-        android:layout_height="36dp"
+        android:layout_height="45dp"
         android:background="#ECECEC" >
 
         <ImageButton
@@ -66,7 +66,7 @@
         android:layout_height="0.2dp"
         android:background="#909090" >
     </FrameLayout>
-
+
     <RelativeLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
@@ -127,12 +127,22 @@
 
         <ImageButton
             android:id="@+id/favorite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="24dp"
+            android:layout_marginRight="20dp"
             android:src="@drawable/favorite_selected" />
+
+        <ImageButton
+            android:id="@+id/zoomButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/artistName"
+            android:layout_marginLeft="20dp"
+            android:src="@android:drawable/ic_menu_zoom" />
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -151,16 +161,6 @@
             android:background="#FFFFFF"
             android:text="Information"
             android:textColor="#000000" />
-
-        <ImageButton
-            android:id="@+id/zoomButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="1dp"
-            android:background="#FFFFFF"
-            android:src="@drawable/zoomin2" />
     </RelativeLayout>
 
     <ListView

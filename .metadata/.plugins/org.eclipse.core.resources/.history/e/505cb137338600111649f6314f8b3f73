@@ -1,0 +1,30 @@
+package edu.artAtGVSU;
+
+import java.util.List;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+
+public class ArtDetailsItemsAdapter extends ArrayAdapter<String> {
+	int resource;
+	String response;
+	Context context;
+	
+	//Initialize adapter
+	public ArtDetailsItemsAdapter(Context context, int resource, List<String> items){
+		super(context, resource, items);
+		this.resource = resource;
+	}
+	
+	public View getView(int position, View convertView, ViewGroup parent){
+		LinearLayout alertView;
+		String artDetail = getItem(position);
+		
+		if(convertView == null){
+			alertView = new LinearLayout(getContext());
+		}
+	}
+}

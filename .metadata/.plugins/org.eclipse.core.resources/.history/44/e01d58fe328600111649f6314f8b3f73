@@ -1,0 +1,14 @@
+package edu.artAtGVSU;
+
+import android.widget.ArrayAdapter;
+
+public class ArtDetailsItemsAdapter extends ArrayAdapter<ArtWork> {
+	int resource;
+	String response;
+	Context context;
+	
+	//Initialize adapter
+	public ArtDetailsItemsAdapter(Context context, int resource, List<ArtWork> items){
+		
+	}
+}

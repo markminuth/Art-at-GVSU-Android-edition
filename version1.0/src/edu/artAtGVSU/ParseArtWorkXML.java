@@ -158,7 +158,7 @@ public class ParseArtWorkXML {
 			access = artDetails.item(14).getTextContent();
 			
 			if(Integer.parseInt(access) == 1){
-					artPiece = new ArtWork(aID, artistName, artName, description, idNo, date, histContext, mediumImage, largeImage, locName, medium, geoP);
+					artPiece = new ArtWork(aID, artistName, artName, description, idNo, date, histContext, mediumImage, largeImage, locName, locNotes, medium, geoP);
 			}
 		
 		} catch (SAXException e) {

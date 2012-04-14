@@ -51,7 +51,7 @@ public class ItemsAdapterWithImage extends ArrayAdapter<ArtWork>{
         {
             alertView = (LinearLayout) convertView;
         }
-        //Get the text boxes from the listitem.xml file
+        //Get the text boxes from the search_list.xml file
         ImageView artIcon =(ImageView)alertView.findViewById(R.id.searchIconImage);
         TextView nameText =(TextView)alertView.findViewById(R.id.artNameText);
         TextView descripText =(TextView)alertView.findViewById(R.id.descripText);

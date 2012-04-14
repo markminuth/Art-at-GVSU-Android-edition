@@ -7,7 +7,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
-        android:layout_height="36dp"
+        android:layout_height="50dp"
         android:background="#E8E8E8" >
 
         <ImageButton
@@ -44,8 +44,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="43dp"
-            android:src="@drawable/divider" />
-
+            android:src="@drawable/divider" />
         <EditText
             android:id="@+id/searchTextBox"
             android:layout_width="260dp"
