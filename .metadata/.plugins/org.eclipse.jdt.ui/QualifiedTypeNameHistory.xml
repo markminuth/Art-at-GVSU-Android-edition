@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="edu.artAtGVSU.BalloonItemizedOverlay"/>
-<fullyQualifiedTypeName name="android.sax.StartElementListener"/>
-<fullyQualifiedTypeName name="android.os.Parcelable"/>
-<fullyQualifiedTypeName name="android.os.Parcelable.Creator"/>
 <fullyQualifiedTypeName name="edu.artAtGVSU.ParcelableArtWorkObject"/>
 <fullyQualifiedTypeName name="android.webkit.WebView"/>
 <fullyQualifiedTypeName name="android.content.Intent"/>
@@ -22,7 +18,6 @@
 <fullyQualifiedTypeName name="edu.artAtGVSU.ItemsAdapter"/>
 <fullyQualifiedTypeName name="edu.artAtGVSU.ArtWork"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
-<fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="edu.artAtGVSU.TourActivity"/>
 <fullyQualifiedTypeName name="edu.artAtGVSU.ArtWorkDetailsActivity"/>
 <fullyQualifiedTypeName name="android.widget.ProgressBar"/>
@@ -58,6 +53,11 @@
 <fullyQualifiedTypeName name="edu.artAtGVSU.R.layout"/>
 <fullyQualifiedTypeName name="edu.artAtGVSU.ArtDetailsItemsAdapter"/>
 <fullyQualifiedTypeName name="android.app.ListActivity"/>
-<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="android.app.AlertDialog"/>
+<fullyQualifiedTypeName name="android.content.DialogInterface"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

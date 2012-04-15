@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="45" version="2.0">
 <workbenchAdvisor/>
-<window height="760" width="640" x="409" y="7">
+<window height="760" maximized="true" width="640" x="200" y="-8">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
 </perspectiveBar>
 <coolbarLayout>
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="239" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="160" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="adt.actionSet.avdManager" itemType="typeToolBarContribution" x="61" y="22"/>
 <coolItem id="adt.actionSet.lint" itemType="typeToolBarContribution" x="38" y="22"/>
 <coolItem id="adt.actionSet.wizards" itemType="typeToolBarContribution" x="84" y="22"/>
-<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="224" y="22"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="129" y="22"/>
 <coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="76" y="22"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="122" y="22"/>
 <coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="130" y="22"/>
@@ -44,19 +44,19 @@
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ArtDetailsItemsAdapter.java" partName="ArtDetailsItemsAdapter.java" path="C:/Users/Bardsley/ArtAtGVSUApp/version1.0/src/edu/artAtGVSU/ArtDetailsItemsAdapter.java" title="ArtDetailsItemsAdapter.java" tooltip="version1.0/src/edu/artAtGVSU/ArtDetailsItemsAdapter.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/version1.0/src/edu/artAtGVSU/ArtDetailsItemsAdapter.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="391" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FavoritesActivity.java" partName="FavoritesActivity.java" path="C:/Users/Bardsley/ArtAtGVSUApp/version1.1/src/edu/artAtGVSU/FavoritesActivity.java" title="FavoritesActivity.java" tooltip="version1.1/src/edu/artAtGVSU/FavoritesActivity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/version1.1/src/edu/artAtGVSU/FavoritesActivity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2386" selectionTopPixel="987"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ItemsAdapterWithImage.java" partName="ItemsAdapterWithImage.java" path="C:/Users/Bardsley/ArtAtGVSUApp/version1.0/src/edu/artAtGVSU/ItemsAdapterWithImage.java" title="ItemsAdapterWithImage.java" tooltip="version1.0/src/edu/artAtGVSU/ItemsAdapterWithImage.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/version1.0/src/edu/artAtGVSU/ItemsAdapterWithImage.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="670" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ArtWorkDetailsActivity.java" partName="ArtWorkDetailsActivity.java" path="C:/Users/Bardsley/ArtAtGVSUApp/version1.1/src/edu/artAtGVSU/ArtWorkDetailsActivity.java" title="ArtWorkDetailsActivity.java" tooltip="version1.1/src/edu/artAtGVSU/ArtWorkDetailsActivity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/version1.1/src/edu/artAtGVSU/ArtWorkDetailsActivity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6011" selectionTopPixel="1897"/>
 </editor>
-<editor activePart="true" focus="true" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="search_list.xml" partName="search_list.xml" path="C:/Users/Bardsley/ArtAtGVSUApp/version1.0/res/layout/search_list.xml" title="search_list.xml" tooltip="version1.0/res/layout/search_list.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/version1.0/res/layout/search_list.xml"/>
+<editor id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="tour.xml" partName="tour.xml" path="C:/Users/Bardsley/ArtAtGVSUApp/version1.1/res/layout/tour.xml" title="tour.xml" tooltip="version1.1/res/layout/tour.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/version1.1/res/layout/tour.xml"/>
 </editor>
-<editor id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="artdetail_list.xml" partName="artdetail_list.xml" path="C:/Users/Bardsley/ArtAtGVSUApp/version1.0/res/layout/artdetail_list.xml" title="artdetail_list.xml" tooltip="version1.0/res/layout/artdetail_list.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/version1.0/res/layout/artdetail_list.xml"/>
+<editor activePart="true" focus="true" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="favorites_list.xml" partName="favorites_list.xml" path="C:/Users/Bardsley/ArtAtGVSUApp/version1.1/res/layout/favorites_list.xml" title="favorites_list.xml" tooltip="version1.1/res/layout/favorites_list.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/version1.1/res/layout/favorites_list.xml"/>
 </editor>
 </editors>
 <views>
@@ -69,8 +69,8 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
+<category IMemento.internal.id="Warnings (100 of 104 items)"/>
 <category IMemento.internal.id="Errors"/>
-<category IMemento.internal.id="Warnings"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -118,11 +118,22 @@
 <view id="org.eclipse.debug.ui.VariableView" partName="Variables">
 <viewState/>
 </view>
-<view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
+<columnWidths org.eclipse.ui.ide.completionField="40" org.eclipse.ui.ide.descriptionField="300" org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.priorityField="30" org.eclipse.ui.ide.resourceField="90"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.completionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.priorityField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.descriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
 <view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="com.android.ide.eclipse.editors.layout.LayoutEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.egit.ui.navigation"/>
@@ -221,7 +232,7 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.24507487" ratioLeft="311" ratioRight="958" relationship="2" relative="left"/>
+<info part="org.eclipse.ui.editorss" ratio="0.20646179" ratioLeft="262" ratioRight="1007" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.743865" ratioLeft="485" ratioRight="167" relationship="4" relative="org.eclipse.ui.editorss">
 <folder appearance="2" expanded="2">
 <page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
@@ -307,56 +318,76 @@
 <perspective_action id="org.eclipse.wst.xml.ui.perspective"/>
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
-<view id="org.eclipse.debug.ui.DebugView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
 <view id="com.android.ide.eclipse.ddms.views.LogCatView"/>
 <view id="org.eclipse.debug.ui.VariableView"/>
 <view id="org.eclipse.debug.ui.BreakpointView"/>
 <fastViewBars/>
-<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="954" ratioRight="318" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="954" ratioRight="318" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.95552146" ratioLeft="623" ratioRight="29" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.95552146" ratioLeft="623" ratioRight="29" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.debug.ui.DisplayView" label="LabelNotFound"/>
 <page content="org.eclipse.search.SearchResultView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@7e205" ratio="0.5" ratioLeft="636" ratioRight="636" relationship="2" relative="org.eclipse.debug.internal.ui.ConsoleFolderView">&#x0A;<folder activePageID="com.android.ide.eclipse.ddms.views.LogCatView" appearance="2" expanded="2">&#x0A;<page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LogCat"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@7e205" ratio="0.5" ratioLeft="636" ratioRight="636" relationship="2" relative="org.eclipse.debug.internal.ui.ConsoleFolderView">
+<folder activePageID="com.android.ide.eclipse.ddms.views.LogCatView" appearance="2" expanded="2">
+<page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LogCat"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.42096773" ratioLeft="261" ratioRight="359" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
-<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.75" ratioLeft="954" ratioRight="318" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
+<info part="org.eclipse.ui.editorss" ratio="0.32580644" ratioLeft="202" ratioRight="418" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.75" ratioLeft="954" ratioRight="318" relationship="2" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="636" ratioRight="636" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.ExpressionView" label="LabelNotFound"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="636" ratioRight="636" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.ExpressionView" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@1ab4fd4" ratio="0.5" ratioLeft="636" ratioRight="636" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.BreakpointView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@1ab4fd4" ratio="0.5" ratioLeft="636" ratioRight="636" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
@@ -368,142 +399,160 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/version1.0/src/edu/artAtGVSU/ArtDetailsItemsAdapter.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/version1.0/src/edu/artAtGVSU/ArtWorkDetailsActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/version1.0/res/layout/artdetails.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/version1.0/res/layout/search.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/version1.0/res/layout/favorites.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.drawable.DrawableEditor" path="/version1.0/res/drawable/tab_browse.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/version1.0/res/layout/search_list.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/version1.0/src/edu/artAtGVSU/ItemsAdapterWithImage.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/version1.0/src/edu/artAtGVSU/SearchActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/version1.0/src/edu/artAtGVSU/ArtWork.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/version1.0/src/edu/artAtGVSU/ImageAdapterMapsGallery.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/version1.0/res/layout/search_list.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/version1.0/res/layout/artdetail_list.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/version1.1/src/edu/artAtGVSU/FavoritesActivity.java"/>
+<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=version1.0/C:\/Program Files\/Android\/android-sdk\/platforms\/android-10\/android.jar&lt;android.app(Instrumentation.class"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/version1.1/src/edu/artAtGVSU/ArtWorkDetailsActivity.java"/>
+<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=version1.0/C:\/Program Files\/Android\/android-sdk\/platforms\/android-10\/android.jar&lt;android.app(Activity.class"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/version1.1/res/layout/favorites_list.xml"/>
 </editors>
-<item historyLabel="favorites.xml" index="4"/>
-<item historyLabel="search.xml" index="3"/>
-<item historyLabel="search_list.xml" index="6"/>
-<item historyLabel="search.xml" index="3"/>
-<item historyLabel="ItemsAdapterWithImage.java" index="7">
-<position info="not_deleted" x="2066" y="0"/>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1163" y="0"/>
 </item>
-<item historyLabel="search.xml" index="3"/>
-<item historyLabel="ItemsAdapterWithImage.java" index="7">
-<position info="not_deleted" x="2066" y="0"/>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1311" y="0"/>
 </item>
-<item historyLabel="favorites.xml" index="4"/>
-<item historyLabel="ItemsAdapterWithImage.java" index="7">
-<position info="not_deleted" x="1029" y="0"/>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1383" y="0"/>
 </item>
-<item historyLabel="favorites.xml" index="4"/>
-<item historyLabel="ArtWorkDetailsActivity.java" index="1">
-<position info="not_deleted" x="3799" y="0"/>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1408" y="0"/>
 </item>
-<item historyLabel="SearchActivity.java" index="8">
-<position info="not_deleted" x="725" y="0"/>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1572" y="0"/>
 </item>
-<item historyLabel="ArtWorkDetailsActivity.java" index="1">
-<position info="not_deleted" x="3799" y="0"/>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1625" y="0"/>
 </item>
-<item historyLabel="ItemsAdapterWithImage.java" index="7">
-<position info="not_deleted" x="1029" y="0"/>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1711" y="0"/>
 </item>
-<item historyLabel="ArtWorkDetailsActivity.java" index="1">
-<position info="not_deleted" x="3799" y="0"/>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1896" y="0"/>
 </item>
-<item historyLabel="ArtDetailsItemsAdapter.java" index="0">
-<position info="not_deleted" x="1447" y="0"/>
-</item>
-<item historyLabel="ItemsAdapterWithImage.java" index="7">
-<position info="not_deleted" x="1146" y="0"/>
-</item>
-<item historyLabel="ArtDetailsItemsAdapter.java" index="0">
-<position info="not_deleted" x="765" y="0"/>
-</item>
-<item historyLabel="ItemsAdapterWithImage.java" index="7">
-<position info="not_deleted" x="947" y="0"/>
-</item>
-<item historyLabel="ArtDetailsItemsAdapter.java" index="0">
-<position info="not_deleted" x="765" y="0"/>
-</item>
-<item historyLabel="ItemsAdapterWithImage.java" index="7">
-<position info="not_deleted" x="2137" y="0"/>
-</item>
-<item historyLabel="ArtWorkDetailsActivity.java" index="1">
-<position info="not_deleted" x="4344" y="0"/>
-</item>
-<item historyLabel="ItemsAdapterWithImage.java" index="7">
-<position info="not_deleted" x="1596" y="0"/>
-</item>
-<item historyLabel="ArtDetailsItemsAdapter.java" index="0">
-<position info="not_deleted" x="733" y="0"/>
-</item>
-<item historyLabel="ArtWorkDetailsActivity.java" index="1">
-<position info="not_deleted" x="1657" y="0"/>
-</item>
-<item historyLabel="ArtDetailsItemsAdapter.java" index="0">
-<position info="not_deleted" x="733" y="0"/>
-</item>
-<item historyLabel="ArtWorkDetailsActivity.java" index="1">
-<position info="not_deleted" x="1349" y="0"/>
-</item>
-<item historyLabel="ItemsAdapterWithImage.java" index="7">
-<position info="not_deleted" x="2137" y="0"/>
-</item>
-<item historyLabel="ArtWorkDetailsActivity.java" index="1">
-<position info="not_deleted" x="1196" y="0"/>
-</item>
-<item historyLabel="favorites.xml" index="4"/>
-<item historyLabel="ArtDetailsItemsAdapter.java" index="0">
-<position info="not_deleted" x="733" y="0"/>
-</item>
-<item historyLabel="ArtWorkDetailsActivity.java" index="1">
-<position info="not_deleted" x="1196" y="0"/>
-</item>
-<item historyLabel="artdetails.xml" index="2"/>
-<item historyLabel="ArtWorkDetailsActivity.java" index="1">
-<position/>
-</item>
-<item historyLabel="ArtDetailsItemsAdapter.java" index="0">
-<position info="not_deleted" x="733" y="0"/>
-</item>
-<item historyLabel="favorites.xml" index="4"/>
-<item historyLabel="ItemsAdapterWithImage.java" index="7">
-<position info="not_deleted" x="2137" y="0"/>
-</item>
-<item historyLabel="tab_browse.xml" index="5"/>
-<item historyLabel="ItemsAdapterWithImage.java" index="7">
-<position info="not_deleted" x="2137" y="0"/>
-</item>
-<item historyLabel="SearchActivity.java" index="8">
-<position info="not_deleted" x="2455" y="0"/>
-</item>
-<item historyLabel="ArtWork.java" index="9">
-<position info="not_deleted" x="714" y="0"/>
-</item>
-<item historyLabel="SearchActivity.java" index="8">
-<position info="not_deleted" x="2455" y="0"/>
-</item>
-<item historyLabel="ItemsAdapterWithImage.java" index="7">
-<position info="not_deleted" x="2137" y="0"/>
-</item>
-<item historyLabel="ImageAdapterMapsGallery.java" index="10">
+<item historyLabel="Instrumentation.class" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="ArtDetailsItemsAdapter.java" index="0">
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1896" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1163" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1241" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1951" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1565" y="0"/>
+</item>
+<item historyLabel="ArtWorkDetailsActivity.java" index="2">
+<position info="not_deleted" x="4042" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1565" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1406" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1163" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1273" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1311" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1273" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1383" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1408" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1572" y="0"/>
+</item>
+<item historyLabel="Activity.class" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="ItemsAdapterWithImage.java" index="7">
-<position info="not_deleted" x="670" y="0"/>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1572" y="0"/>
 </item>
-<item historyLabel="ArtDetailsItemsAdapter.java" index="0">
-<position info="not_deleted" x="391" y="0"/>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1214" y="0"/>
 </item>
-<item historyLabel="search_list.xml" index="11"/>
-<item historyLabel="artdetail_list.xml" index="12"/>
-<item active="true" historyLabel="search_list.xml" index="11"/>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1163" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1565" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1311" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1163" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1273" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1295" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="2779" y="0"/>
+</item>
+<item historyLabel="ArtWorkDetailsActivity.java" index="2">
+<position info="not_deleted" x="6011" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="2536" y="0"/>
+</item>
+<item historyLabel="ArtWorkDetailsActivity.java" index="2">
+<position info="not_deleted" x="6217" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1748" y="0"/>
+</item>
+<item historyLabel="ArtWorkDetailsActivity.java" index="2">
+<position info="not_deleted" x="5918" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1748" y="0"/>
+</item>
+<item historyLabel="ArtWorkDetailsActivity.java" index="2">
+<position info="not_deleted" x="4018" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1570" y="0"/>
+</item>
+<item historyLabel="ArtWorkDetailsActivity.java" index="2">
+<position info="not_deleted" x="6011" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1570" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="1161" y="0"/>
+</item>
+<item historyLabel="ArtWorkDetailsActivity.java" index="2">
+<position info="not_deleted" x="6011" y="0"/>
+</item>
+<item historyLabel="ArtWorkDetailsActivity.java" index="2">
+<position info="not_deleted" x="4018" y="0"/>
+</item>
+<item historyLabel="ArtWorkDetailsActivity.java" index="2">
+<position info="not_deleted" x="6011" y="0"/>
+</item>
+<item historyLabel="FavoritesActivity.java" index="0">
+<position info="not_deleted" x="2386" y="0"/>
+</item>
+<item active="true" historyLabel="favorites_list.xml" index="4"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -512,6 +561,13 @@
 <trimLayout>
 <trimArea IMemento.internal.id="16384">
 <trimItem IMemento.internal.id="left"/>
+<trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
+<trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.ConsoleFolderView"/>
+</trimArea>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@7e205"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@1ab4fd4"/>
 </trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
@@ -526,50 +582,29 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="artdetail_list.xml" tooltip="version1.0/res/layout/artdetail_list.xml">
-<persistable path="/version1.0/res/layout/artdetail_list.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="favorites_list.xml" tooltip="version1.1/res/layout/favorites_list.xml">
+<persistable path="/version1.1/res/layout/favorites_list.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="search_list.xml" tooltip="version1.0/res/layout/search_list.xml">
-<persistable path="/version1.0/res/layout/search_list.xml"/>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Activity.class" tooltip="android.app.Activity">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=version1.0/C:\/Program Files\/Android\/android-sdk\/platforms\/android-10\/android.jar&lt;android.app(Activity.class"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ItemsAdapterWithImage.java" tooltip="version1.0/src/edu/artAtGVSU/ItemsAdapterWithImage.java">
-<persistable path="/version1.0/src/edu/artAtGVSU/ItemsAdapterWithImage.java"/>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Instrumentation.class" tooltip="android.app.Instrumentation">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=version1.0/C:\/Program Files\/Android\/android-sdk\/platforms\/android-10\/android.jar&lt;android.app(Instrumentation.class"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ArtDetailsItemsAdapter.java" tooltip="version1.0/src/edu/artAtGVSU/ArtDetailsItemsAdapter.java">
-<persistable path="/version1.0/src/edu/artAtGVSU/ArtDetailsItemsAdapter.java"/>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="InvocationTargetException.class" tooltip="java.lang.reflect.InvocationTargetException">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=version1.0/C:\/Program Files\/Android\/android-sdk\/platforms\/android-10\/android.jar&lt;java.lang.reflect(InvocationTargetException.class"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ImageAdapterMapsGallery.java" tooltip="version1.0/src/edu/artAtGVSU/ImageAdapterMapsGallery.java">
-<persistable path="/version1.0/src/edu/artAtGVSU/ImageAdapterMapsGallery.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="tour.xml" tooltip="version1.1/res/layout/tour.xml">
+<persistable path="/version1.1/res/layout/tour.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.drawable.DrawableEditor" name="tab_browse.xml" tooltip="version1.0/res/drawable/tab_browse.xml">
-<persistable path="/version1.0/res/drawable/tab_browse.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tour.java" tooltip="version1.1/src/edu/artAtGVSU/Tour.java">
+<persistable path="/version1.1/src/edu/artAtGVSU/Tour.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="tour.xml" tooltip="version1.0/res/layout/tour.xml">
-<persistable path="/version1.0/res/layout/tour.xml"/>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="BitmapFactory.class" tooltip="android.graphics.BitmapFactory">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=version1.0/C:\/Program Files\/Android\/android-sdk\/platforms\/android-10\/android.jar&lt;android.graphics(BitmapFactory.class"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TabGroupActivity.java" tooltip="version1.0/src/edu/artAtGVSU/TabGroupActivity.java">
-<persistable path="/version1.0/src/edu/artAtGVSU/TabGroupActivity.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="balloon_overlay.xml" tooltip="version1.0/res/layout/balloon_overlay.xml">
-<persistable path="/version1.0/res/layout/balloon_overlay.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="browse.xml" tooltip="version1.0/res/layout/browse.xml">
-<persistable path="/version1.0/res/layout/browse.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="favorites.xml" tooltip="version1.0/res/layout/favorites.xml">
-<persistable path="/version1.0/res/layout/favorites.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="loading_list.xml" tooltip="version1.0/res/layout/loading_list.xml">
-<persistable path="/version1.0/res/layout/loading_list.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main.xml" tooltip="version1.0/res/layout/main.xml">
-<persistable path="/version1.0/res/layout/main.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="map.xml" tooltip="version1.0/res/layout/map.xml">
-<persistable path="/version1.0/res/layout/map.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="search.xml" tooltip="version1.0/res/layout/search.xml">
-<persistable path="/version1.0/res/layout/search.xml"/>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="ImageView.class" tooltip="android.widget.ImageView">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=version1.0/C:\/Program Files\/Android\/android-sdk\/platforms\/android-10\/android.jar&lt;android.widget(ImageView.class"/>
 </file>
 </mruList>
 </workbench>

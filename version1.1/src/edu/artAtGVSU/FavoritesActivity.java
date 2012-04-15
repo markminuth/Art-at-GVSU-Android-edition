@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.w3c.dom.Text;
 
@@ -33,27 +35,31 @@ public class FavoritesActivity extends Activity {
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		//setContentView(R.layout.favorites);
+		setContentView(R.layout.favorites);
 
-		//writingToFile("Test 1");
+		//writingToFile("http://t0.gstatic.com/images?q=tbn:ANd9GcR0QV4FPsaUcN1hW6oleMCgVqdEgu0zN2C9XS99DHc05bFMw6h5NATpEJK8JQ~255~Art Title~DESCRIPTION");
 		//deleteFromFile("WORK");
-
-		String[] temp2 = tokenStr(readFromFile());	
-		TextView t = new TextView(c);
-		setContentView(t);
-		t.setText(temp2[1]);
 		
-		//ArrayList<String> favArtWorkArrayList = new ArrayList<String>();
-		//favArtWorkArrayList.add("test");
-		//favArtWorkArrayList.add("test2");
 		
-		//for(int i =0; i< temp2.length;i++){
-		//	favArtWorkArrayList.add(temp2[i]);
-		//}
+		List<String> temp = tokenStr(readFromFile());
 		
-//		favList=(ListView)findViewById(R.id.listViewFav);
-//		favAdapter = new FavItemsAdapter(c, R.layout.favorites_list, favArtWorkArrayList);
-//		favList.setAdapter(favAdapter);
+		//TextView t = new TextView(c);
+		//setContentView(t);
+		//t.setText(readFromFile());
+		
+		ArrayList<String> favArtWorkArrayList = new ArrayList<String>();
+		
+		if(temp.size() <= 1){
+			favArtWorkArrayList.add(" ~ ~No favs were found... ~ ");
+		}else{
+			for(int i =1; i< temp.size();i++){
+				favArtWorkArrayList.add(temp.get(i));
+			}
+		}
+		favList=(ListView)findViewById(R.id.listViewFav);
+		favAdapter = new FavItemsAdapter(c, R.layout.favorites_list, favArtWorkArrayList);
+		favList.setAdapter(favAdapter);
+		
 		//favArtWorkArrayList.add(aOpened.description)
 //		String[] favArtWork;
 ////		ListView list;
@@ -61,22 +67,23 @@ public class FavoritesActivity extends Activity {
 		
 	}
 	
-	public String[] tokenStr(String fav){
+	public List<String> tokenStr(String fav){
 		
 		String full = fav;
 		String delims = "<B>";
-		String[] tokens = full.split(delims);
+		String[] tok = full.split(delims);
+		List<String> tokens = Arrays.asList(tok);
 		
 		return tokens;
 		
 	}
 	
-	public String tokenTwo(String temp,int i)
-	{
-		String[] tokensTwo = temp.split("~");
-		String fin = tokensTwo[i];
-		return fin;
-	}
+//	public String tokenTwo(String temp,int i)
+//	{
+//		String[] tokensTwo = temp.split("~");
+//		String fin = tokensTwo[i];
+//		return fin;
+//	}
 	
 	
 	public void writingToFile(String fav) {
@@ -84,8 +91,8 @@ public class FavoritesActivity extends Activity {
 		String temp = new String(fav);
 
 		try {
-			temp += "\n" + readFromFile();
-			FileOutputStream fOut = openFileOutput("artFavorites3.txt", MODE_WORLD_READABLE);
+			temp += readFromFile();
+			FileOutputStream fOut = openFileOutput("aFavFile17.txt", MODE_WORLD_READABLE);
 
 			OutputStreamWriter osw = new OutputStreamWriter(fOut);
 			osw.write(temp);
@@ -105,7 +112,7 @@ public class FavoritesActivity extends Activity {
 
 		try {
 
-			FileInputStream fIn = openFileInput("artFavorites3.txt");
+			FileInputStream fIn = openFileInput("aFavFile17.txt");
 			InputStreamReader isr = new InputStreamReader(fIn);
 
 			char[] inputBuffer = new char[lang];

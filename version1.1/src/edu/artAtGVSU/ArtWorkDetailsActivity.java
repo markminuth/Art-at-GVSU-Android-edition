@@ -13,8 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -102,9 +104,22 @@ public class ArtWorkDetailsActivity extends Activity {
 			
 			public void onClick(View v) {
 				fav.setImageResource(R.drawable.favorite_selected);
-				String favString = aOpened.iconImageURL +"~"+   aOpened.artID + "~" + aOpened.artTitle + "~" + aOpened.description;
+				if(aOpened.iconImageURL.isEmpty() || aOpened.iconImageURL == null){
+					aOpened.iconImageURL = " ";
+				}
+				if(aOpened.artID.isEmpty() || aOpened.artID == null){
+					aOpened.artID = " ";
+				}
+				if(aOpened.artTitle.isEmpty() || aOpened.artTitle == null){
+					aOpened.artTitle = " ";
+				}
+				if(aOpened.description.isEmpty() || aOpened.description == null){
+					aOpened.description = " ";
+				}
+				String favString = "<B>" + aOpened.iconImageURL +"~"+ aOpened.artID + "~" + aOpened.artTitle + "~" + aOpened.description;
+				//alertbox("TEST", favString);
 				//if(searchForText(favString)){
-					writeToFile(favString);
+				writeToFile(favString);
 				//}else{
 					//deleteFromFile(favString);
 				//}
@@ -112,6 +127,18 @@ public class ArtWorkDetailsActivity extends Activity {
 		});
 	}
 	
+	protected void alertbox(String title, String mymessage)
+	   {
+	   new AlertDialog.Builder(this)
+	      .setMessage(mymessage)
+	      .setTitle(title)
+	      .setCancelable(true)
+	      .setNeutralButton(android.R.string.cancel,
+	         new DialogInterface.OnClickListener() {
+	         public void onClick(DialogInterface dialog, int whichButton){}
+	         })
+	      .show();
+	   }
 	/*
 	 * Get tour image from URL
 	 */
@@ -147,8 +174,8 @@ public class ArtWorkDetailsActivity extends Activity {
 		String temp = new String(fav);
 
 		try {
-			temp += "\n<B>\n" + readFromFile();
-			FileOutputStream fOut = openFileOutput("artFavorites3.txt", MODE_WORLD_READABLE);
+			temp += readFromFile();
+			FileOutputStream fOut = openFileOutput("aFavFile17.txt", MODE_WORLD_READABLE);
 
 			OutputStreamWriter osw = new OutputStreamWriter(fOut);
 			osw.write(temp);
@@ -166,7 +193,7 @@ public class ArtWorkDetailsActivity extends Activity {
 
 		try {
 
-			FileInputStream fIn = openFileInput("artFavorites3.txt");
+			FileInputStream fIn = openFileInput("aFavFile17.txt");
 			InputStreamReader isr = new InputStreamReader(fIn);
 
 			char[] inputBuffer = new char[lang];
