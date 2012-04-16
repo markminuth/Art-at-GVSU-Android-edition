@@ -170,6 +170,8 @@ public class MapTourActivity extends MapActivity {
 				startActivityForResult(intent, 0);
 			}
 		});
+		
+		
 	}
 
 	@Override
@@ -196,6 +198,15 @@ public class MapTourActivity extends MapActivity {
 				controller.animateTo(t.artPieces.get(1).geoLoc);
 				controller.setZoom(15);
 			}
+			
+			gallery = (Gallery) findViewById(R.id.gallery);	
+			ArrayList<Bitmap> temp = new ArrayList<Bitmap>();
+			for (int i = 0; i < t.artPieces.size(); i++) {
+				//Bitmap image = (Bitmap) findViewById(R.drawable.app_icon);
+				temp.add(image);
+			}
+			gallery.setAdapter(new ImageAdapterMapsGallery(c, temp));
+			gallery.setSelection(2);
 		}
 	};
 	

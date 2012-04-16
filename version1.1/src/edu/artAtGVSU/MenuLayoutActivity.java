@@ -52,8 +52,6 @@ public class MenuLayoutActivity extends TabActivity {
 		tabHost.addTab(spec);
 
 		tabHost.setCurrentTab(0);
-		final View aboutView = findViewById(R.id.aboutScreen);
-		aboutView.setVisibility(View.GONE);
 		
 		//Tab visual aspects
 		for(int i=0;i < tabHost.getTabWidget().getChildCount();i++) 
@@ -67,6 +65,14 @@ public class MenuLayoutActivity extends TabActivity {
 		} 
 		
 		
+		//App Icon Button Action
+		final ImageButton backAppButton = (ImageButton) findViewById(R.id.appHeaderIcon);
+		backAppButton.setOnClickListener(new View.OnClickListener(){
+			public void onClick(View arg0) {
+				finish();
+			}
+			
+		});
 		
 		//About Button Action
 		final ImageButton aboutButton = (ImageButton) findViewById(R.id.aboutIcon);
@@ -86,7 +92,8 @@ public class MenuLayoutActivity extends TabActivity {
 		aboutButton.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View v) {
-				aboutView.setVisibility(View.VISIBLE);
+					Intent intent = new Intent(v.getContext(), AboutActivity.class);
+					startActivityForResult(intent, 0);
 				}
 		});
 		
@@ -108,19 +115,10 @@ public class MenuLayoutActivity extends TabActivity {
 		searchButton.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View v) {
-				aboutView.setVisibility(View.GONE);
 				Intent intent = new Intent(v.getContext(), SearchActivity.class);
 				startActivityForResult(intent, 0);
 			}
 		});
 	}
-	
-	@Override
-	public boolean onKeyUp(int keyCode, KeyEvent event) {
-	        if(keyCode == KeyEvent.KEYCODE_SEARCH){
-				Intent intent = new Intent(this, SearchActivity.class);
-				startActivityForResult(intent, 0);
-	        }
-			return true;
-	} 
+
 }

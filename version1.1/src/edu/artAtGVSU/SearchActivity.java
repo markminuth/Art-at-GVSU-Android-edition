@@ -32,6 +32,7 @@ public class SearchActivity extends Activity{
 	    list = (ListView) findViewById(R.id.searchList);
 	    final ImageButton searchB = (ImageButton) findViewById(R.id.searchIcon);
 	    
+	    
 	    searchB.setOnTouchListener(new View.OnTouchListener() {
 			
 			public boolean onTouch(View v, MotionEvent event) {

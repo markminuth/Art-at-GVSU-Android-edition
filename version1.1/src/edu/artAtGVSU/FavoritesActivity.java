@@ -92,7 +92,7 @@ public class FavoritesActivity extends Activity {
 
 		try {
 			temp += readFromFile();
-			FileOutputStream fOut = openFileOutput("aFavFile17.txt", MODE_WORLD_READABLE);
+			FileOutputStream fOut = openFileOutput("aFavFile18.txt", MODE_WORLD_READABLE);
 
 			OutputStreamWriter osw = new OutputStreamWriter(fOut);
 			osw.write(temp);
@@ -112,7 +112,7 @@ public class FavoritesActivity extends Activity {
 
 		try {
 
-			FileInputStream fIn = openFileInput("aFavFile17.txt");
+			FileInputStream fIn = openFileInput("aFavFile18.txt");
 			InputStreamReader isr = new InputStreamReader(fIn);
 
 			char[] inputBuffer = new char[lang];

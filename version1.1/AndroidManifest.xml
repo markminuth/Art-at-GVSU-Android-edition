@@ -36,6 +36,8 @@
         
         <activity android:name=".SearchActivity" >
         </activity>
+        <activity android:name=".AboutActivity" >
+        </activity>
         <activity android:name=".ArtWorkZoomActivity" >
         </activity>
         <activity android:name=".ArtWorkDetailsActivity" >
