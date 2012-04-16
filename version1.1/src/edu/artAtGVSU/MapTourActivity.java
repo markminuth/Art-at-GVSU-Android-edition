@@ -31,6 +31,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Gallery;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
@@ -202,7 +203,7 @@ public class MapTourActivity extends MapActivity {
 			gallery = (Gallery) findViewById(R.id.gallery);	
 			ArrayList<Bitmap> temp = new ArrayList<Bitmap>();
 			for (int i = 0; i < t.artPieces.size(); i++) {
-				//Bitmap image = (Bitmap) findViewById(R.drawable.app_icon);
+				Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.app_icon);
 				temp.add(image);
 			}
 			gallery.setAdapter(new ImageAdapterMapsGallery(c, temp));

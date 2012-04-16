@@ -1,0 +1,10 @@
+package edu.artAtGVSU;
+
+import android.widget.ImageView;
+
+public class GifDecoderView extends ImageView{
+	   public GifDecoderView(Context context, InputStream stream) {
+		      super(context);
+		      playGif(stream);
+	   }
+}

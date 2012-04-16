@@ -1,0 +1,37 @@
+package edu.artAtGVSU;
+
+import java.io.InputStream;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Handler;
+import android.widget.ImageView;
+
+public class GifDecoderView extends ImageView{
+	   
+	   private boolean mIsPlayingGif = false;
+
+	   private GifDecoder mGifDecoder;
+
+	   private Bitmap mTmpBitmap;
+
+	   final Handler mHandler = new Handler();
+
+	   public GifDecoderView(Context context, InputStream stream) {
+		      super(context);
+		      playGif(stream);
+	   }
+	   
+	   final Runnable mUpdateResults = new Runnable() {
+	      public void run() {
+	         if (mTmpBitmap != null && !mTmpBitmap.isRecycled()) {
+	            GifDecoderView.this.setImageBitmap(mTmpBitmap);
+	         }
+	      }
+	   };
+	   private void playGif(InputStream stream) {
+		      mGifDecoder = new GifDecoder();
+		      mGifDecoder.read(stream);
+		      mIsPlayingGif = true;
+	   }
+}
