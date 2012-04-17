@@ -93,6 +93,9 @@ public class ParseArtWorkXML {
 			if(tourArtPos != -1 && Integer.parseInt(access) == 1){
 				artPiece = artWorkToTour.artPieces.get(tourArtPos);
 				artPiece.setIconURL(iconURL);
+			}else{
+				artPiece = new ArtWork();
+				artPiece.setIconURL(iconURL);
 			}
 			
 		}catch (SAXException e) {
@@ -142,6 +145,7 @@ public class ParseArtWorkXML {
 			String locNotes = null;
 			GeoPoint geoP = null;
 			String access = null;
+			String iconURL = null;
 			
 			artName = artDetails.item(1).getTextContent();
 			description = artDetails.item(2).getTextContent();
@@ -158,7 +162,8 @@ public class ParseArtWorkXML {
 			access = artDetails.item(14).getTextContent();
 			
 			if(Integer.parseInt(access) == 1){
-					artPiece = new ArtWork(aID, artistName, artName, description, idNo, date, histContext, mediumImage, largeImage, locName, locNotes, medium, geoP);
+					ArtWork a = artIconRequest(aID, -1);	
+					artPiece = new ArtWork(aID, artistName, artName, description, idNo, date, histContext, mediumImage, largeImage, a.iconImageURL, locName, locNotes, medium, geoP);
 			}
 		
 		} catch (SAXException e) {

@@ -83,7 +83,7 @@ public class ArtWork {
 	/*
 	 * All information needed for individaul art piece outside of a tour
 	 */
-	public ArtWork(String aID, String aArtistName, String aTitle, String aDescription, String aIdNo, String aWorkDate, String aHistContext, String aImageURLMedium, String aImageURLLarge, String aLocName, String aLocNotes, String aMedium, GeoPoint aGeoLoc){
+	public ArtWork(String aID, String aArtistName, String aTitle, String aDescription, String aIdNo, String aWorkDate, String aHistContext, String aImageURLMedium, String aImageURLLarge, String iconURL,  String aLocName, String aLocNotes, String aMedium, GeoPoint aGeoLoc){
 		artID = aID;
 		artistName = aArtistName;
 		artTitle = aTitle;
@@ -97,6 +97,7 @@ public class ArtWork {
 		locNotes = aLocNotes;
 		medium = aMedium;
 		geoLoc = aGeoLoc;
+		iconImageURL = iconURL;
 	}
 
 	public String getArtID() {

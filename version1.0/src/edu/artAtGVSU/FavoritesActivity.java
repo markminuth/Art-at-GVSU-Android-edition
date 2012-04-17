@@ -1,49 +1,104 @@
+                                           
 package edu.artAtGVSU;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
+import android.content.Intent;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class FavoritesActivity extends Activity {
+	
 	TextView t;	
+	ListView favList;
+	FavItemsAdapter favAdapter;
+	Context c= this;
+	
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		t = new TextView(this);
-		setContentView(t);
+		setContentView(R.layout.favorites);
+		
+		List<String> temp = tokenStr(readFromFile());
+		
+		
+		final ArrayList<String> favArtWorkArrayList = new ArrayList<String>();
+		
+		if(temp.size() <= 1){
+			favArtWorkArrayList.add(" ~ ~No favs were found... ~ ");
+		}else{
+			for(int i =1; i< temp.size();i++){
+				favArtWorkArrayList.add(temp.get(i));
+			}
+		}
+		favList=(ListView)findViewById(R.id.listViewFav);
+		favAdapter = new FavItemsAdapter(c, R.layout.favorites_list, favArtWorkArrayList);
+		favList.setAdapter(favAdapter);
+		
+		
+		
+		favList.setOnItemClickListener(new OnItemClickListener() {
+			
+			
+			public void onItemClick(AdapterView<?> arg0, View arg1, int pos,long arg3) 
+			{
+				String selectedString = favArtWorkArrayList.get(pos);
+	        	
+				ArtWork a = ParseArtWorkXML.artWorkRequestID(tokenTwo(selectedString,1));
+				ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
+				Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
+				((Activity) c).startActivity(intent);
+				
+			}
+		});
 
-		//writingToFile("Test 1");
-		//deleteFromFile("WORK");
 
-		String temp = "";
-		temp = readFromFile();
-
-		t.setTextColor(Color.BLACK);
-		t.setText(temp);
+		
 	}
+
+
+		
+	
+	
+	public List<String> tokenStr(String fav){
+		
+		String full = fav;
+		String delims = "<B>";
+		String[] tok = full.split(delims);
+		List<String> tokens = Arrays.asList(tok);
+		
+		return tokens;
+		
+	}
+	
+	public String tokenTwo(String temp,int i)
+	{
+		String[] tokensTwo = temp.split("~");
+		String fin = tokensTwo[i];
+		return fin;
+	}
+	
 	
 	public void writingToFile(String fav) {
 
 		String temp = new String(fav);
 
 		try {
-			temp += "\n" + readFromFile();
-			FileOutputStream fOut = openFileOutput("FavoritesFile3.txt", MODE_WORLD_READABLE);
+			temp += readFromFile();
+			FileOutputStream fOut = openFileOutput("favoriteArt1.txt", MODE_WORLD_READABLE);
 
 			OutputStreamWriter osw = new OutputStreamWriter(fOut);
 			osw.write(temp);
@@ -63,7 +118,7 @@ public class FavoritesActivity extends Activity {
 
 		try {
 
-			FileInputStream fIn = openFileInput("FavoritesFile3.txt");
+			FileInputStream fIn = openFileInput("favoriteArt1.txt");
 			InputStreamReader isr = new InputStreamReader(fIn);
 
 			char[] inputBuffer = new char[lang];

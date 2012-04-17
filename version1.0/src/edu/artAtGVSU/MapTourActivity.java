@@ -31,6 +31,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Gallery;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
@@ -170,6 +171,29 @@ public class MapTourActivity extends MapActivity {
 				startActivityForResult(intent, 0);
 			}
 		});
+		
+		//About Button Action
+		final ImageButton aboutButton = (ImageButton) findViewById(R.id.aboutIcon);
+		aboutButton.setOnTouchListener(new View.OnTouchListener() {
+			
+			public boolean onTouch(View v, MotionEvent event) {
+				if(event.getAction() == MotionEvent.ACTION_DOWN){
+					aboutButton.setImageResource(R.drawable.about_icon_selected);
+				}
+				else if(event.getAction() == MotionEvent.ACTION_UP){
+					aboutButton.setImageResource(R.drawable.about_icon);
+				}
+				return false;
+			}
+		});
+		
+		aboutButton.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+					Intent intent = new Intent(v.getContext(), AboutActivity.class);
+					startActivityForResult(intent, 0);
+				}
+		});
 	}
 
 	@Override
@@ -196,6 +220,15 @@ public class MapTourActivity extends MapActivity {
 				controller.animateTo(t.artPieces.get(1).geoLoc);
 				controller.setZoom(15);
 			}
+			
+			gallery = (Gallery) findViewById(R.id.gallery);	
+			ArrayList<Bitmap> temp = new ArrayList<Bitmap>();
+			for (int i = 0; i < t.artPieces.size(); i++) {
+				Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.app_icon);
+				temp.add(image);
+			}
+			gallery.setAdapter(new ImageAdapterMapsGallery(c, temp));
+			gallery.setSelection(2);
 		}
 	};
 	

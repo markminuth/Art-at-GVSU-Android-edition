@@ -66,11 +66,11 @@
         android:layout_height="0.2dp"
         android:background="#909090" >
     </FrameLayout>
-
+
     <RelativeLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
-        android:layout_height="200dp" >
+        android:layout_height="230dp" >
 
         <ImageView
             android:id="@+id/art_image"
@@ -131,17 +131,33 @@
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="14dp"
             android:src="@drawable/favorite" />
+
+        <ImageButton
+            android:id="@+id/shareButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/favorite"
+            android:src="@android:drawable/ic_menu_share" />
 
         <ImageButton
             android:id="@+id/zoomButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="20dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
+            android:layout_marginLeft="14dp"
             android:src="@android:drawable/ic_menu_zoom" />
+
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/shareButton"
+            android:src="@drawable/place_selected" />
 
     </RelativeLayout>
 

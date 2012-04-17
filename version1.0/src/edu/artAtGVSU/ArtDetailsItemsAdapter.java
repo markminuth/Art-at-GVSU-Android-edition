@@ -55,13 +55,8 @@ public class ArtDetailsItemsAdapter extends ArrayAdapter<String> {
 		}if(position == 6){
 			header.setText("Identifier");
 		}
-		//cut back content in order to fit more
-		if(artDetail.length() > 80 && position == 1){
-			details.setText(artDetail.substring(0, 80) + "...");
-		}else{
-			details.setText(artDetail);
-		}
 		
+		details.setText(artDetail);
 		
 		return alertView;
 	}

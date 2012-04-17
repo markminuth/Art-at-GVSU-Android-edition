@@ -15,18 +15,17 @@ import android.os.Bundle;
 import android.widget.ProgressBar;
 
 public class SplashScreenActivity extends Activity {
+	ArrayList<Tour> tours = new ArrayList<Tour>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.splash);
-		
 		// thread for displaying the SplashScreen
 		Thread splashTread = new Thread() {
 			@Override
 			public void run() {
 				try {
-					ArrayList<Tour> tours = new ArrayList<Tour>();
 					tours = ParseToursXML.toursRequest();
 					for (int i = 0; i < tours.size(); i++) {
 						ParseToursXML.toursIndividualDataRequest(tours.get(i).tourID);

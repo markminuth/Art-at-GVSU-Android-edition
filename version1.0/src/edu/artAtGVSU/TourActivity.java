@@ -26,6 +26,28 @@ public class TourActivity extends Activity {
 	static ArrayList<Tour> tours = new ArrayList<Tour>();
 	static int selectedPos;
 	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.tour);
+		Thread tourGallery = new Thread(){
+			@Override
+			public void run() {
+				tours = ParseToursXML.getTours();
+				for (int i = 0; i < tours.size(); i++) {
+					images.add(fetchImage(tours.get(i).imageMainURL));
+				}
+				Message msg = new Message();
+				Bundle resBundle = new Bundle();
+				resBundle.putString("status", "SUCCESS");
+				msg.obj = resBundle;
+				handlerGallery.sendMessage(msg);
+			}
+		};
+		tourGallery.start();
+	}
+	
+	
 	/*
 	 * Gets the image from the URL sent to the method and returns a Bitmap of the image
 	 */
@@ -53,27 +75,9 @@ public class TourActivity extends Activity {
 		return null;
 	}
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.tour);
-		Thread tourGallery = new Thread(){
-			@Override
-			public void run() {
-				tours = ParseToursXML.getTours();
-				for (int i = 0; i < tours.size(); i++) {
-					images.add(fetchImage(tours.get(i).imageMainURL));
-				}
-				Message msg = new Message();
-				Bundle resBundle = new Bundle();
-				resBundle.putString("status", "SUCCESS");
-				msg.obj = resBundle;
-				handlerGallery.sendMessage(msg);
-			}
-		};
-		tourGallery.start();
-	}
-	
+	/*
+	 * 
+	 */
 	private Handler handlerGallery = new Handler(){
 		@Override
 		public void handleMessage(Message msg) {

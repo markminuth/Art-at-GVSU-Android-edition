@@ -32,6 +32,7 @@ public class SearchActivity extends Activity{
 	    list = (ListView) findViewById(R.id.searchList);
 	    final ImageButton searchB = (ImageButton) findViewById(R.id.searchIcon);
 	    
+	    
 	    searchB.setOnTouchListener(new View.OnTouchListener() {
 			
 			public boolean onTouch(View v, MotionEvent event) {
@@ -86,6 +87,29 @@ public class SearchActivity extends Activity{
 				Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
 				((Activity) c).startActivity(intent);
 			}
+		});
+		
+		//About Button Action
+		final ImageButton aboutButton = (ImageButton) findViewById(R.id.aboutIcon);
+		aboutButton.setOnTouchListener(new View.OnTouchListener() {
+			
+			public boolean onTouch(View v, MotionEvent event) {
+				if(event.getAction() == MotionEvent.ACTION_DOWN){
+					aboutButton.setImageResource(R.drawable.about_icon_selected);
+				}
+				else if(event.getAction() == MotionEvent.ACTION_UP){
+					aboutButton.setImageResource(R.drawable.about_icon);
+				}
+				return false;
+			}
+		});
+		
+		aboutButton.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+					Intent intent = new Intent(v.getContext(), AboutActivity.class);
+					startActivityForResult(intent, 0);
+				}
 		});
 	}
 	

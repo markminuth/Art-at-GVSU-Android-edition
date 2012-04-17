@@ -40,7 +40,7 @@ public class ImageAdapterMapsGallery extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ImageView imgView = new ImageView(mContext);
 		imgView.setImageBitmap(images.get(position));
-		imgView.setLayoutParams(new Gallery.LayoutParams(125, 125));
+		imgView.setLayoutParams(new Gallery.LayoutParams(160, 160));
 		imgView.setScaleType(ImageView.ScaleType.FIT_XY);
 		imgView.setBackgroundResource(item);
 		
