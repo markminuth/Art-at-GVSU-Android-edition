@@ -97,12 +97,7 @@ public class ArtWorkDetailsActivity extends Activity {
 		shareButtonC.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-				Intent shareIntent = new Intent();
-				shareIntent.setAction(Intent.ACTION_SEND);
-				shareIntent.putExtra(Intent.EXTRA_STREAM, aOpened.imageURLLarge);
-				shareIntent.setType("image/jpeg");
-				startActivity(Intent.createChooser(shareIntent, "Share"));
-				//alertbox();
+				alertbox();
 			}
 		});
 		

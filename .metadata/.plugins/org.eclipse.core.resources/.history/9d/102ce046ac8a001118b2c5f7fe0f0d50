@@ -1,0 +1,30 @@
+package edu.artAtGVSU;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class ParseBrowseXML {
+
+	/*
+	 * Make Connection with URL parameter (URL string can be concatenated with conditions when
+	 * passed into the method) returns the inputStream from the response.   
+	 */
+	private static InputStream makeConnection(String url){
+		URL urlSend = null;
+		InputStream in = null;
+		try{
+			urlSend = new URL(url);
+			HttpURLConnection connection = (HttpURLConnection) urlSend.openConnection();
+			in = connection.getInputStream();
+		}catch(MalformedURLException e){
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return in;
+	}
+}

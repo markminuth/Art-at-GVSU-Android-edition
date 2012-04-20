@@ -269,23 +269,10 @@ public class MapTourActivity extends MapActivity {
 					selectedPos = position;
 					itemizedoverlay.onTap(selectedPos);
 					view.setFocusable(true);	
-					borderImg.setBackgroundColor(Color.RED);
-					Toast.makeText(c, gallery.getCount(), Toast.LENGTH_LONG);
-					for(int i = 0; i < gallery.getCount(); i++){
-						if(position != i){
-							borderImg.setBackgroundColor(Color.BLACK);
-						}
-					}
+					//borderImg.setBackgroundColor(Color.RED);
 				}
 			});
 		}
 	};
-
-	public static int getIntentValue() {
-		return intentValue;
-	}
-
-	public static void setIntentValue(int intentValue) {
-		MapTourActivity.intentValue = intentValue;
-	}	
+		
 }

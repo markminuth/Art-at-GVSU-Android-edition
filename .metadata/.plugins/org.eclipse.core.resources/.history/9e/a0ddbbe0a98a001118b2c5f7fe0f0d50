@@ -270,9 +270,8 @@ public class MapTourActivity extends MapActivity {
 					itemizedoverlay.onTap(selectedPos);
 					view.setFocusable(true);	
 					borderImg.setBackgroundColor(Color.RED);
-					Toast.makeText(c, gallery.getCount(), Toast.LENGTH_LONG);
 					for(int i = 0; i < gallery.getCount(); i++){
-						if(position != i){
+						if(i != position){
 							borderImg.setBackgroundColor(Color.BLACK);
 						}
 					}
