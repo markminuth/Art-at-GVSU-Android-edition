@@ -1,0 +1,179 @@
+package edu.artAtGVSU
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.util.AttributeSet;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.ZoomControls;
+
+public class ZoomImageViewer extends RelativeLayout {
+private final Context context;
+private int zoomControler           = 100;
+private ViewImage viewImage         = null;
+private ZoomControls zoom           = null;
+
+private boolean isLowVirtualMemory  = false;
+
+public ZoomImageViewer(Context context) {
+    super(context);
+    this.context = context;
+    setLayout();
+}
+
+public ZoomImageViewer(Context context, AttributeSet attrs) {
+    super(context, attrs);
+    this.context = context;
+    setLayout();
+}
+
+public ZoomImageViewer(Context context, AttributeSet attrs, int defStyle) {
+    super(context, attrs, defStyle);
+    this.context = context;
+    setLayout();
+}
+
+private void setLayout() {
+    setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+    viewImage = new ViewImage(context);
+    addView(viewImage);
+
+    RelativeLayout layout   = new RelativeLayout(context);
+    LayoutParams params     = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
+    zoom                    = new ZoomControls(context);
+
+    params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+    layout.setLayoutParams(params);
+
+    params  = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+    params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+    zoom.setLayoutParams(params);
+    zoom.setVisibility(View.GONE);
+    zoom.setZoomSpeed(0);
+    layout.addView(zoom);
+    addView(layout);
+
+    zoom.setOnZoomInClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            viewImage.onZoom(true);
+        }
+    });
+
+    zoom.setOnZoomOutClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            viewImage.onZoom(false);
+        }
+    });
+}
+
+public void setBackgroudImage(byte[] byteImage) {
+    setBackgroudImage(BitmapFactory.decodeByteArray(byteImage, 0, byteImage.length));
+}
+
+public void setBackgroudImage(Bitmap bm) {
+    if(viewImage != null)
+        viewImage.setImage(bm);
+}
+
+public void setBackgroudImage(int id) {
+    if(viewImage != null)
+        viewImage.setImage(((BitmapDrawable)context.getResources().getDrawable(id)).getBitmap());
+}
+
+private final class ViewImage extends ImageView implements OnTouchListener {
+    private final int MAX_SIZE  = 1500;
+    private final int MIN_SIZE  = 80;
+    private Bitmap bitmap       = null;
+    private LayoutParams params = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
+    private float mx, my, curX, curY;
+
+    public ViewImage(Context context) {
+        super(context);
+        setLayout();
+    }
+
+    public ViewImage(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        setLayout();
+    }
+
+    public ViewImage(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        setLayout();
+    }
+
+    private void setLayout() {
+        params.addRule(RelativeLayout.CENTER_IN_PARENT);
+        setLayoutParams(params);
+        setScaleType(ScaleType.CENTER);
+        setFocusable(true);
+        setOnTouchListener(this);
+    }
+
+    public void setImage(Bitmap bitmap) {
+        if(bitmap == null)  {
+            zoom.setVisibility(View.GONE);
+            return;
+        }
+        this.bitmap = bitmap;
+        zoom.setVisibility(View.VISIBLE);
+        zoomControler = bitmap.getWidth();
+        setImageBitmap(Bitmap.createScaledBitmap(this.bitmap, zoomControler, zoomControler, true));
+    }   
+
+    public void onZoom(boolean zoomIn) {
+        if((zoomIn) && (zoomControler < MAX_SIZE) && (!isLowVirtualMemory))
+            zoomControler += 10;
+        else {
+            if(zoomControler > MIN_SIZE)
+                zoomControler -= 10;
+        }
+        try {
+            setImageBitmap(Bitmap.createScaledBitmap(this.bitmap, zoomControler, zoomControler, true));
+            isLowVirtualMemory = false;
+        }catch(OutOfMemoryError e) {                
+            isLowVirtualMemory = true;
+        }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_DPAD_UP) // zoom in
+            onZoom(true);
+        else if(keyCode == KeyEvent.KEYCODE_DPAD_DOWN) // zoom out
+            onZoom(false);
+
+        return(true);
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {             
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                mx = event.getX();
+                my = event.getY();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                curX = event.getX();
+                curY = event.getY();
+                scrollBy((int) (mx - curX), (int) (my - curY));
+                mx = curX;
+                my = curY;
+                break;
+            case MotionEvent.ACTION_UP:
+                curX = event.getX();
+                curY = event.getY();
+                scrollBy((int) (mx - curX), (int) (my - curY));
+                break;
+        }
+        return(true);
+    }
+}
+}

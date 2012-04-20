@@ -45,6 +45,7 @@ public class MapTourActivity extends MapActivity {
 	static List<Overlay> mapOverlays;
 	static TourPinpoints itemizedoverlay;
 	static Tour t;
+	static int intentValue;
 	static Gallery gallery;
 	static int selectedTour;
 	int selectedPos;
@@ -93,61 +94,79 @@ public class MapTourActivity extends MapActivity {
 		Drawable drawable = map.getResources().getDrawable(R.drawable.pin);
 		itemizedoverlay = new TourPinpoints(drawable, map);
 		
-		//Create Thread to load tour points on map
-		final Thread pinPoints = new Thread() {
-			@Override
-			public void run() {
-				selectedTour = getIntent().getIntExtra("tourID", -1) + 1;
-				t = ParseToursXML.getTour(String.valueOf(selectedTour));
-				for (int i = 0; i < t.artPieces.size(); i++) {
-					GeoPoint gp = t.artPieces.get(i).geoLoc;
-					OverlayItem overlayItem;
-					if(t.artPieces.get(i).artistName != null){
-						//when information about the art is known
-						overlayItem = new OverlayItem(gp, t.artPieces.get(i).artTitle, t.artPieces.get(i).artistName + "%" + t.artPieces.get(i).iconImageURL);
-					}else{
-						//no artist information known yet
-						overlayItem = new OverlayItem(gp, t.artPieces.get(i).artTitle, "%");
-					}
-					itemizedoverlay.createPinPoint(overlayItem);
-				}
-				Message msg = new Message();
-				Bundle resBundle = new Bundle();
-				resBundle.putString("status", "SUCCESS");
-				msg.obj = resBundle;
-				handlerPinPoints.sendMessage(msg);
-			}
-		};
-		pinPoints.start();
-		
 		controller = map.getController();
 		
-		//Create Thread to Parse icons of art pieces and fetch url images
-		Thread galleryLoad = new Thread(){
-			
-			@Override
-			public void run() {
-				images = new ArrayList<Bitmap>();
-				ParseArtWorkXML.setTour(t);
-				
-				// Get Icons for artwork in tour to display in gallery
-				for (int i = 0; i < t.artPieces.size(); i++) {
-					// if the artwork icon has not yet been set to tours it must make the web service call
-					if (ParseArtWorkXML.getTour().artPieces.get(i).iconImageURL == null) {
-						ParseArtWorkXML.artIconRequest(t.artPieces.get(i).artID, i);
-						images.add(fetchImage(t.artPieces.get(i).getIconURL()));
-					} else {
-						images.add(fetchImage(ParseArtWorkXML.getTour().artPieces.get(i).getIconURL()));
+		//check if it is or is not a tour
+		if(getIntent().getIntExtra("notTour", -1) != -2){		
+			//Create Thread to load tour points on map
+			final Thread pinPoints = new Thread() {
+				@Override
+				public void run() {
+					selectedTour = getIntent().getIntExtra("tourID", -1) + 1;
+					t = ParseToursXML.getTour(String.valueOf(selectedTour));
+					for (int i = 0; i < t.artPieces.size(); i++) {
+						GeoPoint gp = t.artPieces.get(i).geoLoc;
+						OverlayItem overlayItem;
+						if(t.artPieces.get(i).artistName != null){
+							//when information about the art is known
+							overlayItem = new OverlayItem(gp, t.artPieces.get(i).artTitle, t.artPieces.get(i).artistName + "%" + t.artPieces.get(i).iconImageURL);
+						}else{
+							//no artist information known yet
+							overlayItem = new OverlayItem(gp, t.artPieces.get(i).artTitle, "%");
+						}
+						itemizedoverlay.createPinPoint(overlayItem);
 					}
+					Message msg = new Message();
+					Bundle resBundle = new Bundle();
+					resBundle.putString("status", "SUCCESS");
+					msg.obj = resBundle;
+					handlerPinPoints.sendMessage(msg);
 				}
-				Message msg = new Message();
-				Bundle resBundle = new Bundle();
-				resBundle.putString("status", "SUCCESS");
-				msg.obj = resBundle;
-				handlerGallery.sendMessage(msg);
-			}
-		};
-		galleryLoad.start();
+			};
+			pinPoints.start();
+		}
+		// Used for individual art piece
+		else{
+			ArtWork aOpened = ArtWorkObjectSetUp.getArtWork();
+			GeoPoint gp = aOpened.geoLoc;
+			OverlayItem overlayItem; 
+			overlayItem = new OverlayItem(gp, aOpened.artTitle, "%");
+			itemizedoverlay.createPinPoint(overlayItem);
+			mapOverlays.add(itemizedoverlay);
+			controller.animateTo(gp);
+			controller.setZoom(19);
+		}
+		
+		intentValue = getIntent().getIntExtra("notTour", -1);
+				
+		if(getIntent().getIntExtra("notTour", -1) != -2){
+			//Create Thread to Parse icons of art pieces and fetch url images
+			Thread galleryLoad = new Thread(){
+				
+				@Override
+				public void run() {
+					images = new ArrayList<Bitmap>();
+					ParseArtWorkXML.setTour(t);
+					
+					// Get Icons for artwork in tour to display in gallery
+					for (int i = 0; i < t.artPieces.size(); i++) {
+						// if the artwork icon has not yet been set to tours it must make the web service call
+						if (ParseArtWorkXML.getTour().artPieces.get(i).iconImageURL == null) {
+							ParseArtWorkXML.artIconRequest(t.artPieces.get(i).artID, i);
+							images.add(fetchImage(t.artPieces.get(i).getIconURL()));
+						} else {
+							images.add(fetchImage(ParseArtWorkXML.getTour().artPieces.get(i).getIconURL()));
+						}
+					}
+					Message msg = new Message();
+					Bundle resBundle = new Bundle();
+					resBundle.putString("status", "SUCCESS");
+					msg.obj = resBundle;
+					handlerGallery.sendMessage(msg);
+				}
+			};
+			galleryLoad.start();
+		}
 		
 		//Search Button Action
 		final ImageButton searchButton = (ImageButton) findViewById(R.id.searchIcon);

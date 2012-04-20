@@ -39,10 +39,14 @@ public class TourPinpoints extends BalloonItemizedOverlay<OverlayItem> {
 	
 	@Override
 	protected boolean onBalloonTap(int index) {
-		ArtWork a = ParseArtWorkXML.getTour().artPieces.get(getBalloonIndexClicked(index));
-		ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(ParseArtWorkXML.artWorkRequestID(a.artID));
-		Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
-		((Activity) c).startActivity(intent);
+		//if(!ArtWorkObjectSetUp.getArtWork().equals(null)){
+			ArtWork a = ParseArtWorkXML.getTour().artPieces.get(getBalloonIndexClicked(index));
+			ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
+			Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
+			((Activity) c).startActivity(intent);
+		//}else{
+		//	Toast.makeText(c, "NOT SUPPORTED", Toast.LENGTH_LONG);
+		//}
 		return true;
 	}
 	

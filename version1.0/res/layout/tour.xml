@@ -10,7 +10,7 @@
         android:spacing="5dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"/>
+        android:layout_marginTop="160dp"/>
 
     <ImageView
         android:id="@+id/imageView1"

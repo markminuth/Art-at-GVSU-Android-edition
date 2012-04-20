@@ -66,7 +66,7 @@
         android:layout_height="0.2dp"
         android:background="#909090" >
     </FrameLayout>
-
+
     <RelativeLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
@@ -132,7 +132,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_marginRight="14dp"
-            android:src="@drawable/favorite" />
+            android:src="@drawable/love" />
 
         <ImageButton
             android:id="@+id/shareButton"
@@ -152,12 +152,12 @@
             android:src="@android:drawable/ic_menu_zoom" />
 
         <ImageButton
-            android:id="@+id/imageButton1"
+            android:id="@+id/mapViewButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_toLeftOf="@+id/shareButton"
-            android:src="@drawable/place_selected" />
+            android:src="@android:drawable/ic_menu_mapmode" />
 
     </RelativeLayout>
 
@@ -165,18 +165,31 @@
         android:layout_width="fill_parent"
         android:layout_height="25dp"
         android:layout_gravity="center_horizontal"
-        android:background="#FFFFFF"
+        android:background="#736F6E"
         android:gravity="center_vertical" >
 
         <TextView
+            android:id="@+id/infoHeaderShadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/infoHeader"
+            android:layout_alignParentBottom="true"
+            android:text="Information"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+        
+                <TextView
             android:id="@+id/infoHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:background="#FFFFFF"
             android:text="Information"
-            android:textColor="#000000" />
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="#FFFFFF" />
+
     </RelativeLayout>
 
     <ListView

@@ -52,6 +52,7 @@ public class ArtWorkDetailsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.artdetails);
 		aOpened = ArtWorkObjectSetUp.getArtWork();
+		aOpened = ParseArtWorkXML.artWorkRequestID(aOpened.artID);
 		
 		// Add details to list in order to pass list to Adapter
 		ArrayList<String> textInfo = new ArrayList<String>();
@@ -155,6 +156,16 @@ public class ArtWorkDetailsActivity extends Activity {
 			}
 		});
 
+		final ImageButton mapViewButton = (ImageButton) findViewById(R.id.mapViewButton);
+		mapViewButton.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				Intent intent = new Intent(v.getContext(), MapTourActivity.class);
+				intent.putExtra("notTour", -2);
+				startActivityForResult(intent, 0);
+			}
+		});
+		
 		final ImageButton favorite = (ImageButton) findViewById(R.id.favorite);
 		favorite.setOnClickListener(new View.OnClickListener() {
 
@@ -261,7 +272,7 @@ public class ArtWorkDetailsActivity extends Activity {
 
 		try {
 			temp += readFromFile();
-			FileOutputStream fOut = openFileOutput("favoriteArt1.txt",
+			FileOutputStream fOut = openFileOutput("favoriteArtFile1.txt",
 					MODE_WORLD_READABLE);
 
 			OutputStreamWriter osw = new OutputStreamWriter(fOut);
@@ -281,7 +292,7 @@ public class ArtWorkDetailsActivity extends Activity {
 
 		try {
 
-			FileInputStream fIn = openFileInput("favoriteArt1.txt");
+			FileInputStream fIn = openFileInput("favoriteArtFile1.txt");
 			InputStreamReader isr = new InputStreamReader(fIn);
 
 			char[] inputBuffer = new char[lang];

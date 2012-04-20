@@ -44,6 +44,8 @@ public class FavoritesActivity extends Activity {
 				favArtWorkArrayList.add(temp.get(i));
 			}
 		}
+		
+		
 		favList=(ListView)findViewById(R.id.listViewFav);
 		favAdapter = new FavItemsAdapter(c, R.layout.favorites_list, favArtWorkArrayList);
 		favList.setAdapter(favAdapter);
@@ -64,13 +66,8 @@ public class FavoritesActivity extends Activity {
 				
 			}
 		});
-
-
 		
-	}
-
-
-		
+	}	
 	
 	
 	public List<String> tokenStr(String fav){
@@ -98,7 +95,7 @@ public class FavoritesActivity extends Activity {
 
 		try {
 			temp += readFromFile();
-			FileOutputStream fOut = openFileOutput("favoriteArt1.txt", MODE_WORLD_READABLE);
+			FileOutputStream fOut = openFileOutput("favoriteArtFile1.txt", MODE_WORLD_READABLE);
 
 			OutputStreamWriter osw = new OutputStreamWriter(fOut);
 			osw.write(temp);
@@ -118,7 +115,7 @@ public class FavoritesActivity extends Activity {
 
 		try {
 
-			FileInputStream fIn = openFileInput("favoriteArt1.txt");
+			FileInputStream fIn = openFileInput("favoriteArtFile1.txt");
 			InputStreamReader isr = new InputStreamReader(fIn);
 
 			char[] inputBuffer = new char[lang];

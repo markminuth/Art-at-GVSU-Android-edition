@@ -46,7 +46,7 @@ public class TourActivity extends Activity {
 		};
 		tourGallery.start();
 	}
-	
+	  
 	
 	/*
 	 * Gets the image from the URL sent to the method and returns a Bitmap of the image
