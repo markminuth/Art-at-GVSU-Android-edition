@@ -26,6 +26,7 @@ public class FavoritesActivity extends Activity {
 	ListView favList;
 	FavItemsAdapter favAdapter;
 	Context c= this;
+	ArrayList<String> favArtWorkArrayList = new ArrayList<String>();
 	
 	protected void onResume() {
 		// TODO Auto-generated method stub
@@ -34,8 +35,7 @@ public class FavoritesActivity extends Activity {
 		
 		List<String> temp = tokenStr(readFromFile());
 		
-		
-		final ArrayList<String> favArtWorkArrayList = new ArrayList<String>();
+		favArtWorkArrayList = new ArrayList<String>();
 		
 		if(temp.size() <= 1){
 			favArtWorkArrayList.add(" ~ ~No favs were found... ~ ");
@@ -45,12 +45,9 @@ public class FavoritesActivity extends Activity {
 			}
 		}
 		
-		
 		favList=(ListView)findViewById(R.id.listViewFav);
 		favAdapter = new FavItemsAdapter(c, R.layout.favorites_list, favArtWorkArrayList);
 		favList.setAdapter(favAdapter);
-		
-		
 		
 		favList.setOnItemClickListener(new OnItemClickListener() {
 			
@@ -58,11 +55,11 @@ public class FavoritesActivity extends Activity {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int pos,long arg3) 
 			{
 				String selectedString = favArtWorkArrayList.get(pos);
-	        	
-				ArtWork a = ParseArtWorkXML.artWorkRequestID(tokenTwo(selectedString,1));
-				ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
-				Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
-				((Activity) c).startActivity(intent);
+	        	deleteFromFile(selectedString);
+				//ArtWork a = ParseArtWorkXML.artWorkRequestID(tokenTwo(selectedString,1));
+				//ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
+				//Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
+				//((Activity) c).startActivity(intent);
 				
 			}
 		});
@@ -88,14 +85,12 @@ public class FavoritesActivity extends Activity {
 		return fin;
 	}
 	
-	
 	public void writingToFile(String fav) {
 
 		String temp = new String(fav);
 
 		try {
-			temp += readFromFile();
-			FileOutputStream fOut = openFileOutput("favoriteArtFile1.txt", MODE_WORLD_READABLE);
+			FileOutputStream fOut = openFileOutput("favoriteArtFile4.txt", MODE_WORLD_READABLE);
 
 			OutputStreamWriter osw = new OutputStreamWriter(fOut);
 			osw.write(temp);
@@ -115,7 +110,7 @@ public class FavoritesActivity extends Activity {
 
 		try {
 
-			FileInputStream fIn = openFileInput("favoriteArtFile1.txt");
+			FileInputStream fIn = openFileInput("favoriteArtFile4.txt");
 			InputStreamReader isr = new InputStreamReader(fIn);
 
 			char[] inputBuffer = new char[lang];
@@ -130,30 +125,16 @@ public class FavoritesActivity extends Activity {
 	}
 
 	public void deleteFromFile(String fav) {
-
-		String temp = new String(fav);
-		String finTemp = "";
-			finTemp += readFromFile();
-			
-			for (int i=0;i<finTemp.length()-temp.length();i++)
-			{
-				//parse the string to find the one i want to delete
-				String test = finTemp.substring(i, i+(temp.length()));
-				if (fav.equalsIgnoreCase(test))
-				{
-					//remove the string
-					String finTemp1=finTemp.substring(0, i);
-					
-					String finTemp2=finTemp.substring(i+fav.length(), finTemp.length());
-					finTemp2.concat(finTemp1);
-					finTemp=finTemp1+finTemp2;
-					writingToFile(finTemp);
-				}
-				else 
-				{
-					//the file was not found
-				}
+		// Remove from array
+		String temp = readFromFile();
+		for( int i = 0; i < favArtWorkArrayList.size(); i++){
+			String line = favArtWorkArrayList.get(i);
+			if(line.contains(fav)){
+				favArtWorkArrayList.remove(i);
+				temp = temp.replace("<B>" + fav, "");
 			}
-
+		}	
+		
+		writingToFile(temp);
 	}
 }

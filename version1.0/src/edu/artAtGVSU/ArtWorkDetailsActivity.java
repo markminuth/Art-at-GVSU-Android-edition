@@ -277,7 +277,7 @@ public class ArtWorkDetailsActivity extends Activity {
 
 		try {
 			temp += readFromFile();
-			FileOutputStream fOut = openFileOutput("favoriteArtFile1.txt",
+			FileOutputStream fOut = openFileOutput("favoriteArtFile4.txt",
 					MODE_WORLD_READABLE);
 
 			OutputStreamWriter osw = new OutputStreamWriter(fOut);
@@ -297,7 +297,7 @@ public class ArtWorkDetailsActivity extends Activity {
 
 		try {
 
-			FileInputStream fIn = openFileInput("favoriteArtFile1.txt");
+			FileInputStream fIn = openFileInput("favoriteArtFile4.txt");
 			InputStreamReader isr = new InputStreamReader(fIn);
 
 			char[] inputBuffer = new char[lang];

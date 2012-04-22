@@ -12,6 +12,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class ParseBrowseXML {
@@ -46,7 +48,11 @@ public class ParseBrowseXML {
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = factory.newDocumentBuilder();
 			Document doc = db.parse(in);
+				
+			Element docElement = doc.getDocumentElement();
 			
+			NodeList campusKeys = docElement.getElementsByTagName("ca_storage_locations.children.location_id");
+			int keys = campusKeys.getLength();		
 			
 		} catch (SAXException e) {
 			// TODO Auto-generated catch block
