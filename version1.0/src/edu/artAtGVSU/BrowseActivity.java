@@ -23,6 +23,10 @@ public class BrowseActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.browse);
+		
+		ArrayList<Campus> c = new ArrayList<Campus>();
+		c = ParseBrowseXML.campusNamesDataRequest();
+		
 		list = (ListView) findViewById(R.id.browseList);
 
 		buildingArt = new ArrayList<Bitmap>();
