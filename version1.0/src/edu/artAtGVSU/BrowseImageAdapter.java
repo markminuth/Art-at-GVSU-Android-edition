@@ -46,7 +46,8 @@ public class BrowseImageAdapter extends ArrayAdapter<Bitmap>{
             String inflater = Context.LAYOUT_INFLATER_SERVICE;
             LayoutInflater vi;
             vi = (LayoutInflater)getContext().getSystemService(inflater);
-            vi.inflate(resource, alertView, true);
+            vi.inflate(resource, alertView, true); 
+            
         }
         else
         {
@@ -56,6 +57,7 @@ public class BrowseImageAdapter extends ArrayAdapter<Bitmap>{
         ImageView artIcon = (ImageView)alertView.findViewById(R.id.buildingIcon);
         TextView nameText = (TextView)alertView.findViewById(R.id.buildingName);
  
+        
         //Assign the appropriate data from our alert object above
         if(position == 0){
         	nameText.setText("Allendale Campus");

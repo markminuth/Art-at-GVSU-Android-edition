@@ -3,4 +3,12 @@
   <declare-styleable name="TourGallery">
       	<attr name="android:galleryItemBackground" />
   </declare-styleable>  
+  <string-array name='campus_array'>
+      <item>Allendale Campus</item>
+      <item>Meijer Campus / Holland</item>
+      <item>Muskegon Campus</item>
+      <item>PEW Campus / Grand Rapids</item>
+      <item>Traverse City Campus</item>
+      <item>Not Found</item>
+  </string-array>
 </resources>
