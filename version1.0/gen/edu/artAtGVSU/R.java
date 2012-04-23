@@ -8,6 +8,9 @@
 package edu.artAtGVSU;
 
 public final class R {
+    public static final class array {
+        public static final int campus_array=0x7f040000;
+    }
     public static final class attr {
     }
     public static final class drawable {
@@ -117,62 +120,62 @@ public final class R {
         public static final int zoomin2=0x7f020067;
     }
     public static final class id {
-        public static final int a=0x7f05002c;
-        public static final int aboutIcon=0x7f050001;
-        public static final int aboutScreen=0x7f050005;
-        public static final int appHeaderIcon=0x7f050028;
-        public static final int artDetailList=0x7f05001b;
-        public static final int artNameText=0x7f050033;
-        public static final int artPieceTitle=0x7f050012;
-        public static final int artPieceTitleBack=0x7f050011;
-        public static final int art_image=0x7f050010;
-        public static final int artistName=0x7f050013;
-        public static final int artistNameBack=0x7f050014;
-        public static final int autoCompleteTextView1=0x7f050035;
-        public static final int balloon_inner_layout=0x7f05001d;
-        public static final int balloon_item_snippet=0x7f05001f;
-        public static final int balloon_item_title=0x7f05001e;
-        public static final int balloon_main_layout=0x7f05001c;
-        public static final int browseList=0x7f050021;
-        public static final int buildingIcon=0x7f050022;
-        public static final int buildingName=0x7f050023;
-        public static final int button1=0x7f05002e;
-        public static final int button2=0x7f05002f;
-        public static final int close_img_button=0x7f050020;
-        public static final int descripText=0x7f050034;
-        public static final int details=0x7f05000d;
-        public static final int divider=0x7f05000f;
-        public static final int divider2=0x7f050029;
-        public static final int dividerimg=0x7f050003;
-        public static final int favDescripText=0x7f050027;
-        public static final int favIconImage=0x7f050025;
-        public static final int favTitle=0x7f050026;
-        public static final int favorite=0x7f050015;
-        public static final int frameLayout1=0x7f050030;
-        public static final int gallery=0x7f05002a;
-        public static final int header=0x7f05000c;
-        public static final int imageView1=0x7f050006;
-        public static final int imageView2=0x7f050002;
-        public static final int infoHeader=0x7f05001a;
-        public static final int infoHeaderShadow=0x7f050019;
-        public static final int linearLayout1=0x7f050008;
-        public static final int listViewFav=0x7f050024;
-        public static final int mapView=0x7f05002b;
-        public static final int mapViewButton=0x7f050018;
-        public static final int progressBar=0x7f050036;
-        public static final int relativeLayout1=0x7f050000;
-        public static final int scrollView1=0x7f050007;
-        public static final int searchIcon=0x7f05000e;
-        public static final int searchIconImage=0x7f050032;
-        public static final int searchList=0x7f050031;
-        public static final int searchTextBox=0x7f05002d;
-        public static final int shareButton=0x7f050016;
-        public static final int textView1=0x7f050004;
-        public static final int textView2=0x7f050009;
-        public static final int textView3=0x7f05000a;
-        public static final int tourNameText=0x7f050037;
-        public static final int webViewForImage=0x7f05000b;
-        public static final int zoomButton=0x7f050017;
+        public static final int a=0x7f06002c;
+        public static final int aboutIcon=0x7f060001;
+        public static final int aboutScreen=0x7f060005;
+        public static final int appHeaderIcon=0x7f060028;
+        public static final int artDetailList=0x7f06001b;
+        public static final int artNameText=0x7f060033;
+        public static final int artPieceTitle=0x7f060012;
+        public static final int artPieceTitleBack=0x7f060011;
+        public static final int art_image=0x7f060010;
+        public static final int artistName=0x7f060013;
+        public static final int artistNameBack=0x7f060014;
+        public static final int autoCompleteTextView1=0x7f060035;
+        public static final int balloon_inner_layout=0x7f06001d;
+        public static final int balloon_item_snippet=0x7f06001f;
+        public static final int balloon_item_title=0x7f06001e;
+        public static final int balloon_main_layout=0x7f06001c;
+        public static final int browseList=0x7f060021;
+        public static final int buildingIcon=0x7f060022;
+        public static final int buildingName=0x7f060023;
+        public static final int button1=0x7f06002e;
+        public static final int button2=0x7f06002f;
+        public static final int close_img_button=0x7f060020;
+        public static final int descripText=0x7f060034;
+        public static final int details=0x7f06000d;
+        public static final int divider=0x7f06000f;
+        public static final int divider2=0x7f060029;
+        public static final int dividerimg=0x7f060003;
+        public static final int favDescripText=0x7f060027;
+        public static final int favIconImage=0x7f060025;
+        public static final int favTitle=0x7f060026;
+        public static final int favorite=0x7f060015;
+        public static final int frameLayout1=0x7f060030;
+        public static final int gallery=0x7f06002a;
+        public static final int header=0x7f06000c;
+        public static final int imageView1=0x7f060006;
+        public static final int imageView2=0x7f060002;
+        public static final int infoHeader=0x7f06001a;
+        public static final int infoHeaderShadow=0x7f060019;
+        public static final int linearLayout1=0x7f060008;
+        public static final int listViewFav=0x7f060024;
+        public static final int mapView=0x7f06002b;
+        public static final int mapViewButton=0x7f060018;
+        public static final int progressBar=0x7f060036;
+        public static final int relativeLayout1=0x7f060000;
+        public static final int scrollView1=0x7f060007;
+        public static final int searchIcon=0x7f06000e;
+        public static final int searchIconImage=0x7f060032;
+        public static final int searchList=0x7f060031;
+        public static final int searchTextBox=0x7f06002d;
+        public static final int shareButton=0x7f060016;
+        public static final int textView1=0x7f060004;
+        public static final int textView2=0x7f060009;
+        public static final int textView3=0x7f06000a;
+        public static final int tourNameText=0x7f060037;
+        public static final int webViewForImage=0x7f06000b;
+        public static final int zoomButton=0x7f060017;
     }
     public static final class layout {
         public static final int about=0x7f030000;
@@ -194,10 +197,10 @@ public final class R {
         public static final int tour=0x7f030010;
     }
     public static final class string {
-        public static final int aboutDetails=0x7f040003;
-        public static final int app_name=0x7f040001;
-        public static final int hello=0x7f040000;
-        public static final int titleText=0x7f040002;
+        public static final int aboutDetails=0x7f050003;
+        public static final int app_name=0x7f050001;
+        public static final int hello=0x7f050000;
+        public static final int titleText=0x7f050002;
     }
     public static final class styleable {
         /** Attributes that can be used with a TourGallery.

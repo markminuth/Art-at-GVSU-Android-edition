@@ -1,17 +1,10 @@
 
 package edu.artAtGVSU;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,12 +13,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class BrowseImageAdapter extends ArrayAdapter<Bitmap>{
+public class BrowseItemAdapter extends ArrayAdapter<Bitmap>{
 	int resource;
     String response;
     Context context;
     //Initialize adapter
-    public BrowseImageAdapter(Context context, int resource, List<Bitmap> items) {
+    public BrowseItemAdapter(Context context, int resource, List<Bitmap> items) {
         super(context, resource, items);
         this.resource=resource;
  
@@ -51,7 +44,7 @@ public class BrowseImageAdapter extends ArrayAdapter<Bitmap>{
         }
         else
         {
-            alertView = (LinearLayout) convertView;
+        	alertView = (LinearLayout) convertView;
         }
         //Get the text boxes from the search_list.xml file
         ImageView artIcon = (ImageView)alertView.findViewById(R.id.buildingIcon);

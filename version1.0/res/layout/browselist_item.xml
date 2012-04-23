@@ -3,12 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content">
-
-<!--     <RelativeLayout -->
-<!--         android:id="@+id/relativeLayout1" -->
-<!--         android:layout_width="match_parent" -->
-<!--         android:layout_height="wrap_content" > -->
-
         <ImageView
             android:id="@+id/buildingIcon"
             android:layout_width="wrap_content"
@@ -29,6 +23,4 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#505050"
             android:textSize="10dp" />
-<!--     </RelativeLayout> -->
-
 </LinearLayout>

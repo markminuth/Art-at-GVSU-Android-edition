@@ -14,43 +14,38 @@ import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
-public class BrowseActivity extends Activity {
+public class BrowseBuildingsActivity extends Activity {
+
 	ArrayList<Bitmap> buildingArt;
-	static ArrayList<Campus> campuses = new ArrayList<Campus>();
+	static ArrayList<Building> buildings = new ArrayList<Building>();
 	ListView list;
 	BrowseItemAdapter adapter;
-	Context c = this;
+	Context b = this;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.browse);
-		
-		campuses = ParseBrowseXML.campusNamesDataRequest();
-		
+		buildings = ParseBrowseXML.buildingNamesDataRequest(String.valueOf(getIntent().getIntExtra("campusID",1)));
 		list = (ListView) findViewById(R.id.browseList);
-
 		buildingArt = new ArrayList<Bitmap>();
-		for (int i = 0; i < campuses.size(); ++i) {
-			int resID = getResources().getIdentifier("loc_" + campuses.get(i).getCampusID(), "drawable", "edu.artAtGVSU");
+		for(int i=0;i<buildings.size();++i){
+			int resID = getResources().getIdentifier("loc_" + buildings.get(i).getBuildingID(), "drawable", "edu.artAtGVSU");
 			Bitmap building = BitmapFactory.decodeResource(getResources(), resID);
 			buildingArt.add(building);
 		}
-
 		adapter = new BrowseItemAdapter(this, R.layout.browselist_item, buildingArt);
 		list.setAdapter(adapter);
-		
 		list.setOnItemClickListener(new OnItemClickListener() {
 
 			public void onItemClick(AdapterView parent, View view, int pos, long id) 
 			{
-//				Toast.makeText(getApplicationContext(),"this works", Toast.LENGTH_SHORT).show();
-				
-				Intent intent = new Intent(c, BrowseBuildingsActivity.class);
-				Campus camp = campuses.get(pos);
-				intent.putExtra("campusID", Integer.parseInt(camp.getCampusID()));
-				startActivityForResult(intent, 0);
+				Toast.makeText(getApplicationContext(),"this works", Toast.LENGTH_SHORT).show();
+//				Intent intent = new Intent(c, BrowseBuildingsActivity.class);
+//				Campus camp = campuses.get(pos);
+//				intent.putExtra("campusID", Integer.parseInt(camp.getCampusID()));
+//				startActivityForResult(intent, 0);
 			}
 		});
 	}

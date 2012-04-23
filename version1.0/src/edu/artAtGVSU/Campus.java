@@ -36,7 +36,4 @@ public class Campus {
 	public ArrayList<Building> getBuildings() {
 		return buildings;
 	}
-	
-	
-	
 }

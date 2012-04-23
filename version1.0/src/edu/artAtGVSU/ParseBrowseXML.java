@@ -19,6 +19,7 @@ import org.xml.sax.SAXException;
 public class ParseBrowseXML {
 
 	static ArrayList<Campus> campuses = new ArrayList<Campus>();
+	static ArrayList<Building> buildings = new ArrayList<Building>();
 	/*
 	 * Make Connection with URL parameter (URL string can be concatenated with conditions when
 	 * passed into the method) returns the inputStream from the response.   
@@ -85,35 +86,35 @@ public class ParseBrowseXML {
 		return campuses;
 	}
 	
-	public static void buildingNamesDataRequest(String id){
+	public static ArrayList<Building> buildingNamesDataRequest(String id){
 		String url = "http://gvsuartgallery.org/service.php/iteminfo/ItemInfo/rest?method=get&type=ca_storage_locations&item_ids[0]=%d&bundles[0]=ca_storage_locations.children.location_id&options[ca_storage_locations.children.location_id][returnAsArray]=1&bundles[1]=ca_storage_locations.children.preferred_labels.name&options[ca_storage_locations.children.preferred_labels.name][returnAsArray]=1";
 		url = url.replace("%d", id);
 		InputStream in = makeConnection(url);
-		
+		buildings = new ArrayList<Building>();
 		try {
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = factory.newDocumentBuilder();
 			Document doc = db.parse(in);
 			
-Element docElement = doc.getDocumentElement();
+			Element docElement = doc.getDocumentElement();
 			
 			String key = "";
 			String name = "";
-			NodeList campusKeys = docElement.getElementsByTagName("ca_storage_locations.children.location_id");
-			Element cKeys = (Element) campusKeys.item(0);
-			NodeList cKeysList = cKeys.getChildNodes();
-			int keys = cKeysList.getLength();	
+			NodeList buildingKeys = docElement.getElementsByTagName("ca_storage_locations.children.location_id");
+			Element bKeys = (Element) buildingKeys.item(0);
+			NodeList bKeysList = bKeys.getChildNodes();
+			int keys = bKeysList.getLength();	
 			
-			NodeList campusNames = docElement.getElementsByTagName("ca_storage_locations.children.preferred_labels.name");
-			Element cNames = (Element) campusNames.item(0);
-			NodeList cNamesList = cNames.getChildNodes();
-			int names = cNamesList.getLength();	
+			NodeList buildingNames = docElement.getElementsByTagName("ca_storage_locations.children.preferred_labels.name");
+			Element bNames = (Element) buildingNames.item(0);
+			NodeList bNamesList = bNames.getChildNodes();
+			int names = bNamesList.getLength();	
 			
 			for(int i = 0; i < keys; i++){
-				key = cKeysList.item(i).getTextContent();
-				name = cNamesList.item(i).getTextContent();
-				Campus c = new Campus(name, key);
-				campuses.add(c);
+				key = bKeysList.item(i).getTextContent();
+				name = bNamesList.item(i).getTextContent();
+				Building b = new Building(name, key);
+				buildings.add(b);
 			}
 			
 		} catch (SAXException e) {
@@ -125,6 +126,17 @@ Element docElement = doc.getDocumentElement();
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		
+		addBuildingListToCampusObject(id);
+		return buildings;
+	}
+	
+	public static void addBuildingListToCampusObject(String id){
+		for(int i = 0; i < campuses.size(); i++){
+			if(id.equals(campuses.get(i).campusID) || id == campuses.get(i).campusID){
+				campuses.get(i).setBuildings(buildings);
+			}
 		}
 	}
 }

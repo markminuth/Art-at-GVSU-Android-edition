@@ -50,6 +50,8 @@
         </activity>
         <activity android:name=".FavoritesActivity" >
         </activity>
+        <activity android:name=".BrowseBuildingsActivity">
+        </activity>
     </application>
 
 </manifest>
