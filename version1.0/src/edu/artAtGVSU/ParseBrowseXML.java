@@ -89,31 +89,30 @@ public class ParseBrowseXML {
 		String url = "http://gvsuartgallery.org/service.php/iteminfo/ItemInfo/rest?method=get&type=ca_storage_locations&item_ids[0]=%d&bundles[0]=ca_storage_locations.children.location_id&options[ca_storage_locations.children.location_id][returnAsArray]=1&bundles[1]=ca_storage_locations.children.preferred_labels.name&options[ca_storage_locations.children.preferred_labels.name][returnAsArray]=1";
 		url = url.replace("%d", id);
 		InputStream in = makeConnection(url);
-		
+		ArrayList<Building> buildings = new ArrayList<Building>();
 		try {
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = factory.newDocumentBuilder();
 			Document doc = db.parse(in);
 			
-Element docElement = doc.getDocumentElement();
+			Element docElement = doc.getDocumentElement();
 			
 			String key = "";
 			String name = "";
-			NodeList campusKeys = docElement.getElementsByTagName("ca_storage_locations.children.location_id");
-			Element cKeys = (Element) campusKeys.item(0);
-			NodeList cKeysList = cKeys.getChildNodes();
-			int keys = cKeysList.getLength();	
+			NodeList buildingKeys = docElement.getElementsByTagName("ca_storage_locations.children.location_id");
+			Element bKeys = (Element) buildingKeys.item(0);
+			NodeList bKeysList = bKeys.getChildNodes();
+			int keys = bKeysList.getLength();	
 			
-			NodeList campusNames = docElement.getElementsByTagName("ca_storage_locations.children.preferred_labels.name");
-			Element cNames = (Element) campusNames.item(0);
-			NodeList cNamesList = cNames.getChildNodes();
-			int names = cNamesList.getLength();	
+			NodeList buildingNames = docElement.getElementsByTagName("ca_storage_locations.children.preferred_labels.name");
+			Element bNames = (Element) buildingNames.item(0);
+			NodeList bNamesList = bNames.getChildNodes();
+			int names = bNamesList.getLength();	
 			
 			for(int i = 0; i < keys; i++){
-				key = cKeysList.item(i).getTextContent();
-				name = cNamesList.item(i).getTextContent();
-				Campus c = new Campus(name, key);
-				campuses.add(c);
+				key = bKeysList.item(i).getTextContent();
+				name = bNamesList.item(i).getTextContent();
+				Building b = new Building(name, key);
 			}
 			
 		} catch (SAXException e) {
