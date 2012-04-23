@@ -14,6 +14,9 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.SparseBooleanArray;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -21,6 +24,9 @@ import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class FavoritesActivity extends Activity {
+	private static final int MENU1 = Menu.FIRST;
+	private static final int MENU2 = Menu.FIRST +1;
+	private static final int MENU3 = Menu.FIRST +2;
 	
 	TextView t;	
 	ListView favList;
@@ -47,24 +53,62 @@ public class FavoritesActivity extends Activity {
 		
 		favList=(ListView)findViewById(R.id.listViewFav);
 		favAdapter = new FavItemsAdapter(c, R.layout.favorites_list, favArtWorkArrayList);
-		favList.setAdapter(favAdapter);
-		
+		favList.setAdapter(favAdapter);	
 		favList.setOnItemClickListener(new OnItemClickListener() {
 			
+			public void onItemLongClick(AdapterView<?> arg0, View arg1, int pos,long arg3) 
+			{
+			String selectedString = favArtWorkArrayList.get(pos);
+        	deleteFromFile(selectedString);
+			//ArtWork a = ParseArtWorkXML.artWorkRequestID(tokenTwo(selectedString,1));
+			//ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
+			//Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
+			//((Activity) c).startActivity(intent);
 			
+			}
+	
 			public void onItemClick(AdapterView<?> arg0, View arg1, int pos,long arg3) 
 			{
 				String selectedString = favArtWorkArrayList.get(pos);
-	        	deleteFromFile(selectedString);
-				//ArtWork a = ParseArtWorkXML.artWorkRequestID(tokenTwo(selectedString,1));
-				//ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
-				//Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
-				//((Activity) c).startActivity(intent);
+	        	//deleteFromFile(selectedString);
+				ArtWork a = ParseArtWorkXML.artWorkRequestID(tokenTwo(selectedString,1));
+				ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
+				Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
+				((Activity) c).startActivity(intent);
 				
 			}
 		});
 		
 	}	
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    menu.add(0,MENU1,0,"Quit");
+	    menu.add(0,MENU2,0,"Delete All");
+	    menu.add(0,MENU3,0,"Delete Selected");
+	    return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case MENU1:
+	        	//Quit
+	            finish();
+	            return true;
+	        case MENU2:
+	        	//delete all
+	        	writingBlankFile();
+	            return true;
+	        case MENU3:
+	        	//delete Selected!
+	        	deleteSelected();
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
 	
 	
 	public List<String> tokenStr(String fav){
@@ -124,6 +168,8 @@ public class FavoritesActivity extends Activity {
 		return temp;
 	}
 
+	
+	
 	public void deleteFromFile(String fav) {
 		// Remove from array
 		String temp = readFromFile();
@@ -136,5 +182,35 @@ public class FavoritesActivity extends Activity {
 		}	
 		
 		writingToFile(temp);
+	}
+	
+	public void writingBlankFile() {
+
+		try {
+			FileOutputStream fOut = openFileOutput("favoriteArtFile4.txt", MODE_WORLD_READABLE);
+
+			OutputStreamWriter osw = new OutputStreamWriter(fOut);
+			osw.write("");
+
+			osw.flush();
+			osw.close();
+		} catch (IOException e) {
+		}
+
+	}
+	
+	public void deleteSelected() {
+		
+		SparseBooleanArray test =favList.getCheckedItemPositions();
+		//Log.i(TAG,"checkedPositions: " + test.size());
+		if (test != null)
+		{
+		    int count = favAdapter.getCount();
+		    for ( int i=0;i<count;i++)
+		    {
+		        if (test.get(i))
+					deleteFromFile(favArtWorkArrayList.get(i)); 	
+		    }
+		}
 	}
 }

@@ -8,6 +8,8 @@ import android.app.LocalActivityManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.Window;
 
 /**
@@ -17,6 +19,10 @@ import android.view.Window;
 public class TabGroupActivity extends ActivityGroup {
 
 private ArrayList<String> mIdList;
+private static final int MENU1 = Menu.FIRST;
+private static final int MENU2 = Menu.FIRST +1;
+private static final int MENU3 = Menu.FIRST +2;
+
 
 @Override
 public void onCreate(Bundle savedInstanceState) {
@@ -102,4 +108,36 @@ Activity current = getLocalActivityManager().getActivity(mIdList.get(length-1));
 current.finish();
 }
 }
+
+
+
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    menu.add(0,MENU1,0,"Quit");
+    menu.add(0,MENU2,0,"Delete All");
+    menu.add(0,MENU3,0,"Delete Selected");
+    return true;
+}
+
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+    // Handle item selection
+    switch (item.getItemId()) {
+        case MENU1:
+        	//Quit
+            finish();
+            return true;
+        case MENU2:
+        	//delete all
+        	//writingBlankFile();
+            return true;
+        case MENU3:
+        	//delete Selected!
+        	//deleteSelected();
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+    }
+}
+
 }

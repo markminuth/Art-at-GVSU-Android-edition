@@ -26,6 +26,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -51,10 +53,16 @@ public class MapTourActivity extends MapActivity {
 	int selectedPos;
 	static Context c;
 	
+	private static final int MENU1 = Menu.FIRST;
+	private static final int MENU2 = Menu.FIRST +1;
+	private static final int MENU3 = Menu.FIRST +2;
+	
 	/*
 	 * Get tour image from URL
 	 */
 	public Bitmap fetchImage(String tImageURL) {
+		
+		
 		URL url;
 		Bitmap img;
 		try {
@@ -288,4 +296,33 @@ public class MapTourActivity extends MapActivity {
 	public static void setIntentValue(int intentValue) {
 		MapTourActivity.intentValue = intentValue;
 	}	
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    menu.add(0,MENU1,0,"Quit");
+	    menu.add(0,MENU2,0,"Delete All");
+	    menu.add(0,MENU3,0,"Delete Selected");
+	    return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case MENU1:
+	        	//Quit
+	            finish();
+	            return true;
+	        case MENU2:
+	        	//delete all
+	        	//writingBlankFile();
+	            return true;
+	        case MENU3:
+	        	//delete Selected!
+	        	//deleteSelected();
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
 }

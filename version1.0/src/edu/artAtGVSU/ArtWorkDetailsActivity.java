@@ -24,6 +24,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Message;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +41,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ArtWorkDetailsActivity extends Activity {
+	
+	private static final int MENU1 = Menu.FIRST;
+	private static final int MENU2 = Menu.FIRST +1;
+	private static final int MENU3 = Menu.FIRST +2;
 
 	ArtWork aOpened;
 	String[] details;
@@ -326,34 +332,31 @@ public class ArtWorkDetailsActivity extends Activity {
 		return true;
 	}
 
-	// public void deleteFromFile(String fav) {
-	//
-	// String temp = new String(fav);
-	// String finTemp = "";
-	// finTemp += readFromFile();
-	//
-	// for (int i=0;i<finTemp.length()-temp.length();i++)
-	// {
-	// //parse the string to find the one i want to delete
-	// String test = finTemp.substring(i, i+(temp.length()));
-	// if (fav.equalsIgnoreCase(test))
-	// {
-	// //remove the string
-	// String finTemp1=finTemp.substring(0, i);
-	//
-	// String finTemp2=finTemp.substring(i+fav.length(), finTemp.length());
-	// finTemp2.concat(finTemp1);
-	// finTemp=finTemp1+finTemp2;
-	// writeToFile(finTemp);
-	// }
-	// else
-	// {
-	// //the file was not found
-	// }
-	// }
-	//
-	// }
-	//
-	//
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    menu.add(0,MENU1,0,"Go Back!");
+	    menu.add(0,MENU2,0,"Add to Favs");
+	    menu.add(0,MENU3,0,"Do Something Else");
+	    return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case MENU1:
+	        	//Quit
+	            finish();
+	            return true;
+	        case MENU2:
+	        	//delete all
+	            return true;
+	        case MENU3:
+	        	//delete Selected!
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
 
 }
