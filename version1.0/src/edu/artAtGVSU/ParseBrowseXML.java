@@ -91,6 +91,7 @@ public class ParseBrowseXML {
 		url = url.replace("%d", id);
 		InputStream in = makeConnection(url);
 		buildings = new ArrayList<Building>();
+		ArrayList<Building> buildings = new ArrayList<Building>();
 		try {
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = factory.newDocumentBuilder();
