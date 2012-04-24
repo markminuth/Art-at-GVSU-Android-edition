@@ -2,7 +2,8 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#F0F0F0">
         <ImageView
             android:id="@+id/buildingIcon"
             android:layout_width="wrap_content"
@@ -10,6 +11,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="5dp"
+            android:background="#F0F0F0"
             android:src="@drawable/app_icon" />
 
         <TextView
@@ -22,5 +24,6 @@
             android:text=""
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#505050"
+            android:background="#F0F0F0"
             android:textSize="10dp" />
 </LinearLayout>

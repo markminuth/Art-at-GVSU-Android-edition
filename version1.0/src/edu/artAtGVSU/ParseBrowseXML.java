@@ -20,6 +20,9 @@ public class ParseBrowseXML {
 
 	static ArrayList<Campus> campuses = new ArrayList<Campus>();
 	static ArrayList<Building> buildings = new ArrayList<Building>();
+	static ArrayList<Floor> floors = new ArrayList<Floor>();
+	static ArrayList<ArtWork> artwork = new ArrayList<ArtWork>();
+	
 	/*
 	 * Make Connection with URL parameter (URL string can be concatenated with conditions when
 	 * passed into the method) returns the inputStream from the response.   
@@ -40,6 +43,9 @@ public class ParseBrowseXML {
 		return in;
 	}
 	
+	/*
+	 * Get all campus objects and set their names and id, adding them to the campuses array list cast as Campus
+	 */
 	public static ArrayList<Campus> campusNamesDataRequest(){
 		//Add tour number to the URL
 		String url = "http://gvsuartgallery.org/service.php/iteminfo/ItemInfo/rest?method=get&type=ca_storage_locations&item_ids[0]=1&bundles[0]=ca_storage_locations.children.location_id&options[ca_storage_locations.children.location_id][returnAsArray]=1&bundles[1]=ca_storage_locations.children.preferred_labels.name&options[ca_storage_locations.children.preferred_labels.name][returnAsArray]=1";
@@ -86,6 +92,9 @@ public class ParseBrowseXML {
 		return campuses;
 	}
 	
+	/*
+	 * Get all building objects and set their names and id, adding them to the buildings array list cast as Building
+	 */
 	public static ArrayList<Building> buildingNamesDataRequest(String id){
 		String url = "http://gvsuartgallery.org/service.php/iteminfo/ItemInfo/rest?method=get&type=ca_storage_locations&item_ids[0]=%d&bundles[0]=ca_storage_locations.children.location_id&options[ca_storage_locations.children.location_id][returnAsArray]=1&bundles[1]=ca_storage_locations.children.preferred_labels.name&options[ca_storage_locations.children.preferred_labels.name][returnAsArray]=1";
 		url = url.replace("%d", id);
@@ -133,6 +142,111 @@ public class ParseBrowseXML {
 		return buildings;
 	}
 	
+	/*
+	 * Get all floors objects and set their names and id, adding them to the floors array list cast as Floors
+	 */
+	public static ArrayList<Floor> floorNamesDataRequest(String id){
+		String url = "http://gvsuartgallery.org/service.php/iteminfo/ItemInfo/rest?method=get&type=ca_storage_locations&item_ids[0]=%d&bundles[0]=ca_storage_locations.children.location_id&options[ca_storage_locations.children.location_id][returnAsArray]=1&bundles[1]=ca_storage_locations.children.preferred_labels.name&options[ca_storage_locations.children.preferred_labels.name][returnAsArray]=1";
+		url = url.replace("%d", id);
+		InputStream in = makeConnection(url);
+		floors = new ArrayList<Floor>();
+		ArrayList<Floor> floors = new ArrayList<Floor>();
+		try {
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = factory.newDocumentBuilder();
+			Document doc = db.parse(in);
+			
+			Element docElement = doc.getDocumentElement();
+			
+			String key = "";
+			String name = "";
+			NodeList floorsKeys = docElement.getElementsByTagName("ca_storage_locations.children.location_id");
+			Element fKeys = (Element) floorsKeys.item(0);
+			NodeList fKeysList = fKeys.getChildNodes();
+			int keys = fKeysList.getLength();	
+			
+			NodeList floorNames = docElement.getElementsByTagName("ca_storage_locations.children.preferred_labels.name");
+			Element fNames = (Element) floorNames.item(0);
+			NodeList fNamesList = fNames.getChildNodes();
+			int names = fNamesList.getLength();	
+			
+			for(int i = 0; i < keys; i++){
+				key = fKeysList.item(i).getTextContent();
+				name = fNamesList.item(i).getTextContent();
+				Floor f = new Floor(name, key);
+				floors.add(f);
+			}
+			
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		addFloorListToCampusObject(id);
+		return floors;
+	}
+	
+	/*
+	 * Get all artwork objects and set their names and id
+	 */
+	public static ArrayList<ArtWork> artworkNamesDataRequest(String id){
+		String url = "http://gvsuartgallery.org/service.php/iteminfo/ItemInfo/rest?method=getRelationships&type=ca_storage_locations&item_id=%d&related_type=ca_objects";
+		url = url.replace("%d", id);
+		InputStream in = makeConnection(url);
+		artwork = new ArrayList<ArtWork>();
+		try {
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = factory.newDocumentBuilder();
+			Document doc = db.parse(in);
+			
+			Element docElement = doc.getDocumentElement();
+			NodeList artWorkList = docElement.getElementsByTagName("getRelationships");
+
+			Element aList = (Element) artWorkList.item(0);
+			NodeList artList = aList.getChildNodes();
+			int numOfart = artList.getLength();
+			
+			ArtWork a;
+			String aID = "";
+			String aTitle = "";
+			for(int i = 0; i < numOfart; i++){
+				Element artPiece = (Element) artList.item(i);
+				NodeList aDetails = artPiece.getChildNodes();
+				a = new ArtWork();
+				aID = aDetails.item(1).getTextContent();
+				aTitle = aDetails.item(8).getTextContent();
+				a.setArtID(aID);
+				a.setArtTitle(aTitle);
+				artwork.add(a);
+			}
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return artwork;
+	}
+	
+	private static void addFloorListToCampusObject(String id) {
+		for(int i = 0; i < buildings.size(); i++){
+			if(id.equals(buildings.get(i).buildingID) || id == buildings.get(i).buildingID){
+				buildings.get(i).setFloors(floors);
+			}
+		}
+	}
+
 	public static void addBuildingListToCampusObject(String id){
 		for(int i = 0; i < campuses.size(); i++){
 			if(id.equals(campuses.get(i).campusID) || id == campuses.get(i).campusID){
