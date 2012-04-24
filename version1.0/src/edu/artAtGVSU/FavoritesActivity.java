@@ -12,7 +12,9 @@ import java.util.List;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.SparseBooleanArray;
 import android.view.Menu;
@@ -63,10 +65,11 @@ public class FavoritesActivity extends Activity {
 			{
 				String selectedString = favArtWorkArrayList.get(pos);
 	        	//deleteFromFile(selectedString);
-				ArtWork a = ParseArtWorkXML.artWorkRequestID(tokenTwo(selectedString,1));
-				ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
-				Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
-				((Activity) c).startActivity(intent);
+//				ArtWork a = ParseArtWorkXML.artWorkRequestID(tokenTwo(selectedString,1));
+//				ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
+//				Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
+//				((Activity) c).startActivity(intent);
+				showPopUp2(pos);
 				
 			}
 		});
@@ -76,8 +79,8 @@ public class FavoritesActivity extends Activity {
 			
 			public void OnLongClickListener(AdapterView<?> arg0, View arg1, int pos,long arg3) 
 			{
-				String selectedString = favArtWorkArrayList.get(pos);
-	        	deleteFromFile(selectedString);				
+				showPopUp2(pos);
+								
 			}
 
 			public boolean onLongClick(View v) {
@@ -221,4 +224,50 @@ public class FavoritesActivity extends Activity {
 		    }
 		}
 	}
+	
+	
+	
+	
+	private void showPopUp2(int pos2) {
+		
+			final int pos3=pos2;
+		 AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+		 helpBuilder.setTitle("Pop Up");
+		 helpBuilder.setMessage("This is a Simple Pop Up");
+		 helpBuilder.setPositiveButton("Details",
+		   new DialogInterface.OnClickListener() {
+
+		    public void onClick(DialogInterface dialog, int which) {
+		    	
+				String selectedString = favArtWorkArrayList.get(pos3);
+	        	//deleteFromFile(selectedString);
+				ArtWork a = ParseArtWorkXML.artWorkRequestID(tokenTwo(selectedString,1));
+				ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
+				Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
+				((Activity) c).startActivity(intent);
+		    }
+		   });
+
+		 helpBuilder.setNegativeButton("Remove", new DialogInterface.OnClickListener() {
+
+		  public void onClick(DialogInterface dialog, int which) {
+			  	String selectedString = favArtWorkArrayList.get(pos3);
+	        	deleteFromFile(selectedString);
+		  }
+		 });
+		 
+		 helpBuilder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+
+		  public void onClick(DialogInterface dialog, int which) {
+		   // Do nothing
+			  
+		  }
+		 });
+
+		 // Remember, create doesn't show the dialog
+		 AlertDialog helpDialog = helpBuilder.create();
+		 helpDialog.show();
+
+		}
+	
 }
