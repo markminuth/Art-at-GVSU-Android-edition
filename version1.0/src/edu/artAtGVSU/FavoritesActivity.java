@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -69,6 +70,10 @@ public class FavoritesActivity extends Activity {
 	
 			public void onItemClick(AdapterView<?> arg0, View arg1, int pos,long arg3) 
 			{
+				
+				
+				
+				
 				String selectedString = favArtWorkArrayList.get(pos);
 	        	//deleteFromFile(selectedString);
 				ArtWork a = ParseArtWorkXML.artWorkRequestID(tokenTwo(selectedString,1));
