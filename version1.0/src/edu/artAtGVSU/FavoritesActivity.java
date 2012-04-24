@@ -70,28 +70,22 @@ public class FavoritesActivity extends Activity {
 				
 			}
 		});
-		
-		View.OnLongClickListener myhandler = new OnLongClickListener() {
+	
+		favList.setOnLongClickListener(new OnLongClickListener() {
 			
-			public void onLongClickListener(AdapterView<?> arg0, View arg1, int pos,long arg3) 
+			
+			public void OnLongClickListener(AdapterView<?> arg0, View arg1, int pos,long arg3) 
 			{
-			String selectedString = favArtWorkArrayList.get(pos);
-			deleteFromFile(selectedString);
-			//ArtWork a = ParseArtWorkXML.artWorkRequestID(tokenTwo(selectedString,1));
-			//ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
-			//Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
-			//((Activity) c).startActivity(intent);
-			
+				String selectedString = favArtWorkArrayList.get(pos);
+	        	deleteFromFile(selectedString);				
 			}
 
 			public boolean onLongClick(View v) {
 				// TODO Auto-generated method stub
 				return false;
 			}
-			
-			
-		    };
-		  };
+		});
+	}
 	
 	
 	
