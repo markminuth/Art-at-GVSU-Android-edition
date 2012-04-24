@@ -45,13 +45,13 @@ public class BrowseFloorItemAdapter extends ArrayAdapter<Floor>{
 		Bitmap floor = BitmapFactory.decodeResource(parent.getResources(), resID);
 		
 		//Get text boxes from search_list.xml file
-		ImageView artIcon = (ImageView)alertView.findViewById(R.id.floorIcon);
-		TextView nameText = (TextView)alertView.findViewById(R.id.floorName);
+		//ImageView artIcon = (ImageView)alertView.findViewById(R.id.floorIcon);
+		//TextView nameText = (TextView)alertView.findViewById(R.id.floorName);
 		
 		//Assign correct data from the alert object
-		nameText.setText(flo.floorName);
+		//nameText.setText(flo.floorName);
 		//Assign correct image
-		artIcon.setImageBitmap(floor);
+		//artIcon.setImageBitmap(floor);
 		
 		return alertView;
 	}

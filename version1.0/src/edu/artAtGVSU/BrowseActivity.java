@@ -25,6 +25,9 @@ public class BrowseActivity extends Activity {
 		
 		campuses = ParseBrowseXML.campusNamesDataRequest();
 		
+		//testing art call by building or floor
+		//ArrayList<ArtWork> a = ParseBrowseXML.artworkNamesDataRequest("10");
+		
 		list = (ListView) findViewById(R.id.browseList);
 
 		adapter = new BrowseItemAdapter(this, R.layout.browselist_item, campuses);

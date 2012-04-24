@@ -21,6 +21,8 @@ public class ParseBrowseXML {
 	static ArrayList<Campus> campuses = new ArrayList<Campus>();
 	static ArrayList<Building> buildings = new ArrayList<Building>();
 	static ArrayList<Floor> floors = new ArrayList<Floor>();
+	static ArrayList<ArtWork> artwork = new ArrayList<ArtWork>();
+	
 	/*
 	 * Make Connection with URL parameter (URL string can be concatenated with conditions when
 	 * passed into the method) returns the inputStream from the response.   
@@ -89,6 +91,7 @@ public class ParseBrowseXML {
 		
 		return campuses;
 	}
+	
 	/*
 	 * Get all building objects and set their names and id, adding them to the buildings array list cast as Building
 	 */
@@ -138,6 +141,7 @@ public class ParseBrowseXML {
 		addBuildingListToCampusObject(id);
 		return buildings;
 	}
+	
 	/*
 	 * Get all floors objects and set their names and id, adding them to the floors array list cast as Floors
 	 */
@@ -188,6 +192,52 @@ public class ParseBrowseXML {
 		return floors;
 	}
 	
+	/*
+	 * Get all artwork objects and set their names and id
+	 */
+	public static ArrayList<ArtWork> artworkNamesDataRequest(String id){
+		String url = "http://gvsuartgallery.org/service.php/iteminfo/ItemInfo/rest?method=getRelationships&type=ca_storage_locations&item_id=%d&related_type=ca_objects";
+		url = url.replace("%d", id);
+		InputStream in = makeConnection(url);
+		artwork = new ArrayList<ArtWork>();
+		try {
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = factory.newDocumentBuilder();
+			Document doc = db.parse(in);
+			
+			Element docElement = doc.getDocumentElement();
+			NodeList artWorkList = docElement.getElementsByTagName("getRelationships");
+
+			Element aList = (Element) artWorkList.item(0);
+			NodeList artList = aList.getChildNodes();
+			int numOfart = artList.getLength();
+			
+			ArtWork a;
+			String aID = "";
+			String aTitle = "";
+			for(int i = 0; i < numOfart; i++){
+				Element artPiece = (Element) artList.item(i);
+				NodeList aDetails = artPiece.getChildNodes();
+				a = new ArtWork();
+				aID = aDetails.item(1).getTextContent();
+				aTitle = aDetails.item(8).getTextContent();
+				a.setArtID(aID);
+				a.setArtTitle(aTitle);
+				artwork.add(a);
+			}
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return artwork;
+	}
 	
 	private static void addFloorListToCampusObject(String id) {
 		for(int i = 0; i < buildings.size(); i++){
