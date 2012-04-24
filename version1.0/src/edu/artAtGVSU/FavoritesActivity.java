@@ -57,23 +57,12 @@ public class FavoritesActivity extends Activity {
 		favList.setAdapter(favAdapter);	
 		favList.setOnItemClickListener(new OnItemClickListener() {
 			
-			public void onItemLongClick(AdapterView<?> arg0, View arg1, int pos,long arg3) 
-			{
-			String selectedString = favArtWorkArrayList.get(pos);
-        	deleteFromFile(selectedString);
-			//ArtWork a = ParseArtWorkXML.artWorkRequestID(tokenTwo(selectedString,1));
-			//ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
-			//Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
-			//((Activity) c).startActivity(intent);
 			
-			}
+			
 	
+			
 			public void onItemClick(AdapterView<?> arg0, View arg1, int pos,long arg3) 
 			{
-				
-				
-				
-				
 				String selectedString = favArtWorkArrayList.get(pos);
 	        	//deleteFromFile(selectedString);
 				ArtWork a = ParseArtWorkXML.artWorkRequestID(tokenTwo(selectedString,1));
@@ -85,6 +74,25 @@ public class FavoritesActivity extends Activity {
 		});
 		
 	}	
+	
+	
+	View.OnClickListener myhandler = new View.OnClickListener() {
+	    public void onClick(View v) {
+
+	    }
+	  };
+	
+
+	public void onItemLongClick(AdapterView<?> arg0, View arg1, int pos,long arg3) 
+	{
+	String selectedString = favArtWorkArrayList.get(pos);
+	deleteFromFile(selectedString);
+	//ArtWork a = ParseArtWorkXML.artWorkRequestID(tokenTwo(selectedString,1));
+	//ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
+	//Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
+	//((Activity) c).startActivity(intent);
+	
+	}
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

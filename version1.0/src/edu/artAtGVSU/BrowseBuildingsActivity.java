@@ -21,7 +21,7 @@ public class BrowseBuildingsActivity extends Activity {
 //	ArrayList<Bitmap> buildingArt;
 	static ArrayList<Building> buildings = new ArrayList<Building>();
 	ListView list;
-	BrowseBuildingItemAdapter adapter;
+//	BrowseBuildingItemAdapter adapter;
 	Context c = this;
 
 	@Override
@@ -33,17 +33,17 @@ public class BrowseBuildingsActivity extends Activity {
 			buildings = ParseBrowseXML.buildingNamesDataRequest(String.valueOf(getIntent().getIntExtra("campusID",1)));
 		}
 		list = (ListView) findViewById(R.id.browseList);
-		adapter = new BrowseBuildingItemAdapter(this, R.layout.browselist_item, buildings);
-		list.setAdapter(adapter);
+//		adapter = new BrowseBuildingItemAdapter(this, R.layout.browselist_item, buildings);
+//		list.setAdapter(adapter);
 		list.setOnItemClickListener(new OnItemClickListener() {
 
 			public void onItemClick(AdapterView parent, View view, int pos, long id) 
 			{
 				// figure out whether it should go to floors or artwork
-				Intent intent = new Intent(c, BrowseFloorActivity.class);
+//				Intent intent = new Intent(c, BrowseFloorActivity.class);
 				Building build = buildings.get(pos);
-				intent.putExtra("buildingID", Integer.parseInt(build.getBuildingID()));
-				startActivityForResult(intent, 0);
+//				intent.putExtra("buildingID", Integer.parseInt(build.getBuildingID()));
+//				startActivityForResult(intent, 0);
 			}
 		});
 	}
