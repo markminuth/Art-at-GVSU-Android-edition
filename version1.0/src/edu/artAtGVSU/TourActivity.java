@@ -13,6 +13,8 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Gallery;
@@ -25,6 +27,10 @@ public class TourActivity extends Activity {
 	ArrayList<Bitmap> images = new ArrayList<Bitmap>();
 	static ArrayList<Tour> tours = new ArrayList<Tour>();
 	static int selectedPos;
+	private static final int MENU1 = Menu.FIRST;
+	private static final int MENU2 = Menu.FIRST +1;
+	private static final int MENU3 = Menu.FIRST +2;
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -111,4 +117,35 @@ public class TourActivity extends Activity {
 			});
 		}
 	};
+	
+
+
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    menu.add(0,MENU1,0,"Quit");
+    menu.add(0,MENU2,0,"Delete All");
+    menu.add(0,MENU3,0,"Delete Selected");
+    return true;
+}
+
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+    // Handle item selection
+    switch (item.getItemId()) {
+        case MENU1:
+        	//Quit
+            finish();
+            return true;
+        case MENU2:
+        	//delete all
+        	//writingBlankFile();
+            return true;
+        case MENU3:
+        	//delete Selected!
+        	//deleteSelected();
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+    }
+}
 }

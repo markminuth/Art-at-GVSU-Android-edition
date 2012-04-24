@@ -43,12 +43,17 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             
-            android:layout_marginLeft="55dp"
+             android:layout_marginLeft="55dp"
+            android:layout_marginRight="30dp"
             android:layout_marginTop="20dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#000000"
             android:textSize="13dp"
         	android:maxLines="2"/>
+
+
+
+
 
     </RelativeLayout>
 
