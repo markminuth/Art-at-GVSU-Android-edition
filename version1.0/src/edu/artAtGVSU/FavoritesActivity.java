@@ -88,10 +88,10 @@ public class FavoritesActivity extends Activity {
 				// TODO Auto-generated method stub
 				return false;
 			}
-		   
+			
+			
 		    };
 		  };
-	
 	
 	
 	
