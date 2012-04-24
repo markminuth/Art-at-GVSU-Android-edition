@@ -23,7 +23,9 @@ public class BrowseActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.browse);
 		
-		campuses = ParseBrowseXML.campusNamesDataRequest();
+		if(ParseBrowseXML.campuses.isEmpty()){
+			campuses = ParseBrowseXML.campusNamesDataRequest();
+		}
 		
 		//testing art call by building or floor
 		//ArrayList<ArtWork> a = ParseBrowseXML.artworkNamesDataRequest("10");

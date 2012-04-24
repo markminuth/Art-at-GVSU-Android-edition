@@ -28,9 +28,11 @@ public class SplashScreenActivity extends Activity {
 			@Override
 			public void run() {
 				try {
-					tours = ParseToursXML.toursRequest();
-					for (int i = 0; i < tours.size(); i++) {
-						ParseToursXML.toursIndividualDataRequest(tours.get(i).tourID);
+					if(ParseToursXML.tours.isEmpty()){
+						tours = ParseToursXML.toursRequest();
+						for (int i = 0; i < tours.size(); i++) {
+							ParseToursXML.toursIndividualDataRequest(tours.get(i).tourID);
+						}
 					}
 				} finally {
 					finish();

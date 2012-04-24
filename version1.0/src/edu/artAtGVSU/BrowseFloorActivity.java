@@ -23,7 +23,11 @@ public class BrowseFloorActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.browse);
-		floors = ParseBrowseXML.floorNamesDataRequest(String.valueOf(getIntent().getIntExtra("buildingID", 1)));
+		
+		if(ParseBrowseXML.floors.isEmpty()){
+			floors = ParseBrowseXML.floorNamesDataRequest(String.valueOf(getIntent().getIntExtra("buildingID", 1)));
+		}
+		
 		list = (ListView) findViewById(R.id.browseList);
 		adapter = new BrowseFloorItemAdapter(this, R.layout.browselist_item, floors);
 		list.setAdapter(adapter);

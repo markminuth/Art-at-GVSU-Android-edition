@@ -52,6 +52,8 @@
         </activity>
         <activity android:name=".BrowseBuildingsActivity">
         </activity>
+        <activity android:name=".BrowseFloorActivity">
+        </activity>
     </application>
 
 </manifest>

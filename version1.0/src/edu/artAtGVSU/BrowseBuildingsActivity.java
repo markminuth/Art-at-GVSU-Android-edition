@@ -22,14 +22,16 @@ public class BrowseBuildingsActivity extends Activity {
 	static ArrayList<Building> buildings = new ArrayList<Building>();
 	ListView list;
 	BrowseBuildingItemAdapter adapter;
-	Context b = this;
+	Context c = this;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.browse);
-		buildings = ParseBrowseXML.buildingNamesDataRequest(String.valueOf(getIntent().getIntExtra("campusID",1)));
+		if(ParseBrowseXML.buildings.isEmpty()){
+			buildings = ParseBrowseXML.buildingNamesDataRequest(String.valueOf(getIntent().getIntExtra("campusID",1)));
+		}
 		list = (ListView) findViewById(R.id.browseList);
 		adapter = new BrowseBuildingItemAdapter(this, R.layout.browselist_item, buildings);
 		list.setAdapter(adapter);
@@ -37,7 +39,11 @@ public class BrowseBuildingsActivity extends Activity {
 
 			public void onItemClick(AdapterView parent, View view, int pos, long id) 
 			{
-				Toast.makeText(getApplicationContext(),"this works", Toast.LENGTH_SHORT).show();
+				// figure out whether it should go to floors or artwork
+				Intent intent = new Intent(c, BrowseFloorActivity.class);
+				Building build = buildings.get(pos);
+				intent.putExtra("buildingID", Integer.parseInt(build.getBuildingID()));
+				startActivityForResult(intent, 0);
 			}
 		});
 	}
