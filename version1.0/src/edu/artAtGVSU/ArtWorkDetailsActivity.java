@@ -27,6 +27,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -45,10 +46,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ArtWorkDetailsActivity extends Activity {
-	
-	private static final int MENU1 = Menu.FIRST;
-	private static final int MENU2 = Menu.FIRST +1;
-	private static final int MENU3 = Menu.FIRST +2;
 
 	ArtWork aOpened;
 	String[] details;
@@ -61,38 +58,31 @@ public class ArtWorkDetailsActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.artdetails);
-		aOpened = ArtWorkObjectSetUp.getArtWork();
-		aOpened = ParseArtWorkXML.artWorkRequestID(aOpened.artID);
 		
-		// Add details to list in order to pass list to Adapter
-		ArrayList<String> textInfo = new ArrayList<String>();
-		textInfo.add(aOpened.description);
-		textInfo.add(aOpened.artTitle + ": " + aOpened.historicalContext);
-		textInfo.add(aOpened.medium);
-		textInfo.add(aOpened.workDate);
-		textInfo.add(aOpened.locName + " - " + aOpened.locNotes);
-		textInfo.add(aOpened.artistName);
-		textInfo.add(aOpened.idno);
-
+		int index = getIntent().getIntExtra("index", 0);
+		final Thread artDetailCall = new Thread(){
+			public void run() {
+				aOpened = ArtWorkObjectSetUp.getArtWork();
+				aOpened = ParseArtWorkXML.artWorkRequestID(aOpened.artID);
+				Message msg = new Message();
+				Bundle resBundle = new Bundle();
+				resBundle.putString("status", "SUCCESS");
+				msg.obj = resBundle;
+				handlerDetailsUpdate.sendMessage(msg);
+			}
+		};
+		artDetailCall.start();
+		
+		//Initial empty list in array adapter shown until info is added
+		ArrayList<String> t = new ArrayList<String>();
+		for(int i = 0; i < 7; i++){
+			t.add("");
+		}
+		
 		detailList = (ListView) findViewById(R.id.artDetailList);
-		adapter = new ArtDetailsItemsAdapter(c, R.layout.artdetail_list,
-				textInfo);
+		adapter = new ArtDetailsItemsAdapter(c, R.layout.artdetail_list, t);
 		detailList.setAdapter(adapter);
 
-		// Set up artwork title and artist name
-		TextView artTitle = (TextView) findViewById(R.id.artPieceTitle);
-		artTitle.setText(aOpened.artTitle);
-		TextView artTitleB = (TextView) findViewById(R.id.artPieceTitleBack);
-		artTitleB.setText(aOpened.artTitle);
-
-		TextView artistName = (TextView) findViewById(R.id.artistName);
-		artistName.setText(aOpened.artistName);
-		TextView artistNameB = (TextView) findViewById(R.id.artistNameBack);
-		artistNameB.setText(aOpened.artistName);
-
-		// Set up image of artwork
-		ImageView i = (ImageView) findViewById(R.id.art_image);
-		i.setImageBitmap(fetchImage(aOpened.imageURLLarge));
 
 		// Set up favorite button
 		fav = (ImageButton) findViewById(R.id.favorite);
@@ -121,6 +111,9 @@ public class ArtWorkDetailsActivity extends Activity {
 				} catch (IOException e) {                       
 				        e.printStackTrace();
 				}
+			
+				share.putExtra(Intent.EXTRA_TEXT, aOpened.imageURLMedium);
+				share.setType("text/plain");
 				share.putExtra(Intent.EXTRA_STREAM, Uri.parse("file:///sdcard/Pictures/artImage.jpg"));
 				startActivity(Intent.createChooser(share, "Share"));
 				//Save to SD card
@@ -204,7 +197,7 @@ public class ArtWorkDetailsActivity extends Activity {
 		final ImageButton mapViewButton = (ImageButton) findViewById(R.id.mapViewButton);
 		mapViewButton.setOnClickListener(new View.OnClickListener() {
 			
-			public void onClick(View v) {
+			public void onClick(View v) {		
 				Intent intent = new Intent(v.getContext(), MapTourActivity.class);
 				intent.putExtra("notTour", -2);
 				startActivityForResult(intent, 0);
@@ -332,32 +325,42 @@ public class ArtWorkDetailsActivity extends Activity {
 		}
 		return true;
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-	    menu.add(0,MENU1,0,"Go Back!");
-	    menu.add(0,MENU2,0,"Add to Favs");
-	    menu.add(0,MENU3,0,"Do Something Else");
-	    return true;
-	}
 	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-	    // Handle item selection
-	    switch (item.getItemId()) {
-	        case MENU1:
-	        	//Quit
-	            finish();
-	            return true;
-	        case MENU2:
-	        	//delete all
-	            return true;
-	        case MENU3:
-	        	//delete Selected!
-	            return true;
-	        default:
-	            return super.onOptionsItemSelected(item);
-	    }
-	}
+	private Handler handlerDetailsUpdate = new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			// Add details to list in order to pass list to Adapter
+			ArrayList<String> textInfo = new ArrayList<String>();
+			textInfo.add(aOpened.description);
+			textInfo.add(aOpened.artTitle + ": " + aOpened.historicalContext);
+			textInfo.add(aOpened.medium);
+			textInfo.add(aOpened.workDate);
+			textInfo.add(aOpened.locName + " - " + aOpened.locNotes);
+			textInfo.add(aOpened.artistName);
+			textInfo.add(aOpened.idno);
 
+			detailList = (ListView) findViewById(R.id.artDetailList);
+			adapter = new ArtDetailsItemsAdapter(c, R.layout.artdetail_list,textInfo);
+			detailList.setAdapter(adapter);
+			
+			// Set up artwork title and artist name
+			
+			TextView artTitle = (TextView) findViewById(R.id.artPieceTitle);
+			artTitle.setText(aOpened.artTitle);
+			TextView artTitleB = (TextView) findViewById(R.id.artPieceTitleBack);
+			artTitleB.setText(aOpened.artTitle);
+	
+			TextView artistName = (TextView) findViewById(R.id.artistName);
+			artistName.setText(aOpened.artistName);
+			TextView artistNameB = (TextView) findViewById(R.id.artistNameBack);
+			artistNameB.setText(aOpened.artistName);
+
+			// Set up image of artwork
+			ImageView i = (ImageView) findViewById(R.id.art_image);
+			Bitmap b = fetchImage(aOpened.imageURLLarge);
+			i.setImageBitmap(b);
+			aOpened.setImage(b);
+			
+		}
+	};
 }

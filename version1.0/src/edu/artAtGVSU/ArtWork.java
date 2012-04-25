@@ -1,5 +1,7 @@
 package edu.artAtGVSU;
 
+import android.graphics.Bitmap;
+
 import com.google.android.maps.GeoPoint;
 
 /*
@@ -8,6 +10,7 @@ import com.google.android.maps.GeoPoint;
 public class ArtWork {
 	
 	String artID;
+	Bitmap artImageLarge;
 	String artistID;
 	String artistName;
 	String artTitle;
@@ -40,6 +43,7 @@ public class ArtWork {
 		medium = null;
 		geoLoc = null;
 		stopID = null;
+		artImageLarge = null;
 	}
 	
 	public ArtWork(String aName, String aImageURL, String aDescription, String aIdentifier, String aID){
@@ -58,6 +62,7 @@ public class ArtWork {
 		medium = null;
 		geoLoc = null;
 		stopID = null;
+		artImageLarge = null;
 	}
 	
 	/*
@@ -78,6 +83,7 @@ public class ArtWork {
 		historicalContext= null;
 		locName = null;
 		medium = null;
+		artImageLarge = null;
 	}
 	
 	/*
@@ -98,6 +104,7 @@ public class ArtWork {
 		medium = aMedium;
 		geoLoc = aGeoLoc;
 		iconImageURL = iconURL;
+		artImageLarge = null;
 	}
 
 	public String getArtID() {
@@ -218,5 +225,13 @@ public class ArtWork {
 
 	public void setIconURL(String iconURL) {
 		this.iconImageURL = iconURL;
+	}
+	
+	public Bitmap getImage(){
+		return artImageLarge;
+	}
+	
+	public void setImage(Bitmap image){
+		this.artImageLarge = image;
 	}
 }
