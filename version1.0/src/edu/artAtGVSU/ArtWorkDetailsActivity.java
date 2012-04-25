@@ -1,5 +1,7 @@
 package edu.artAtGVSU;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -19,10 +21,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -103,12 +107,41 @@ public class ArtWorkDetailsActivity extends Activity {
 		shareButtonC.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-				Intent shareIntent = new Intent();
-				shareIntent.setAction(Intent.ACTION_SEND);
-				shareIntent.putExtra(Intent.EXTRA_STREAM, aOpened.imageURLLarge);
-				shareIntent.setType("image/jpeg");
-				startActivity(Intent.createChooser(shareIntent, "Share"));
-				//alertbox();
+				//Intent shareIntent = new Intent();
+				Bitmap imageToSend = fetchImage(aOpened.imageURLMedium);
+				Intent share = new Intent(Intent.ACTION_SEND);
+				share.setType("image/jpg");
+				ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+				imageToSend.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+				File f = new File("sdcard" + File.separator + "Pictures" + File.separator + "artImage.jpg");
+				try {
+				    f.createNewFile();
+				    FileOutputStream fo = new FileOutputStream(f);
+				    fo.write(bytes.toByteArray());
+				} catch (IOException e) {                       
+				        e.printStackTrace();
+				}
+				share.putExtra(Intent.EXTRA_STREAM, Uri.parse("file:///sdcard/Pictures/artImage.jpg"));
+				startActivity(Intent.createChooser(share, "Share"));
+				//Save to SD card
+//				String mFilePath = "";
+//		        try {
+//		        	String mBaseFolderPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/DCIM/Camera/";
+//		        	mFilePath = mBaseFolderPath + "artImage.jpg";	        
+//		        	FileOutputStream stream = new FileOutputStream(mFilePath);
+//		        	imageToSend.compress(CompressFormat.JPEG, 100, stream);
+//					stream.flush();
+//					stream.close();
+//				}catch(Exception e){
+//					
+//				}
+		        
+//				Uri artImage = Uri.parse("file:///sdcard/Pictures/picture.jpg");
+//				shareIntent.setAction(Intent.ACTION_SEND);
+//				shareIntent.putExtra(Intent.EXTRA_STREAM, artImage);
+//				shareIntent.setType("image/jpeg");
+//				startActivity(Intent.createChooser(shareIntent, "Share"));
+//				//alertbox();
 			}
 		});
 		
@@ -166,6 +199,7 @@ public class ArtWorkDetailsActivity extends Activity {
 				startActivityForResult(intent, 0);
 			}
 		});
+		
 
 		final ImageButton mapViewButton = (ImageButton) findViewById(R.id.mapViewButton);
 		mapViewButton.setOnClickListener(new View.OnClickListener() {
@@ -213,39 +247,6 @@ public class ArtWorkDetailsActivity extends Activity {
 			}
 		});
 	}
-	
-	protected void alertbox() {
-		final CharSequence[] items = {"Open in Browser", "Facebook", "Twitter", "SMS"};
-		new AlertDialog.Builder(this)
-				.setItems(items, new DialogInterface.OnClickListener() {
-					
-					public void onClick(DialogInterface dialog, int which) {
-						if(which == 0){
-							Uri uriUrl = Uri.parse("http://gvsuartgallery.org/pawtucket/index.php/Detail/Object/Show/object_id/" + aOpened.artID);
-							Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-							startActivity(launchBrowser);
-						}
-						if(which == 1){
-							Toast.makeText(c, "Needs Implementing", Toast.LENGTH_LONG);
-						}
-						if(which == 2){
-							Toast.makeText(c, "Needs Implementing", Toast.LENGTH_LONG);
-						}
-						if(which == 3){
-							Toast.makeText(c, "Needs Implementing", Toast.LENGTH_LONG);
-						}
-					}
-				})
-				.setTitle("Share")
-				.setCancelable(true)
-				.setNeutralButton(android.R.string.cancel,
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog,
-									int whichButton) {
-							}
-						}).show();
-	}
-	
 
 	/*
 	 * Get tour image from URL
