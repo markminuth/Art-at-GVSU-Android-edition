@@ -53,10 +53,6 @@ public class MapTourActivity extends MapActivity {
 	int selectedPos;
 	static Context c;
 	
-	private static final int MENU1 = Menu.FIRST;
-	private static final int MENU2 = Menu.FIRST +1;
-	private static final int MENU3 = Menu.FIRST +2;
-	
 	/*
 	 * Get tour image from URL
 	 */
@@ -275,15 +271,7 @@ public class MapTourActivity extends MapActivity {
 					gallery.refreshDrawableState();
 					RelativeLayout borderImg = (RelativeLayout)view;
 					selectedPos = position;
-					itemizedoverlay.onTap(selectedPos);
-					view.setFocusable(true);	
-					borderImg.setBackgroundColor(Color.RED);
-					Toast.makeText(c, gallery.getCount(), Toast.LENGTH_LONG);
-					for(int i = 0; i < gallery.getCount(); i++){
-						if(position != i){
-							borderImg.setBackgroundColor(Color.BLACK);
-						}
-					}
+					itemizedoverlay.onTap(selectedPos);	
 				}
 			});
 		}
@@ -297,32 +285,4 @@ public class MapTourActivity extends MapActivity {
 		MapTourActivity.intentValue = intentValue;
 	}	
 	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-	    menu.add(0,MENU1,0,"Quit");
-	    menu.add(0,MENU2,0,"Delete All");
-	    menu.add(0,MENU3,0,"Delete Selected");
-	    return true;
-	}
-	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-	    // Handle item selection
-	    switch (item.getItemId()) {
-	        case MENU1:
-	        	//Quit
-	            finish();
-	            return true;
-	        case MENU2:
-	        	//delete all
-	        	//writingBlankFile();
-	            return true;
-	        case MENU3:
-	        	//delete Selected!
-	        	//deleteSelected();
-	            return true;
-	        default:
-	            return super.onOptionsItemSelected(item);
-	    }
-	}
 }
