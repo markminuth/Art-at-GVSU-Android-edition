@@ -24,7 +24,7 @@ import com.google.android.maps.GeoPoint;
 
 public class ParseArtWorkXML {
 	static ArrayList<ArtWork> identifierSearchedArt;
-	static ArrayList<String> artistNameSearchedArt;
+	static ArrayList<Artist> artistNameSearchedArt;
 	static Tour artWorkToTour;
 	
 	/*
@@ -230,8 +230,8 @@ public class ParseArtWorkXML {
 	/*
 	 * 
 	 */
-	public static ArrayList<String> artWorkRequestArtistName(String artistName){
-		artistNameSearchedArt = new ArrayList<String>();
+	public static ArrayList<Artist> artWorkRequestArtistName(String artistName){
+		artistNameSearchedArt = new ArrayList<Artist>();
 		String url = "http://gvsuartgallery.org/service.php/search/Search/rest?method=queryRest&type=ca_entities&query=ca_entity_labels.displayname:%@*&additional_bundles=";
 		url = url.replace("%@", artistName);
 		InputStream in = makeConnection(url);
@@ -247,8 +247,10 @@ public class ParseArtWorkXML {
 			for(int i = 0; i < artistNames.getLength(); i++){
 				Element artist = (Element) artistNames.item(i);
 				NodeList name = artist.getChildNodes();
+				String aID = artist.getAttribute("entity_id");
 				String aName = name.item(0).getTextContent();
-				artistNameSearchedArt.add(aName);
+				Artist artist1 = new Artist(aID, aName);
+				artistNameSearchedArt.add(artist1);
 			}
 			
 		}catch(Exception e){

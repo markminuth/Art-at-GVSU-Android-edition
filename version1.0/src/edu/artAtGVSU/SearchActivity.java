@@ -3,8 +3,10 @@ package edu.artAtGVSU;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -22,8 +24,10 @@ import android.widget.AdapterView.OnItemClickListener;
 public class SearchActivity extends Activity{
 	ArrayList<ArtWork> searchedArtWork;
 	ListView list;
+	ArrayList<Artist> searchedArtists;
 	Context c = this;
 	ItemsAdapterWithImage adapter;
+	boolean artistSearch = false;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -58,7 +62,14 @@ public class SearchActivity extends Activity{
 						String userText = searchText.getText().toString();
 						if(!userText.isEmpty()){
 							try{
+								
 								searchedArtWork = ParseArtWorkXML.artWorkRequestIdentifier(userText);
+								artistSearch = false;
+								if(searchedArtWork.isEmpty()){
+									artistSearch = true;
+									searchedArtists = ParseArtWorkXML.artWorkRequestArtistName(userText);
+								}
+								
 							}catch(Exception e){
 								String[] noResults = new String[]{"No Results Found"};
 								list.setAdapter(new ArrayAdapter<String>(c, R.layout.loading_list, noResults));
@@ -66,26 +77,12 @@ public class SearchActivity extends Activity{
 						}
 						Message msg = new Message();
 						Bundle resBundle = new Bundle();
-						resBundle.putString("status", "SUCCESS");
+						resBundle.putString("status", "SUCCESS");					
 						msg.obj = resBundle;
 						handlerSearch.sendMessage(msg);
 					}
 				};
 				getSearch.start();
-			}
-		});
-		
-		list.setOnItemClickListener(new OnItemClickListener() {
-
-			public void onItemClick(AdapterView<?> arg0, View arg1, int pos,
-					long arg3) {
-				// TODO Auto-generated method stub
-				//Toast.makeText(c, "WORKS", Toast.LENGTH_LONG);
-				ArtWork seleted = searchedArtWork.get(pos);
-				ArtWork a = ParseArtWorkXML.artWorkRequestID(seleted.artID);
-				ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
-				Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
-				((Activity) c).startActivity(intent);
 			}
 		});
 		
@@ -116,8 +113,37 @@ public class SearchActivity extends Activity{
 	private Handler handlerSearch = new Handler(){
 		@Override
 		public void handleMessage(Message msg) {
-			adapter = new ItemsAdapterWithImage(c, R.layout.search_list, searchedArtWork);
-			list.setAdapter(adapter);
+//			AlertDialog.Builder alertDialog = new AlertDialog.Builder(c);
+//			alertDialog.setTitle("TEST");
+//			alertDialog.show();
+			if(artistSearch){
+				String[] artistNames = new String[searchedArtists.size()];
+				for(int i = 0; i < searchedArtists.size(); i++){
+					artistNames[i] = searchedArtists.get(i).artistName;
+				}
+				
+				list.setAdapter(new ArrayAdapter<String>(c, R.layout.loading_list, artistNames));
+				
+				list.setBackgroundColor(Color.parseColor("#F0F0F0"));
+			}
+			else{
+				adapter = new ItemsAdapterWithImage(c, R.layout.search_list, searchedArtWork);
+				list.setAdapter(adapter);
+				
+				list.setOnItemClickListener(new OnItemClickListener() {
+
+					public void onItemClick(AdapterView<?> arg0, View arg1, int pos,
+							long arg3) {
+						// TODO Auto-generated method stub
+						//Toast.makeText(c, "WORKS", Toast.LENGTH_LONG);
+						ArtWork seleted = searchedArtWork.get(pos);
+						ArtWork a = ParseArtWorkXML.artWorkRequestID(seleted.artID);
+						ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
+						Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
+						((Activity) c).startActivity(intent);
+					}
+				});
+			}
 		}
 	};
 }
