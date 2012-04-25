@@ -39,7 +39,7 @@ public class ImageAdapterTours extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ImageView imgView = new ImageView(mContext);
 		imgView.setImageBitmap(images.get(position));
-		imgView.setLayoutParams(new Gallery.LayoutParams(300, 300));
+		imgView.setLayoutParams(new Gallery.LayoutParams(230, 230));
 		imgView.setScaleType(ImageView.ScaleType.FIT_XY);
 		imgView.setBackgroundResource(item);
 		

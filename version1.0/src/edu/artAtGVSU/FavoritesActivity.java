@@ -165,7 +165,7 @@ public class FavoritesActivity extends Activity {
 
 		try {
 
-			FileInputStream fIn = openFileInput("favoriteArtFile4.txt");
+			FileInputStream fIn = openFileInput("favoriteArtFile8.txt");
 			InputStreamReader isr = new InputStreamReader(fIn);
 
 			char[] inputBuffer = new char[lang];
@@ -198,7 +198,7 @@ public class FavoritesActivity extends Activity {
 	public void writingBlankFile() {
 
 		try {
-			FileOutputStream fOut = openFileOutput("favoriteArtFile4.txt", MODE_WORLD_READABLE);
+			FileOutputStream fOut = openFileOutput("favoriteArtFile8.txt", MODE_WORLD_READABLE);
 
 			OutputStreamWriter osw = new OutputStreamWriter(fOut);
 			osw.write("");

@@ -53,16 +53,32 @@ public class ArtWorkDetailsActivity extends Activity {
 	Context c = this;
 	ArtDetailsItemsAdapter adapter;
 	ImageButton fav;
+	boolean isFavorite; 
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.artdetails);
+		aOpened = ArtWorkObjectSetUp.getArtWork();
+		final String id = aOpened.artID;
+
+		// Add details to list in order to pass list to Adapter
+		final Thread checkFavorite = new Thread(){
+			@Override
+			public void run(){
+				isFavorite = searchForText(id);
+				Message msg = new Message();
+				Bundle resBundle = new Bundle();
+				resBundle.putString("status", "SUCCESS");
+				msg.obj = resBundle;
+				handlerFavoriteIcon.sendMessage(msg);
+			}
+		};
+		checkFavorite.start();
 		
-		int index = getIntent().getIntExtra("index", 0);
 		final Thread artDetailCall = new Thread(){
+			@Override
 			public void run() {
-				aOpened = ArtWorkObjectSetUp.getArtWork();
 				aOpened = ParseArtWorkXML.artWorkRequestID(aOpened.artID);
 				Message msg = new Message();
 				Bundle resBundle = new Bundle();
@@ -86,11 +102,7 @@ public class ArtWorkDetailsActivity extends Activity {
 
 		// Set up favorite button
 		fav = (ImageButton) findViewById(R.id.favorite);
-		// if(searchForText( aOpened.artID)){
-		// fav.setImageResource(R.drawable.favorite_selected);
-		// }else{
 		fav.setImageResource(R.drawable.favorite);
-		// }
 
 		// Button listeners
 		final ImageButton shareButtonC = (ImageButton) findViewById(R.id.shareButton);
@@ -203,42 +215,6 @@ public class ArtWorkDetailsActivity extends Activity {
 				startActivityForResult(intent, 0);
 			}
 		});
-		
-		final ImageButton favorite = (ImageButton) findViewById(R.id.favorite);
-		favorite.setOnClickListener(new View.OnClickListener() {
-
-			public void onClick(View v) {
-				fav.setImageResource(R.drawable.favorite_selected);
-
-				// Thread favoriteButton = new Thread(){
-				// public void run(){
-				if (aOpened.iconImageURL.isEmpty()
-						|| aOpened.iconImageURL == null) {
-					aOpened.iconImageURL = " ";
-				}
-				if (aOpened.artID.isEmpty() || aOpened.artID == null) {
-					aOpened.artID = " ";
-				}
-				if (aOpened.artTitle.isEmpty() || aOpened.artTitle == null) {
-					aOpened.artTitle = " ";
-				}
-				if (aOpened.description.isEmpty()
-						|| aOpened.description == null) {
-					aOpened.description = " ";
-				}
-				String favString = "<B>" + aOpened.iconImageURL + "~"
-						+ aOpened.artID + "~" + aOpened.artTitle + "~"
-						+ aOpened.description;
-				// alertbox("TEST", favString);
-				// if(searchForText(favString)){
-				writeToFile(favString);
-				// }else{
-				// deleteFromFile(favString);
-				// }
-				// }
-				// };
-			}
-		});
 	}
 
 	/*
@@ -277,7 +253,7 @@ public class ArtWorkDetailsActivity extends Activity {
 
 		try {
 			temp += readFromFile();
-			FileOutputStream fOut = openFileOutput("favoriteArtFile4.txt",
+			FileOutputStream fOut = openFileOutput("favoriteArtFile8.txt",
 					MODE_WORLD_READABLE);
 
 			OutputStreamWriter osw = new OutputStreamWriter(fOut);
@@ -297,7 +273,7 @@ public class ArtWorkDetailsActivity extends Activity {
 
 		try {
 
-			FileInputStream fIn = openFileInput("favoriteArtFile4.txt");
+			FileInputStream fIn = openFileInput("favoriteArtFile8.txt");
 			InputStreamReader isr = new InputStreamReader(fIn);
 
 			char[] inputBuffer = new char[lang];
@@ -326,10 +302,69 @@ public class ArtWorkDetailsActivity extends Activity {
 		return true;
 	}
 	
+	private Handler handlerFavoriteIcon = new Handler() {
+		@Override
+		public void handleMessage(Message msg) {
+			if (!isFavorite) {
+				fav.setImageResource(R.drawable.favorite_selected);
+			} else {
+				fav.setImageResource(R.drawable.favorite);
+			}
+			
+			final ImageButton favorite = (ImageButton) findViewById(R.id.favorite);
+			favorite.setOnClickListener(new View.OnClickListener() {
+
+				public void onClick(View v) {
+					fav.setImageResource(R.drawable.favorite_selected);
+					if (aOpened.iconImageURL.isEmpty()
+							|| aOpened.iconImageURL == null) {
+						aOpened.iconImageURL = " ";
+					}
+					if (aOpened.artID.isEmpty() || aOpened.artID == null) {
+						aOpened.artID = " ";
+					}
+					if (aOpened.artTitle.isEmpty() || aOpened.artTitle == null) {
+						aOpened.artTitle = " ";
+					}
+					if (aOpened.description.isEmpty()
+							|| aOpened.description == null) {
+						aOpened.description = " ";
+					}
+					String favString = "<B>" + aOpened.iconImageURL + "~"
+							+ aOpened.artID + "~" + aOpened.artTitle + "~"
+							+ aOpened.description;
+					if (isFavorite) {
+						writeToFile(favString);
+						isFavorite = false;
+					}else{
+						AlertDialog.Builder alertDialog = new AlertDialog.Builder(c);
+						alertDialog.setTitle("Information");
+						alertDialog.setMessage("The piece is already marked as a favorite. Do you want to remove it from your favorites list?");
+						alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+							
+							public void onClick(DialogInterface dialog, int which) {
+								// TODO Auto-generated method stub
+								
+							}
+						});
+						
+						alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+							
+							public void onClick(DialogInterface dialog, int which) {
+								// TODO Auto-generated method stub
+								
+							}
+						});
+						alertDialog.show();
+					}
+				}
+			});
+		}
+	};
+	
 	private Handler handlerDetailsUpdate = new Handler(){
 		@Override
 		public void handleMessage(Message msg) {
-			// Add details to list in order to pass list to Adapter
 			ArrayList<String> textInfo = new ArrayList<String>();
 			textInfo.add(aOpened.description);
 			textInfo.add(aOpened.artTitle + ": " + aOpened.historicalContext);
@@ -360,7 +395,6 @@ public class ArtWorkDetailsActivity extends Activity {
 			Bitmap b = fetchImage(aOpened.imageURLLarge);
 			i.setImageBitmap(b);
 			aOpened.setImage(b);
-			
 		}
 	};
 }
