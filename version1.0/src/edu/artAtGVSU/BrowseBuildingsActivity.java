@@ -134,7 +134,7 @@ public class BrowseBuildingsActivity extends Activity {
 						startActivityForResult(intent, 0);
 					}else{
 						Intent intent = new Intent(c, BrowseArtWorkActivity.class);				
-						intent.putExtra("buildingID", Integer.parseInt(build.getBuildingID()));
+						intent.putExtra("floorID", Integer.parseInt(build.getBuildingID()));
 						startActivityForResult(intent, 0);
 					}
 				}

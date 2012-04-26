@@ -53,6 +53,7 @@ public class ArtWorkDetailsActivity extends Activity {
 	Context c = this;
 	ArtDetailsItemsAdapter adapter;
 	ImageButton fav;
+	Bitmap b;
 	boolean isFavorite; 
 
 	@Override
@@ -128,25 +129,6 @@ public class ArtWorkDetailsActivity extends Activity {
 				share.setType("text/plain");
 				share.putExtra(Intent.EXTRA_STREAM, Uri.parse("file:///sdcard/Pictures/artImage.jpg"));
 				startActivity(Intent.createChooser(share, "Share"));
-				//Save to SD card
-//				String mFilePath = "";
-//		        try {
-//		        	String mBaseFolderPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/DCIM/Camera/";
-//		        	mFilePath = mBaseFolderPath + "artImage.jpg";	        
-//		        	FileOutputStream stream = new FileOutputStream(mFilePath);
-//		        	imageToSend.compress(CompressFormat.JPEG, 100, stream);
-//					stream.flush();
-//					stream.close();
-//				}catch(Exception e){
-//					
-//				}
-		        
-//				Uri artImage = Uri.parse("file:///sdcard/Pictures/picture.jpg");
-//				shareIntent.setAction(Intent.ACTION_SEND);
-//				shareIntent.putExtra(Intent.EXTRA_STREAM, artImage);
-//				shareIntent.setType("image/jpeg");
-//				startActivity(Intent.createChooser(shareIntent, "Share"));
-//				//alertbox();
 			}
 		});
 		
@@ -199,9 +181,9 @@ public class ArtWorkDetailsActivity extends Activity {
 		zoomButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-				Intent intent = new Intent(v.getContext(),
-						ArtWorkZoomActivity.class);
-				startActivityForResult(intent, 0);
+				Intent intent = new Intent(v.getContext(), ArtWorkZoomActivity.class);
+				BitmapSaver bs = new BitmapSaver(b);
+				startActivity(intent);
 			}
 		});
 		
@@ -210,9 +192,13 @@ public class ArtWorkDetailsActivity extends Activity {
 		mapViewButton.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View v) {		
-				Intent intent = new Intent(v.getContext(), MapTourActivity.class);
-				intent.putExtra("notTour", -2);
-				startActivityForResult(intent, 0);
+				try{
+					Intent intent = new Intent(v.getContext(), MapTourActivity.class);
+					intent.putExtra("notTour", -2);
+					startActivityForResult(intent, 0);
+				}catch (Exception e){
+					
+				}
 			}
 		});
 	}
@@ -392,7 +378,7 @@ public class ArtWorkDetailsActivity extends Activity {
 
 			// Set up image of artwork
 			ImageView i = (ImageView) findViewById(R.id.art_image);
-			Bitmap b = fetchImage(aOpened.imageURLLarge);
+			b = fetchImage(aOpened.imageURLLarge);
 			i.setImageBitmap(b);
 			aOpened.setImage(b);
 		}

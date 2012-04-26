@@ -34,26 +34,29 @@
             </intent-filter>
         </activity>
         
-        <activity android:name=".SearchActivity" >
+        <activity android:name=".SearchActivity" android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".AboutActivity" >
+        <activity android:name=".AboutActivity" android:screenOrientation="portrait">
         </activity>
         <activity android:name=".ArtWorkZoomActivity" >
         </activity>
-        <activity android:name=".ArtWorkDetailsActivity" >
+        <activity android:name=".ArtWorkDetailsActivity" android:screenOrientation="portrait">
         </activity>
         <activity android:name=".MapTourActivity" >
         </activity>
-        <activity android:name=".TourActivity" >
+        <activity android:name=".TourActivity" android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".BrowseActivity" >
+        <activity android:name=".BrowseActivity" android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".FavoritesActivity" >
+        <activity android:name=".FavoritesActivity" android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".BrowseBuildingsActivity">
+        <activity android:name=".BrowseBuildingsActivity" android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".BrowseFloorActivity">
+        <activity android:name=".BrowseFloorActivity" android:screenOrientation="portrait">
         </activity>
+         <activity android:name=".BrowseArtWorkActivity" android:screenOrientation="portrait">
+        </activity>
+        
     </application>
 
 </manifest>

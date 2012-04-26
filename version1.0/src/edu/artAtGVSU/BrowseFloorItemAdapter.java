@@ -20,8 +20,9 @@ public class BrowseFloorItemAdapter extends ArrayAdapter<Floor>{
 	String response;
 	Context context;
 	
-	public BrowseFloorItemAdapter(Context context, int textViewResourceId, List<Floor> items) {
-		super(context, textViewResourceId, items);
+	public BrowseFloorItemAdapter(Context context, int resource, List<Floor> items) {
+		super(context, resource, items);
+		this.resource = resource;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -47,7 +48,13 @@ public class BrowseFloorItemAdapter extends ArrayAdapter<Floor>{
 		//Assign correct data from the alert object
 		nameText.setText(flo.floorName);
 		//Assign default image
-		artIcon.setImageBitmap(BitmapFactory.decodeResource(parent.getResources(), R.drawable.building_default));
+		Bitmap b = BitmapFactory.decodeResource(parent.getResources(), R.drawable.building_default);
+		
+	    if(flo.floorName == "Loading..."){
+	    	b = null;
+	    }
+		
+		artIcon.setImageBitmap(b);
 		
 		return alertView;
 	}

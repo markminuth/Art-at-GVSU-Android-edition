@@ -173,7 +173,7 @@ public class ParseBrowseXML {
 			for(int i = 0; i < keys; i++){
 				key = fKeysList.item(i).getTextContent();
 				name = fNamesList.item(i).getTextContent();
-				Floor f = new Floor(name, key);
+				Floor f = new Floor(key, name);
 				floors.add(f);
 			}
 			
@@ -215,9 +215,11 @@ public class ParseBrowseXML {
 			ArtWork a;
 			String aID = "";
 			String aTitle = "";
-			for(int i = 0; i < numOfart; i++){
+			//ignore status by implementing to length -1
+			for(int i = 0; i < numOfart - 1; i++){
 				Element artPiece = (Element) artList.item(i);
 				NodeList aDetails = artPiece.getChildNodes();
+				int aDetailLen = aDetails.getLength();
 				a = new ArtWork();
 				aID = aDetails.item(1).getTextContent();
 				aTitle = aDetails.item(8).getTextContent();
