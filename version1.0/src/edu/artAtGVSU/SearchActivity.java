@@ -1,6 +1,8 @@
 package edu.artAtGVSU;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -64,10 +66,28 @@ public class SearchActivity extends Activity{
 							try{
 								
 								searchedArtWork = ParseArtWorkXML.artWorkRequestIdentifier(userText);
+								Collections.sort(searchedArtWork, new Comparator(){
+									 
+						            public int compare(Object o1, Object o2) {
+						                ArtWork a1 = (ArtWork) o1;
+						                ArtWork a2 = (ArtWork) o2;
+						               return a1.getArtTitle().compareToIgnoreCase(a2.getArtTitle());
+						            }
+						 
+						        });
 								artistSearch = false;
 								if(searchedArtWork.isEmpty()){
 									artistSearch = true;
 									searchedArtists = ParseArtWorkXML.artWorkRequestArtistName(userText);
+									Collections.sort(searchedArtists, new Comparator(){
+										 
+							            public int compare(Object o1, Object o2) {
+							                Artist a1 = (Artist) o1;
+							                Artist a2 = (Artist) o2;
+							               return a1.artistName.compareToIgnoreCase(a2.artistName);
+							            }
+							 
+							        });
 								}
 								
 							}catch(Exception e){
@@ -136,9 +156,8 @@ public class SearchActivity extends Activity{
 							long arg3) {
 						// TODO Auto-generated method stub
 						//Toast.makeText(c, "WORKS", Toast.LENGTH_LONG);
-						ArtWork seleted = searchedArtWork.get(pos);
-						ArtWork a = ParseArtWorkXML.artWorkRequestID(seleted.artID);
-						ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
+						ArtWork selected = searchedArtWork.get(pos);
+						ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(selected);
 						Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
 						((Activity) c).startActivity(intent);
 					}

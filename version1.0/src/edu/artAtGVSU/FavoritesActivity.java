@@ -15,6 +15,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.util.SparseBooleanArray;
 import android.view.Menu;
@@ -36,9 +37,9 @@ public class FavoritesActivity extends Activity {
 	ListView favList;
 	FavItemsAdapter favAdapter;
 	Context c= this;
-	ArrayList<String> favArtWorkArrayList = new ArrayList<String>();
+	static ArrayList<String> favArtWorkArrayList = new ArrayList<String>();
 	
-	protected void onResume() {
+	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
 		setContentView(R.layout.favorites);
@@ -145,7 +146,7 @@ public class FavoritesActivity extends Activity {
 		String temp = new String(fav);
 
 		try {
-			FileOutputStream fOut = openFileOutput("favoriteArtFile4.txt", MODE_WORLD_READABLE);
+			FileOutputStream fOut = openFileOutput("favoriteArtFile11.txt", MODE_WORLD_READABLE);
 
 			OutputStreamWriter osw = new OutputStreamWriter(fOut);
 			osw.write(temp);
@@ -165,7 +166,7 @@ public class FavoritesActivity extends Activity {
 
 		try {
 
-			FileInputStream fIn = openFileInput("favoriteArtFile8.txt");
+			FileInputStream fIn = openFileInput("favoriteArtFile11.txt");
 			InputStreamReader isr = new InputStreamReader(fIn);
 
 			char[] inputBuffer = new char[lang];
@@ -193,12 +194,13 @@ public class FavoritesActivity extends Activity {
 		}	
 		
 		writingToFile(temp);
+		onResume();
 	}
 	
 	public void writingBlankFile() {
 
 		try {
-			FileOutputStream fOut = openFileOutput("favoriteArtFile8.txt", MODE_WORLD_READABLE);
+			FileOutputStream fOut = openFileOutput("favoriteArtFile11.txt", MODE_WORLD_READABLE);
 
 			OutputStreamWriter osw = new OutputStreamWriter(fOut);
 			osw.write("");
@@ -212,7 +214,7 @@ public class FavoritesActivity extends Activity {
 	
 	public void deleteSelected() {
 		
-		SparseBooleanArray test =favList.getCheckedItemPositions();
+		SparseBooleanArray test = favList.getCheckedItemPositions();
 		//Log.i(TAG,"checkedPositions: " + test.size());
 		if (test != null)
 		{
@@ -232,8 +234,8 @@ public class FavoritesActivity extends Activity {
 		
 			final int pos3=pos2;
 		 AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
-		 helpBuilder.setTitle("Pop Up");
-		 helpBuilder.setMessage("This is a Simple Pop Up");
+		 helpBuilder.setTitle("Select");
+		 //helpBuilder.setMessage("This is a Simple Pop Up");
 		 helpBuilder.setPositiveButton("Details",
 		   new DialogInterface.OnClickListener() {
 
@@ -241,7 +243,8 @@ public class FavoritesActivity extends Activity {
 		    	
 				String selectedString = favArtWorkArrayList.get(pos3);
 	        	//deleteFromFile(selectedString);
-				ArtWork a = ParseArtWorkXML.artWorkRequestID(tokenTwo(selectedString,1));
+				ArtWork a = new ArtWork();
+				a.setArtID(tokenTwo(selectedString,1));//ParseArtWorkXML.artWorkRequestID(tokenTwo(selectedString,1));
 				ArtWorkObjectSetUp art = new ArtWorkObjectSetUp(a);
 				Intent intent = new Intent(c, ArtWorkDetailsActivity.class);
 				((Activity) c).startActivity(intent);

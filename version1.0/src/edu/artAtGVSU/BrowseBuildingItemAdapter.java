@@ -52,7 +52,7 @@ public class BrowseBuildingItemAdapter extends ArrayAdapter<Building> {
         
 		buildingArt = new ArrayList<Bitmap>();
 		int resID = parent.getResources().getIdentifier("loc_" + build.buildingID, "drawable", "edu.artAtGVSU");
-		Bitmap building = BitmapFactory.decodeResource(parent.getResources(), resID);
+		Bitmap building = building = BitmapFactory.decodeResource(parent.getResources(), resID);
 			
         //Get the text boxes from the search_list.xml file
         ImageView artIcon = (ImageView)alertView.findViewById(R.id.buildingIcon);
@@ -62,6 +62,16 @@ public class BrowseBuildingItemAdapter extends ArrayAdapter<Building> {
         //Assign the appropriate data from our alert object above
         nameText.setText(build.buildingName);
         
+        
+       if(building == null){
+        	building = BitmapFactory.decodeResource(parent.getResources(), R.drawable.building_default);
+
+        }
+       
+       if(build.buildingName == "Loading..."){
+       		building = null;
+       }
+       
         artIcon.setImageBitmap(building);
 
         return alertView;

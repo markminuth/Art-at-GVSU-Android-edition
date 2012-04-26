@@ -12,8 +12,8 @@
 
         <ImageView
             android:id="@+id/favIconImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignParentLeft="true"
             android:layout_x="0dp"
             android:layout_y="0dp"
@@ -43,7 +43,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             
-             android:layout_marginLeft="55dp"
+             android:layout_marginLeft="58dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="20dp"
             android:textAppearance="?android:attr/textAppearanceMedium"

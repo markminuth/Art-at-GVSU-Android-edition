@@ -68,7 +68,12 @@ public class ItemsAdapterWithImage extends ArrayAdapter<ArtWork>{
         	descripText.setText(aw.description);
         }
         
-        artIcon.setImageBitmap(fetchImage(aw.iconImageURL));
+        Bitmap image = fetchImage(aw.iconImageURL);
+        if(image == null){
+        	image = BitmapFactory.decodeResource(parent.getResources(), R.drawable.app_icon);
+        }
+        
+        artIcon.setImageBitmap(image);
         
         return alertView;
     }

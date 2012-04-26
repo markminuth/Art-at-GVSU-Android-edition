@@ -1,6 +1,8 @@
 package edu.artAtGVSU;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -31,6 +33,15 @@ public class BrowseActivity extends Activity {
 				@Override
 				public void run() {
 					campuses = ParseBrowseXML.campusNamesDataRequest();
+					Collections.sort(campuses, new Comparator(){
+						 
+			            public int compare(Object o1, Object o2) {
+			                Campus c1 = (Campus) o1;
+			                Campus c2 = (Campus) o2;
+			               return c1.getCampusName().compareToIgnoreCase(c2.getCampusName());
+			            }
+			 
+			        });
 					Message msg = new Message();
 					Bundle resBundle = new Bundle();
 					resBundle.putString("status", "SUCCESS");

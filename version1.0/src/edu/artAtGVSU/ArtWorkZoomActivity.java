@@ -22,11 +22,11 @@ public class ArtWorkZoomActivity extends Activity{
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		ZoomImageViewer zoom = new ZoomImageViewer(this);
-		ArtWork aOpened = ArtWorkObjectSetUp.getArtWork();
-		zoom.setBackgroudImage(aOpened.getImage());
-		setContentView(zoom);
-		Toast.makeText(this, aOpened.imageURLLarge, Toast.LENGTH_LONG);
-		//setContentView(R.layout.art_zoom);
+//		ZoomImageViewer zoom = new ZoomImageViewer(this);
+//		ArtWork aOpened = ArtWorkObjectSetUp.getArtWork();
+//		zoom.setBackgroudImage(aOpened.getImage());
+//		setContentView(zoom);
+//		Toast.makeText(this, aOpened.imageURLLarge, Toast.LENGTH_LONG);
+		setContentView(R.layout.art_zoom);
 	}
 }

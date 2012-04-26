@@ -19,7 +19,6 @@ public class BrowseFloorItemAdapter extends ArrayAdapter<Floor>{
 	int resource;
 	String response;
 	Context context;
-	ArrayList<Bitmap> buildingArt;
 	
 	public BrowseFloorItemAdapter(Context context, int textViewResourceId, List<Floor> items) {
 		super(context, textViewResourceId, items);
@@ -40,18 +39,15 @@ public class BrowseFloorItemAdapter extends ArrayAdapter<Floor>{
 		}else{
 			alertView = (LinearLayout) convertView;
 		}
-		buildingArt = new ArrayList<Bitmap>();
-		int resID = parent.getResources().getIdentifier("loc_" + flo.floorID, "drawabl", "edu.artAtGVSU");
-		Bitmap floor = BitmapFactory.decodeResource(parent.getResources(), resID);
 		
-		//Get text boxes from search_list.xml file
-		//ImageView artIcon = (ImageView)alertView.findViewById(R.id.floorIcon);
-		//TextView nameText = (TextView)alertView.findViewById(R.id.floorName);
+		//Get text boxes
+		ImageView artIcon = (ImageView)alertView.findViewById(R.id.buildingIcon);
+		TextView nameText = (TextView)alertView.findViewById(R.id.buildingName);
 		
 		//Assign correct data from the alert object
-		//nameText.setText(flo.floorName);
-		//Assign correct image
-		//artIcon.setImageBitmap(floor);
+		nameText.setText(flo.floorName);
+		//Assign default image
+		artIcon.setImageBitmap(BitmapFactory.decodeResource(parent.getResources(), R.drawable.building_default));
 		
 		return alertView;
 	}
